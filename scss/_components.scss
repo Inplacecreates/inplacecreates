@@ -395,9 +395,14 @@ menu
     display: flex;
     align-items: flex-end;
     border-left: solid 1px $lt-10;
-    opacity: 0;
+    // opacity: 0;
     transform: translateY(30px);
     transition: $t-md;
+
+    //test css
+    opacity: 1 !important;
+    transform: translateY(0) !important;
+    display: flex !important;
 
     & .mil-menu-right {
       padding-bottom: 60px;

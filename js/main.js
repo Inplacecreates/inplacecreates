@@ -364,6 +364,14 @@ $(function () {
      menu
 
     ***************************/
+
+    $('.mil-menu-list a').on('click', function (event) {
+        event.stopPropagation(); // Prevent the click from bubbling up
+    });
+
+    $('.mil-portfolio-item').on('click', function (event) {
+        event.stopPropagation(); // Prevent the click from bubbling up
+    });
     $('.mil-menu-btn').on("click", function () {
         $('.mil-menu-btn').toggleClass('mil-active');
         $('.mil-menu').toggleClass('mil-active');
