@@ -15,6 +15,22 @@ $(function () {
 
     /***************************
 
+    dynamic copyright year update
+
+    ***************************/
+    function updateCopyrightYear() {
+        const currentYear = new Date().getFullYear();
+        const copyrightElements = document.querySelectorAll('.copyright-year');
+        copyrightElements.forEach(function (element) {
+            element.textContent = currentYear;
+        });
+    }
+
+    // Initialize copyright year update
+    updateCopyrightYear();
+
+    /***************************
+
     swup
 
     ***************************/
@@ -622,6 +638,9 @@ $(function () {
     ------------------------------------------------------------
     ----------------------------------------------------------*/
     document.addEventListener("swup:contentReplaced", function () {
+
+        // Update copyright year on page change
+        updateCopyrightYear();
 
         $('html, body').animate({
             scrollTop: 0,
