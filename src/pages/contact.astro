@@ -46,7 +46,7 @@ const pageData = pages.contact;
                         {field.type === 'textarea' ? (
                             <textarea placeholder={field.placeholder} required={field.required}></textarea>
                         ) : (
-                            <input type={field.type} placeholder={field.placeholder} required={field.required}>
+                            <input type={field.type as 'text' | 'email'} placeholder={field.placeholder} required={field.required}>
                         )}
                     </div>
                 ))}
