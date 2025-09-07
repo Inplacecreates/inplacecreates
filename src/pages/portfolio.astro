@@ -2,56 +2,89 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 import siteData from '../data.json';
 
-const { portfolio, pages, company } = siteData;
+const { projects, pages, company } = siteData;
 const pageData = pages.portfolio;
+
+// Portfolio items with specific layouts matching static HTML
+const portfolioItems = [
+    { project: projects[0], layout: 'vert', parallax: false, category: 'Branding' },
+    { project: projects[1], layout: 'hori', parallax: true, category: 'Design' },
+    { project: projects[2], layout: 'hori', parallax: true, category: 'Design' },
+    { project: projects[3], layout: 'vert', parallax: false, category: 'Photography' },
+    { project: projects[4], layout: 'vert', parallax: false, category: 'Design' },
+    { project: projects[5], layout: 'hori', parallax: true, category: 'Design' }
+];
 ---
 
 <BaseLayout title={`${pageData.title} | ${company.name}`}>
     <!-- banner -->
-    <section class="mil-banner mil-dark-bg">
-        <div class="mi-invert-fix">
+    <div class="mil-inner-banner">
+        <div class="mil-banner-content mil-up">
             <div class="mil-animation-frame">
-                <div class="mil-animation mil-position-1 mil-scale" data-value-1="7" data-value-2="1.6"></div>
-                <div class="mil-animation mil-position-2 mil-scale" data-value-1="4" data-value-2="1"></div>
-                <div class="mil-animation mil-position-3 mil-scale" data-value-1="1.2" data-value-2=".1"></div>
+                <div class="mil-animation mil-position-4 mil-dark mil-scale" data-value-1="6" data-value-2="1.4"></div>
             </div>
-
-            <div class="mil-gradient"></div>
-
             <div class="container">
-                <div class="mil-banner-content mil-up">
-                    <h1 class="mil-muted mil-mb-60">{pageData.banner.title.split(' ').slice(0, 1).join(' ')} <span class="mil-thin">{pageData.banner.title.split(' ').slice(1).join(' ')}</span></h1>
-                    <div class="row">
-                        <div class="col-md-7 col-lg-5">
-                            <p class="mil-light-soft mil-mb-60">{pageData.banner.description}</p>
-                        </div>
-                    </div>
-                </div>
+                <ul class="mil-breadcrumbs mil-mb-60">
+                    <li><a href="/">Homepage</a></li>
+                    <li><a href="/portfolio">Portfolio</a></li>
+                </ul>
+                <h1 class="mil-mb-60">Designing a <br> Better <span class="mil-thin">World Today</span></h1>
+                <a href="#portfolio" class="mil-link mil-dark mil-arrow-place mil-down-arrow">
+                    <span>Our works</span>
+                </a>
             </div>
         </div>
-    </section>
+    </div>
     <!-- banner end -->
 
     <!-- portfolio -->
-    <section>
-        <div class="container mil-p-120-30">
-            <div class="row">
-                {portfolio.map((project) => (
-                    <div class="col-lg-6 mil-mb-60">
-                        <div class="mil-portfolio-item mil-up">
-                            <a href={project.url} class="mil-portfolio-item-frame">
-                                <img src={project.images[0]} alt={project.title}>
-                                <div class="mil-portfolio-item-descr">
-                                    <h4 class="mil-muted mil-mb-20">{project.title}</h4>
-                                    <div class="mil-divider mil-mb-20"></div>
-                                    <p class="mil-light-soft">{project.category}</p>
+    <section id="portfolio">
+        <div class="container mil-portfolio mil-p-120-60">
+            <div class="mil-lines-place"></div>
+            <div class="mil-lines-place mil-lines-long"></div>
+
+            <div class="row justify-content-between align-items-center">
+                {portfolioItems.map((item, index) => (
+                    <div class={`${item.layout === 'vert' ? 'col-lg-5' : 'col-lg-6'}`}>
+                        <a href={item.project.url} target="_blank" class={`mil-portfolio-item mil-more mil-mb-60 ${item.parallax ? 'mil-parallax' : ''}`} 
+                           {...(item.parallax ? { 'data-value-1': '60', 'data-value-2': '-60' } : {})}>
+                            <div class={`mil-cover-frame mil-${item.layout} mil-up`}>
+                                <div class="mil-cover">
+                                    <img src={item.project.image} alt="cover">
                                 </div>
-                            </a>
-                        </div>
+                            </div>
+                            <div class="mil-descr">
+                                <div class="mil-labels mil-up mil-mb-15">
+                                    <div class="mil-label mil-upper mil-accent">{item.category}</div>
+                                    <div class="mil-label mil-upper">may 24 2023</div>
+                                </div>
+                                <h4 class="mil-up">{item.project.name}</h4>
+                            </div>
+                        </a>
                     </div>
                 ))}
             </div>
         </div>
     </section>
     <!-- portfolio end -->
+
+    <!-- call to action -->
+    <section class="mil-soft-bg">
+        <div class="container mil-p-120-120">
+            <div class="row">
+                <div class="col-lg-10">
+                    <span class="mil-suptitle mil-suptitle-right mil-suptitle-dark mil-up">Looking to make your mark? We'll help you turn <br> your project into a success story.</span>
+                </div>
+            </div>
+            <div class="mil-center">
+                <h2 class="mil-up mil-mb-60">Ready to bring your <span class="mil-thin">ideas to</span> life? <br> We're <span class="mil-thin">here to help</span></h2>
+                <div class="mil-up">
+                    <a href="/contact" class="mil-button mil-arrow-place">
+                        <span>Contact us</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- call to action end -->
 </BaseLayout>

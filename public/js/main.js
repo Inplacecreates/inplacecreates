@@ -77,46 +77,54 @@ $(function () {
     }, {
         y: "0px",
         opacity: 1,
-        stagger: 0.4
+        stagger: 0.15, // Reduced from 0.4 to 0.15
+        duration: 0.3  // Added explicit duration
     },
     );
 
     timeline.to(".mil-animation-1 .mil-h3", {
         opacity: 0,
         y: '-30',
-    }, "+=.3");
+        duration: 0.2  // Added explicit duration
+    }, "+=.1"); // Reduced from +=.3 to +=.1
 
-    timeline.fromTo(".mil-reveal-box", 0.1, {
+    timeline.fromTo(".mil-reveal-box", 0.08, { // Reduced from 0.1 to 0.08
         opacity: 0,
     }, {
         opacity: 1,
         x: '-30',
     });
 
-    timeline.to(".mil-reveal-box", 0.45, {
+    timeline.to(".mil-reveal-box", 0.25, { // Reduced from 0.45 to 0.25
         width: "100%",
         x: 0,
-    }, "+=.1");
+    }, "+=.05"); // Reduced from +=.1 to +=.05
+
     timeline.to(".mil-reveal-box", {
         right: "0"
     });
-    timeline.to(".mil-reveal-box", 0.3, {
+
+    timeline.to(".mil-reveal-box", 0.2, { // Reduced from 0.3 to 0.2
         width: "0%"
     });
+
     timeline.fromTo(".mil-animation-2 .mil-h3", {
         opacity: 0,
     }, {
         opacity: 1,
-    }, "-=.5");
-    timeline.to(".mil-animation-2 .mil-h3", 0.6, {
+    }, "-=.3"); // Reduced from -=.5 to -=.3
+
+    timeline.to(".mil-animation-2 .mil-h3", 0.3, { // Reduced from 0.6 to 0.3
         opacity: 0,
         y: '-30'
-    }, "+=.5");
-    timeline.to(".mil-preloader", 0.8, {
+    }, "+=.2"); // Reduced from +=.5 to +=.2
+
+    timeline.to(".mil-preloader", 0.4, { // Reduced from 0.8 to 0.4
         opacity: 0,
         ease: 'sine',
-    }, "+=.2");
-    timeline.fromTo(".mil-up", 0.8, {
+    }, "+=.1"); // Reduced from +=.2 to +=.1
+
+    timeline.fromTo(".mil-up", 0.6, { // Reduced from 0.8 to 0.6
         opacity: 0,
         y: 40,
         scale: .98,
