@@ -1,6 +1,7 @@
 {
   "company": {
     "name": "InPlace Creates",
+    "url": "inplacecreates.com",
     "tagline": {
       "line1": {
         "bold": "Designing",
@@ -550,67 +551,41 @@
       "title": "Get in Touch",
       "subtitle": "Ready to start your project? Let's discuss how we can help bring your vision to life.",
       "banner": {
-        "title": "Get in Touch",
-        "description": "Ready to start your project? Let's discuss how we can help bring your vision to life."
+        "title": "Get in touch!",
+        "breadcrumbs": [
+          { "name": "Homepage", "url": "/" },
+          { "name": "Contact", "url": "/contact" }
+        ],
+        "ctaText": "Send message",
+        "ctaLink": "#contact"
       },
-      "info": {
-        "title": "Info",
-        "sections": [
-          {
-            "title": "Location",
-            "content": "Nanyuki, 10400"
-          },
-          {
-            "title": "Phone",
-            "content": "+254 732 460 700",
-            "link": "tel:+254732460700"
-          },
-          {
-            "title": "Email",
-            "content": "info@inplacecreates.com",
-            "link": "mailto:info@inplacecreates.com"
-          }
-        ]
+      "map": {
+        "embedUrl": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3989.8182112371674!2d37.075433073690895!3d0.013399399986472058!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1787f635d0a214eb%3A0x6310e8eb26d19300!2sDorman&#39;s%20Coffee%20shop!5e0!3m2!1sen!2ske!4v1728472119254!5m2!1sen!2ske"
       },
       "form": {
+        "heading": {
+          "text": "Let's",
+          "accent": "Talk"
+        },
         "fields": [
           {
-            "label": "Full Name",
+            "placeholder": "What's your name",
             "type": "text",
-            "placeholder": "Enter Your Name Here",
             "required": true
           },
           {
-            "label": "Email Address",
+            "placeholder": "Your Email",
             "type": "email",
-            "placeholder": "Enter Your Email Here",
             "required": true
           },
           {
-            "label": "Phone",
-            "type": "tel",
-            "placeholder": "Enter Your Phone Here",
-            "required": false
-          },
-          {
-            "label": "Budget",
-            "type": "select",
-            "options": [
-              { "value": "1000-5000", "label": "$1,000 - $5,000" },
-              { "value": "5000-10000", "label": "$5,000 - $10,000" },
-              { "value": "10000+", "label": "$10,000+" }
-            ],
-            "required": false
-          },
-          {
-            "label": "Message",
+            "placeholder": "Tell us about our project",
             "type": "textarea",
-            "placeholder": "Enter Your Message Here",
-            "rows": 10,
             "required": true
           }
         ],
-        "submitText": "Send Message"
+        "privacyNotice": "* We promise not to disclose your personal information to third parties.",
+        "submitText": "Send message"
       }
     },
     "privacy": {
