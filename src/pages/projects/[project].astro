@@ -1,0 +1,88 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import siteData from '../../data.json';
+
+export function getStaticPaths() {
+    const { portfolio } = siteData;
+    return portfolio.map((project) => ({
+        params: { project: project.id },
+        props: { project }
+    }));
+}
+
+const { project } = Astro.props;
+const { company } = siteData;
+---
+
+<BaseLayout title={`${project.title} - ${company.name}`}>
+    <!-- banner -->
+    <section class="mil-inner-banner">
+        <div class="mil-banner-content mil-up">
+            <div class="mil-animation-frame">
+                <div class="mil-animation mil-position-4 mil-dark mil-scale" data-value-1="6" data-value-2="1.4"></div>
+            </div>
+            <div class="container">
+                <ul class="mil-breadcrumbs mil-mb-60">
+                    <li><a href="/">Homepage</a></li>
+                    <li><a href="/portfolio">Portfolio</a></li>
+                    <li><a href={`/projects/${project.id}`}>Project</a></li>
+                </ul>
+                <h1 class="mil-mb-60">{project.title} <span class="mil-thin">{project.subtitle}</span></h1>
+                <a href="#project" class="mil-link mil-dark mil-arrow-place mil-down-arrow">
+                    <span>View Project</span>
+                </a>
+            </div>
+        </div>
+    </section>
+    <!-- banner end -->
+
+    <!-- project -->
+    <section class="mil-p-120-0">
+        <div class="container mil-p-0-120" id="project">
+            <div class="mil-image-frame mil-horizontal mil-up">
+                <img src={project.images[0]} alt={project.title}>
+                <a data-fancybox="gallery" data-no-swup href={project.images[0]} class="mil-zoom-btn">
+                    <img src="/img/icons/zoom.svg" alt="zoom">
+                </a>
+            </div>
+            <div class="mil-info mil-up">
+                <div>Client: &nbsp;<span class="mil-dark">{project.client}</span></div>
+                <div>Date: &nbsp;<span class="mil-dark">{project.date}</span></div>
+                <div>Author: &nbsp;<span class="mil-dark">{project.author}</span></div>
+                <div>Category: &nbsp;<span class="mil-dark">{project.category}</span></div>
+            </div>
+            <div class="mil-p-120-0">
+                <div class="row">
+                    <div class="col-lg-8">
+                        <div class="mil-mb-90">
+                            <h2 class="mil-up mil-mb-60">About <span class="mil-thin">Project</span></h2>
+                            <p class="mil-up mil-mb-30">{project.description}</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    {project.images.slice(1).map((image, index) => (
+                        <div class="col-lg-6">
+                            <div class="mil-image-frame mil-square mil-up mil-mb-30">
+                                <img src={image} alt={`${project.title} - Image ${index + 2}`}>
+                                <a data-fancybox="gallery" data-no-swup href={image} class="mil-zoom-btn">
+                                    <img src="/img/icons/zoom.svg" alt="zoom">
+                                </a>
+                            </div>
+                        </div>
+                    ))}
+                </div>
+            </div>
+            <div class="row justify-content-center">
+                <div class="col-lg-8">
+                    <div class="mil-center mil-up">
+                        <a href="/portfolio" class="mil-button mil-arrow-place">
+                            <span>Back to Portfolio</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- project end -->
+</BaseLayout>

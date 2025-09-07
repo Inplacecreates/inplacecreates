@@ -1,0 +1,86 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import siteData from '../data.json';
+
+const { team, pages, company } = siteData;
+const pageData = pages.team;
+---
+
+<BaseLayout title={`${pageData.title} - ${company.name}`}>
+    <!-- banner -->
+    <section class="mil-banner mil-dark-bg">
+        <div class="mi-invert-fix">
+            <div class="mil-animation-frame">
+                <div class="mil-animation mil-position-1 mil-scale" data-value-1="7" data-value-2="1.6"></div>
+                <div class="mil-animation mil-position-2 mil-scale" data-value-1="4" data-value-2="1"></div>
+                <div class="mil-animation mil-position-3 mil-scale" data-value-1="1.2" data-value-2=".1"></div>
+            </div>
+
+            <div class="mil-gradient"></div>
+
+            <div class="container">
+                <div class="mil-banner-content mil-up">
+                    <h1 class="mil-muted mil-mb-60">{pageData.banner.title.split(' ').slice(0, 1).join(' ')} <span class="mil-thin">{pageData.banner.title.split(' ').slice(1).join(' ')}</span></h1>
+                    <div class="row">
+                        <div class="col-md-7 col-lg-5">
+                            <p class="mil-light-soft mil-mb-60">{pageData.banner.description}</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- banner end -->
+
+    <!-- team -->
+    <section>
+        <div class="container mil-p-120-30">
+            <div class="row">
+                {team.map(member => (
+                    <div class="col-lg-6 col-xl-3 mil-mb-60">
+                        <div class="mil-team-card mil-up">
+                            <img src={member.image} alt={member.name}>
+                            <div class="mil-description">
+                                <div class="mil-secrc-text">
+                                    <h5 class="mil-muted mil-mb-5">{member.name}</h5>
+                                    <p class="mil-link mil-light-soft mil-mb-10">{member.role}</p>
+                                    <ul class="mil-social-icons mil-center">
+                                        {member.social.instagram && (
+                                            <li>
+                                                <a href={member.social.instagram} target="_blank" class="social-icon" data-no-swup>
+                                                    <i class="fab fa-instagram"></i>
+                                                </a>
+                                            </li>
+                                        )}
+                                        {member.social.linkedin && (
+                                            <li>
+                                                <a href={member.social.linkedin} target="_blank" class="social-icon" data-no-swup>
+                                                    <i class="fab fa-linkedin"></i>
+                                                </a>
+                                            </li>
+                                        )}
+                                        {member.social.github && (
+                                            <li>
+                                                <a href={member.social.github} target="_blank" class="social-icon" data-no-swup>
+                                                    <i class="fab fa-github"></i>
+                                                </a>
+                                            </li>
+                                        )}
+                                        {member.social.behance && (
+                                            <li>
+                                                <a href={member.social.behance} target="_blank" class="social-icon" data-no-swup>
+                                                    <i class="fab fa-behance"></i>
+                                                </a>
+                                            </li>
+                                        )}
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                ))}
+            </div>
+        </div>
+    </section>
+    <!-- team end -->
+</BaseLayout>

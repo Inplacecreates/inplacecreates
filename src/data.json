@@ -1,0 +1,632 @@
+{
+  "company": {
+    "name": "InPlace Creates",
+    "tagline": "Designing a Better World Today",
+    "description": "Welcome to our world of endless imagination and boundless creativity. Together, let's embark on a remarkable journey where dreams become tangible realities.",
+    "logo": "/img/logo/Inplacelogo2.png",
+    "favicon": "/img/logo/inplacefavicon.png",
+    "contact": {
+      "location": "Nanyuki, 10400",
+      "phone": "+254 732 460 700",
+      "email": "info@inplacecreates.com"
+    },
+    "socialMedia": {
+      "linkedin": "https://www.linkedin.com/company/inplace-creates/",
+      "tiktok": "#",
+      "instagram": "#",
+      "facebook": "#"
+    }
+  },
+  "navigation": {
+    "main": [
+      { "name": "Homepage", "url": "/", "active": true },
+      { "name": "Portfolio", "url": "/portfolio" },
+      { "name": "Services", "url": "/services" },
+      { "name": "Team", "url": "/team" },
+      { "name": "Contact", "url": "/contact" }
+    ],
+    "footer": [
+      { "name": "Home", "url": "/" },
+      { "name": "Portfolio", "url": "/portfolio" },
+      { "name": "Services", "url": "/services" },
+      { "name": "Contact", "url": "/contact" }
+    ],
+    "legal": [
+      { "name": "Privacy Policy", "url": "/privacy" },
+      { "name": "Terms and conditions", "url": "/terms" },
+      { "name": "Cookie Policy", "url": "/cookies" },
+      { "name": "Careers", "url": "/careers" }
+    ]
+  },
+  "services": [
+    {
+      "id": "branding",
+      "title": "Branding and Identity Design",
+      "description": "At InPlace Creates, we don't just design logos — we help you build a brand that's memorable, meaningful, and built to grow.",
+      "url": "/service/branding",
+      "serviceList": [
+        "Logo Design",
+        "Visual Identity Systems",
+        "Brand Guidelines",
+        "Strategy & Discovery"
+      ],
+      "bannerTitle": "Branding and Identity Design",
+      "bannerSubtitle": "Creating powerful brand identities that resonate with your audience and stand out in the marketplace.",
+      "approach": {
+        "title": "Our Approach",
+        "description": [
+          "We believe that great branding starts with understanding. Before we design a single logo or choose a color palette, we dive deep into your business, your values, and your audience.",
+          "Our process combines strategic thinking with creative excellence to develop brand identities that don't just look good—they work hard for your business."
+        ]
+      },
+      "includes": {
+        "title": "What's Included",
+        "items": [
+          "Brand Strategy & Positioning",
+          "Logo Design & Visual Identity",
+          "Color Palette & Typography",
+          "Business Card & Stationery Design",
+          "Brand Guidelines Document",
+          "Social Media Assets"
+        ]
+      },
+      "accordions": [
+        {
+          "title": "Logo Design",
+          "content": "We craft timeless and versatile logos tailored to your brand's personality and tone. Whether it's an icon, wordmark, or custom lettering, your logo becomes the anchor of your identity."
+        },
+        {
+          "title": "Visual Identity Systems",
+          "content": "Beyond the logo, we create full visual ecosystems: typography, color palettes, iconography, textures, and grids — all aligned to keep your brand consistent and flexible across media."
+        },
+        {
+          "title": "Brand Guidelines",
+          "content": "We provide professionally designed brand manuals that serve as a go-to reference for your team, partners, and collaborators — ensuring everyone uses your brand assets consistently and correctly."
+        },
+        {
+          "title": "Strategy & Discovery",
+          "content": "Every strong identity starts with clarity. We run collaborative sessions to define your brand personality, tone of voice, and visual direction before we ever open a design tool."
+        },
+        {
+          "title": "Add-On Services",
+          "content": "Looking to go beyond the core identity? We also offer: Packaging design, Brand launch content (posters, rollouts), Social media starter kits, Presentation templates, Branded merchandise concepts"
+        }
+      ]
+    },
+    {
+      "id": "web",
+      "title": "Website Design and Development",
+      "description": "At InPlace Creates, we don't just build websites, we design digital experiences that work.",
+      "url": "/service/web",
+      "serviceList": [
+        "UX Audits",
+        "Design Thinking & UI Systems",
+        "Wireframing & Prototyping",
+        "Performance & SEO Optimization",
+        "Web Management & Support"
+      ],
+      "bannerTitle": "Website Design and Development",
+      "bannerSubtitle": "Building beautiful, functional websites that drive results and deliver exceptional user experiences.",
+      "approach": {
+        "title": "Our Process",
+        "description": [
+          "We create websites that are not only beautiful but also functional, fast, and optimized for search engines. Every site we build is custom-designed to meet your specific needs.",
+          "From concept to launch, we handle every aspect of your web presence with attention to detail and focus on user experience."
+        ]
+      },
+      "includes": {
+        "title": "Technologies We Use",
+        "items": [
+          "Modern Frontend Frameworks",
+          "Responsive Design",
+          "Content Management Systems",
+          "E-commerce Solutions",
+          "SEO Optimization",
+          "Performance Optimization"
+        ]
+      },
+      "accordions": [
+        {
+          "title": "UX Audits",
+          "content": "We review your current website (or design idea) through the lens of user experience. We identify pain points, drop-off areas, and technical gaps then suggest clear, actionable fixes that boost usability and conversions."
+        },
+        {
+          "title": "Design Thinking & UI Systems",
+          "content": "We use design thinking to approach problems from the user's perspective. Every button, layout, and flow is planned with intention. Paired with thoughtful typography and color systems, your site becomes both beautiful and intuitive."
+        },
+        {
+          "title": "Wireframing & Prototyping",
+          "content": "Before the build, we blueprint your website's architecture using wireframes. These help you visualize structure, flow, and layout — ensuring we align on what your users see and do before coding begins."
+        },
+        {
+          "title": "Performance & SEO Optimization",
+          "content": "Every website we deliver is optimized for speed, search visibility, and mobile performance. We use modern techniques and tools to ensure your site loads fast, ranks well, and provides a smooth experience across all devices."
+        },
+        {
+          "title": "Web Management & Support",
+          "content": "Post-launch, we offer ongoing support: updates, security monitoring, performance checks, and content updates. Your website stays current, secure, and performing at its best."
+        }
+      ]
+    },
+    {
+      "id": "advertising",
+      "title": "Advertising and Marketing Campaigns",
+      "description": "At InPlace Creates, we build campaigns that don't just catch eyes — they tell stories and move people.",
+      "url": "/service/advertising",
+      "serviceList": [
+        "Creative Direction & Campaign Concepting",
+        "Content Production",
+        "Social Media Campaigns",
+        "Print, Posters & OOH",
+        "Campaign Strategy & Management"
+      ],
+      "bannerTitle": "Advertising and Marketing Campaigns",
+      "bannerSubtitle": "Creating impactful campaigns that cut through the noise and deliver measurable results for your business.",
+      "approach": {
+        "title": "Campaign Strategy",
+        "description": [
+          "We create advertising campaigns that cut through the noise and connect with your audience. Our approach combines creative storytelling with strategic planning to deliver measurable results.",
+          "From concept development to execution, we ensure every campaign element works together to achieve your business goals."
+        ]
+      },
+      "includes": {
+        "title": "Campaign Services",
+        "items": [
+          "Creative Concept Development",
+          "Digital Advertising",
+          "Print Marketing Materials",
+          "Social Media Campaigns",
+          "Video Content Creation",
+          "Campaign Analytics & Reporting"
+        ]
+      },
+      "accordions": [
+        {
+          "title": "Creative Direction & Campaign Concepting",
+          "content": "Every campaign begins with a strong concept. We collaborate with you to define a clear message, build a visual language around it, and ensure your brand story shines through."
+        },
+        {
+          "title": "Content Production",
+          "content": "From short-form video ads to striking photos and graphic assets, we handle full campaign production. We shoot, edit, design, and deliver content ready for launch across all platforms."
+        },
+        {
+          "title": "Social Media Campaigns",
+          "content": "We create branded series, product pushes, or full storytelling arcs designed specifically for platforms like Instagram, TikTok, LinkedIn, and Facebook — optimized for engagement and consistency."
+        },
+        {
+          "title": "Print, Posters & OOH",
+          "content": "We also design for the tangible world — from event posters and banners to product launch kits, billboards, and brochures. The goal: stop people mid-scroll or mid-walk."
+        },
+        {
+          "title": "Campaign Strategy & Management",
+          "content": "Need more than content? We can handle full campaign rollout — from scheduling and channel planning to audience targeting and feedback tracking. Ideal for launches or multi-month campaigns."
+        }
+      ]
+    },
+    {
+      "id": "consulting",
+      "title": "Creative Consulting",
+      "description": "At InPlace Creates, we believe every powerful creative outcome starts with a clear, well-structured idea.",
+      "url": "/service/consulting",
+      "serviceList": [
+        "Idea Development & Creative Planning",
+        "Storytelling & Messaging Strategy",
+        "Creative Workshops & Brainstorms",
+        "Content & Brand Audits",
+        "One-on-One Creative Support"
+      ],
+      "bannerTitle": "Creative Consulting and Development",
+      "bannerSubtitle": "Strategic guidance and creative expertise to help you succeed in your creative endeavors and business goals.",
+      "approach": {
+        "title": "Strategic Guidance",
+        "description": [
+          "Whether you're launching a new product, rebranding, or looking to refine your creative direction, we provide the strategic insight and creative expertise to help you succeed.",
+          "Our consulting approach is collaborative, combining our experience with your industry knowledge to develop actionable strategies."
+        ]
+      },
+      "includes": {
+        "title": "Consulting Areas",
+        "items": [
+          "Creative Strategy",
+          "Brand Development",
+          "Campaign Planning",
+          "Content Strategy",
+          "Design Systems",
+          "Workshop Facilitation"
+        ]
+      },
+      "accordions": [
+        {
+          "title": "Idea Development & Creative Planning",
+          "content": "Have a raw concept or unfinished idea? We help shape it. We support you in defining objectives, choosing the right formats, and mapping out execution paths that align with your goals."
+        },
+        {
+          "title": "Storytelling & Messaging Strategy",
+          "content": "Every brand or project has a core message. We guide you in discovering and expressing that message visually, emotionally, and effectively — across content, campaigns, and identity."
+        },
+        {
+          "title": "Creative Workshops & Brainstorms",
+          "content": "We host collaborative sessions to unlock your team's creativity. Great for planning launches, refreshing your brand, or finding your next big idea."
+        },
+        {
+          "title": "Content & Brand Audits",
+          "content": "We offer constructive reviews of your current branding, website, or marketing materials — outlining what's working, what's not, and how to elevate it."
+        },
+        {
+          "title": "One-on-One Creative Support",
+          "content": "Need help as a solo creator or founder? We offer mentorship-style consulting to walk alongside you during your project, campaign, or branding process — step by step."
+        }
+      ]
+    }
+  ],
+  "team": [
+    {
+      "name": "Kelvin",
+      "role": "Creative Lead",
+      "image": "/img/faces/kelvinteamimage.png",
+      "social": {
+        "instagram": "https://www.instagram.com/keitu___k2",
+        "linkedin": "https://www.linkedin.com/in/mainakelvin/",
+        "github": "https://github.com/inplacecreates/"
+      }
+    },
+    {
+      "name": "Tracy",
+      "role": "Creative Projects",
+      "image": "/img/faces/tracyteamimage.png",
+      "social": {
+        "instagram": "https://www.instagram.com/kui_gitau/",
+        "linkedin": "http://www.linkedin.com/in/tracygitau"
+      }
+    },
+    {
+      "name": "Mercy",
+      "role": "Creative Projects",
+      "image": "/img/faces/mercyteamimage.png",
+      "social": {
+        "behance": "#",
+        "instagram": "#",
+        "linkedin": "https://www.linkedin.com/in/mercy-mungata/"
+      }
+    },
+    {
+      "name": "Elvis",
+      "role": "Code & Experience Designer",
+      "image": "/img/faces/elvisteamimage.png",
+      "social": {
+        "linkedin": "https://www.linkedin.com/in/elvis-wangari/",
+        "github": "https://github.com/elviswangari"
+      }
+    }
+  ],
+  "projects": [
+    {
+      "id": "kikao-pride",
+      "name": "Kikao Pride Ltd",
+      "url": "https://kikaopride.netlify.app",
+      "image": "/img/works/kikao.jpg"
+    },
+    {
+      "id": "petrus-consultancy",
+      "name": "Petrus Consultancy Ltd",
+      "url": "#",
+      "image": "/img/works/petrus.jpg"
+    },
+    {
+      "id": "dayspring-ventures",
+      "name": "Dayspring Ventures Ltd",
+      "url": "#",
+      "image": "/img/works/dayspring.jpg"
+    },
+    {
+      "id": "pumpzen",
+      "name": "Pumpzen Ltd",
+      "url": "#",
+      "image": "/img/works/pumpzen.jpg"
+    },
+    {
+      "id": "inplace-creates",
+      "name": "InPlace Creates",
+      "url": "https://inplacecreates.com",
+      "image": "/img/works/1.jpg"
+    },
+    {
+      "id": "shamba-hopbush",
+      "name": "Shamba Hopbush Ltd",
+      "url": "#",
+      "image": "/img/works/2.jpg"
+    }
+  ],
+  "portfolio": [
+    {
+      "id": "project-1",
+      "title": "Interior Design Studio",
+      "subtitle": "Modern Interior Solutions",
+      "description": "A sophisticated interior design project showcasing contemporary aesthetics and functional spaces.",
+      "client": "Envato Market",
+      "date": "April 2023",
+      "author": "Paul Trueman",
+      "category": "Interior Design",
+      "url": "/projects/project-1",
+      "images": [
+        "/img/works/1/1.jpg",
+        "/img/works/1/2.jpg",
+        "/img/works/1/3.jpg",
+        "/img/works/1/4.jpg",
+        "/img/works/1/5.jpg",
+        "/img/works/1/6.jpg",
+        "/img/works/1/7.jpg"
+      ]
+    },
+    {
+      "id": "project-2",
+      "title": "Brand Identity Design",
+      "subtitle": "Creative Branding Solutions",
+      "description": "Comprehensive brand identity development with modern visual elements and cohesive design system.",
+      "client": "Creative Studios",
+      "date": "March 2023",
+      "author": "Sarah Johnson",
+      "category": "Branding",
+      "url": "/projects/project-2",
+      "images": [
+        "/img/works/2/1.gif",
+        "/img/works/2/2.jpg",
+        "/img/works/2/3.jpg",
+        "/img/works/2/4.jpg"
+      ]
+    },
+    {
+      "id": "project-3",
+      "title": "Digital Marketing Campaign",
+      "subtitle": "Innovative Marketing Strategy",
+      "description": "Strategic digital marketing campaign focused on engagement and brand awareness across multiple platforms.",
+      "client": "Tech Innovations",
+      "date": "February 2023",
+      "author": "Mike Davis",
+      "category": "Marketing",
+      "url": "/projects/project-3",
+      "images": [
+        "/img/works/3/1.jpg",
+        "/img/works/3/2.jpg",
+        "/img/works/3/3.jpg",
+        "/img/works/3/4.jpg"
+      ]
+    },
+    {
+      "id": "project-4",
+      "title": "E-commerce Platform",
+      "subtitle": "Modern Web Development",
+      "description": "Full-stack e-commerce solution with intuitive user experience and powerful backend functionality.",
+      "client": "Retail Solutions",
+      "date": "January 2023",
+      "author": "Alex Thompson",
+      "category": "Web Development",
+      "url": "/projects/project-4",
+      "images": [
+        "/img/works/4/1.jpg",
+        "/img/works/4/2.jpg",
+        "/img/works/4/3.jpg",
+        "/img/works/4/4.jpg",
+        "/img/works/4/5.jpg",
+        "/img/works/4/6.jpg",
+        "/img/works/4/7.jpg"
+      ]
+    },
+    {
+      "id": "project-5",
+      "title": "Mobile App Design",
+      "subtitle": "User Experience Focus",
+      "description": "Mobile application design with emphasis on user experience, accessibility, and modern interface design.",
+      "client": "App Ventures",
+      "date": "December 2022",
+      "author": "Emily Chen",
+      "category": "UI/UX Design",
+      "url": "/projects/project-5",
+      "images": [
+        "/img/works/5/1.jpg",
+        "/img/works/5/2.jpg",
+        "/img/works/5/3.gif",
+        "/img/works/5/4.jpg",
+        "/img/works/5/5.gif",
+        "/img/works/5/5.jpg",
+        "/img/works/5/6.jpg",
+        "/img/works/5/7.gif"
+      ]
+    },
+    {
+      "id": "project-6",
+      "title": "Corporate Website",
+      "subtitle": "Professional Web Presence",
+      "description": "Corporate website redesign with focus on professional presentation and user engagement optimization.",
+      "client": "Business Corp",
+      "date": "November 2022",
+      "author": "David Wilson",
+      "category": "Web Design",
+      "url": "/projects/project-6",
+      "images": [
+        "/img/works/6/1.jpg",
+        "/img/works/6/2.gif",
+        "/img/works/6/3.jpg",
+        "/img/works/6/4.gif",
+        "/img/works/6/5.jpg",
+        "/img/works/6/6.jpg",
+        "/img/works/6/7.jpg",
+        "/img/works/6/8.jpg"
+      ]
+    }
+  ],
+  "reviews": [
+    {
+      "company": "Dayspring Ventures",
+      "industry": "Construction Company",
+      "review": "This creative agency stands out with their exceptional talent and expertise. Their ability to think outside the box and bring unique ideas to life is truly impressive. With meticulous attention to detail, they consistently deliver visually stunning and impactful work."
+    },
+    {
+      "company": "Petrus Consultancy Services",
+      "industry": "Admin Consultancy",
+      "review": "I had the pleasure of working with this creative agency, and I must say, they truly impressed me. They consistently think outside the box, resulting in impressive and impactful work. I highly recommend this agency for their consistent delivery of exceptional creative solutions."
+    },
+    {
+      "company": "Kikao",
+      "industry": "Engineering Company",
+      "review": "This creative agency stands out with their exceptional talent and expertise. Their ability to think outside the box and bring unique ideas to life is truly impressive. With meticulous attention to detail, they consistently deliver visually stunning and impactful work."
+    },
+    {
+      "company": "Pumpzen",
+      "industry": "Engineering Company",
+      "review": "I had the pleasure of working with this creative agency, and I must say, they truly impressed me. They consistently think outside the box, resulting in impressive and impactful work. I highly recommend this agency for their consistent delivery of exceptional creative solutions."
+    }
+  ],
+  "about": {
+    "title": "Discover Our Studio",
+    "description": [
+      "At our design studio, we are a collective of talented individuals ignited by our unwavering passion for transforming ideas into reality. With a harmonious blend of diverse backgrounds and a vast array of skill sets, we join forces to create compelling solutions for our esteemed clients.",
+      "Collaboration is at the heart of what we do. Our team thrives on the synergy that arises when unique perspectives converge, fostering an environment of boundless creativity. By harnessing our collective expertise, we produce extraordinary results that consistently surpass expectations."
+    ],
+    "quote": "Passionately Creating Design Wonders: Unleashing Boundless Creativity",
+    "image": "/img/photo/studio.jpg",
+    "founder": {
+      "name": "Kelvin",
+      "image": "/img/faces/kelvinteamimage.png"
+    }
+  },
+  "pages": {
+    "services": {
+      "title": "Our Services",
+      "subtitle": "Comprehensive creative solutions to help your business grow and succeed in today's competitive market.",
+      "banner": {
+        "title": "This is what we do best",
+        "description": "We provide comprehensive creative solutions to help your business grow and succeed in today's competitive market.",
+        "breadcrumbs": [
+          { "name": "Homepage", "url": "/" },
+          { "name": "Services", "url": "/services" }
+        ]
+      },
+      "callToAction": {
+        "subtitle": "Looking to make your mark? We'll help you turn your project into a success story.",
+        "title": "Let's make an impact together. Ready when you are",
+        "buttonText": "Contact us",
+        "buttonUrl": "/contact"
+      }
+    },
+    "team": {
+      "title": "Our Team",
+      "subtitle": "Meet the creative minds behind our success. Each team member brings unique skills and passion to deliver exceptional results.",
+      "banner": {
+        "title": "Our Team",
+        "description": "Meet the creative minds behind our success. Each team member brings unique skills and passion to deliver exceptional results."
+      },
+      "description": "We're a tight crew of creatives, designers, programmers and producers — built to deliver on vision and execution across branding, content, web, and consulting. Each of us brings sharp skill and deep care to every project.",
+      "cta": "Read more",
+      "tagline": "We delivering exceptional results."
+    },
+    "portfolio": {
+      "title": "Our Portfolio",
+      "subtitle": "Explore our creative work and see how we've helped brands tell their stories through exceptional design.",
+      "banner": {
+        "title": "Our Portfolio",
+        "description": "Explore our creative work and see how we've helped brands tell their stories through exceptional design."
+      }
+    },
+    "contact": {
+      "title": "Get in Touch",
+      "subtitle": "Ready to start your project? Let's discuss how we can help bring your vision to life.",
+      "banner": {
+        "title": "Get in Touch",
+        "description": "Ready to start your project? Let's discuss how we can help bring your vision to life."
+      },
+      "info": {
+        "title": "Info",
+        "sections": [
+          {
+            "title": "Location",
+            "content": "Nanyuki, 10400"
+          },
+          {
+            "title": "Phone",
+            "content": "+254 732 460 700",
+            "link": "tel:+254732460700"
+          },
+          {
+            "title": "Email",
+            "content": "info@inplacecreates.com",
+            "link": "mailto:info@inplacecreates.com"
+          }
+        ]
+      },
+      "form": {
+        "fields": [
+          {
+            "label": "Full Name",
+            "type": "text",
+            "placeholder": "Enter Your Name Here",
+            "required": true
+          },
+          {
+            "label": "Email Address",
+            "type": "email",
+            "placeholder": "Enter Your Email Here",
+            "required": true
+          },
+          {
+            "label": "Phone",
+            "type": "tel",
+            "placeholder": "Enter Your Phone Here",
+            "required": false
+          },
+          {
+            "label": "Budget",
+            "type": "select",
+            "options": [
+              { "value": "1000-5000", "label": "$1,000 - $5,000" },
+              { "value": "5000-10000", "label": "$5,000 - $10,000" },
+              { "value": "10000+", "label": "$10,000+" }
+            ],
+            "required": false
+          },
+          {
+            "label": "Message",
+            "type": "textarea",
+            "placeholder": "Enter Your Message Here",
+            "rows": 10,
+            "required": true
+          }
+        ],
+        "submitText": "Send Message"
+      }
+    },
+    "privacy": {
+      "title": "Privacy Policy",
+      "banner": {
+        "title": "Privacy Policy"
+      },
+      "content": [
+        {
+          "title": "Our Commitment to Privacy",
+          "text": "At InPlace Creates, we are committed to protecting your privacy and ensuring that your personal information is handled in a safe and responsible manner."
+        },
+        {
+          "title": "Information We Collect",
+          "text": "We may collect personal information such as your name, email address, phone number, and other contact details when you interact with our website or services."
+        },
+        {
+          "title": "How We Use Your Information",
+          "text": "We use the information we collect to provide our services, communicate with you about projects, and improve our website and offerings."
+        },
+        {
+          "title": "Information Sharing",
+          "text": "We do not sell, trade, or otherwise transfer your personal information to outside parties without your consent, except as described in this privacy policy."
+        },
+        {
+          "title": "Contact Us",
+          "text": "If you have any questions about this Privacy Policy, please contact us at info@inplacecreates.com."
+        }
+      ],
+      "lastUpdated": "September 2024"
+    },
+    "reviews": {
+      "title": "Customer Voices: Hear What They Say!",
+      "subtitle": "Customer reviews are a valuable source of information for both businesses and consumers."
+    }
+  }
+}

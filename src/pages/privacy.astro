@@ -1,0 +1,51 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import siteData from '../data.json';
+
+const { pages, company } = siteData;
+const pageData = pages.privacy;
+---
+
+<BaseLayout title={`${pageData.title} - ${company.name}`}>
+    <!-- banner -->
+    <section class="mil-banner mil-dark-bg">
+        <div class="mi-invert-fix">
+            <div class="mil-animation-frame">
+                <div class="mil-animation mil-position-1 mil-scale" data-value-1="7" data-value-2="1.6"></div>
+                <div class="mil-animation mil-position-2 mil-scale" data-value-1="4" data-value-2="1"></div>
+                <div class="mil-animation mil-position-3 mil-scale" data-value-1="1.2" data-value-2=".1"></div>
+            </div>
+
+            <div class="mil-gradient"></div>
+
+            <div class="container">
+                <div class="mil-banner-content mil-up">
+                    <h1 class="mil-muted mil-mb-60">{pageData.banner.title.split(' ').slice(0, 1).join(' ')} <span class="mil-thin">{pageData.banner.title.split(' ').slice(1).join(' ')}</span></h1>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- banner end -->
+
+    <!-- content -->
+    <section>
+        <div class="container mil-p-120-30">
+            <div class="row justify-content-center">
+                <div class="col-lg-8">
+                    <div class="mil-mb-90">
+                        <h2 class="mil-up mil-mb-60">Our Commitment to <span class="mil-thin">Privacy</span></h2>
+                        {pageData.content.map(section => (
+                            <>
+                                <h4 class="mil-up mil-mb-30">{section.title}</h4>
+                                <p class="mil-up mil-mb-30">{section.text}</p>
+                            </>
+                        ))}
+                        
+                        <p class="mil-up"><strong>Last updated:</strong> {pageData.lastUpdated}</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- content end -->
+</BaseLayout>

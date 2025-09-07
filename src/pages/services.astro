@@ -1,0 +1,88 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import siteData from '../data.json';
+
+const { services, pages, company } = siteData;
+const pageData = pages.services;
+---
+
+<BaseLayout title={`${pageData.title} - ${company.name}`}>
+    <!-- banner -->
+    <div class="mil-dark-bg">
+        <div class="mil-inner-banner">
+            <div class="mi-invert-fix">
+                <div class="mil-banner-content mil-up">
+                    <div class="mil-animation-frame">
+                        <div class="mil-animation mil-position-4 mil-scale" data-value-1="6" data-value-2="1.4"></div>
+                    </div>
+                    <div class="container">
+                        <ul class="mil-breadcrumbs mil-light mil-mb-60">
+                            {pageData.banner.breadcrumbs.map((crumb, index) => (
+                                <li><a href={crumb.url}>{crumb.name}</a></li>
+                            ))}
+                        </ul>
+                        <h1 class="mil-muted mil-mb-60">{pageData.banner.title.split(' ').slice(0, 2).join(' ')} <span class="mil-thin">{pageData.banner.title.split(' ').slice(2, 3).join(' ')}</span><br> we do <span class="mil-thin">{pageData.banner.title.split(' ').slice(-1).join(' ')}</span></h1>
+                        <a href="#services" class="mil-link mil-accent mil-arrow-place mil-down-arrow">
+                            <span>Our services</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- banner end -->
+
+        <!-- services -->
+        <section id="services">
+            <div class="mi-invert-fix">
+                <div class="container mil-p-120-60">
+                    <div class="row">
+                        <div class="col-lg-5">
+                            <div class="mil-lines-place mil-light"></div>
+                        </div>
+                        <div class="col-lg-7">
+                            <div class="row">
+                                {services.map((service, index) => (
+                                    <div class="col-md-6 col-lg-6">
+                                        <a href={service.url} class={`mil-service-card-lg mil-more mil-accent-cursor ${index % 2 === 0 ? 'mil-offset' : ''}`}>
+                                            <h4 class="mil-muted mil-up mil-mb-30" set:html={service.title.replace(/ (and|&) /g, ' <br>$1 ')} />
+                                            <p class="mil-descr mil-light-soft mil-up mil-mb-30">{service.description}</p>
+                                            <ul class="mil-service-list mil-light mil-mb-30">
+                                                {service.serviceList.map(item => (
+                                                    <li class="mil-up">{item}</li>
+                                                ))}
+                                            </ul>
+                                            <div class="mil-link mil-accent mil-arrow-place mil-up">
+                                                <span>Read more</span>
+                                            </div>
+                                        </a>
+                                    </div>
+                                ))}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+    <!-- services end -->
+
+    <!-- call to action -->
+    <section class="mil-soft-bg">
+        <div class="container mil-p-120-120">
+            <div class="row">
+                <div class="col-lg-10">
+                    <span class="mil-suptitle mil-suptitle-right mil-suptitle-dark mil-up">{pageData.callToAction.subtitle}</span>
+                </div>
+            </div>
+            <div class="mil-center">
+                <h2 class="mil-up mil-mb-60" set:html={pageData.callToAction.title.replace(/ (impact|when) /g, ' <span class="mil-thin">$1</span> ').replace(/ (together\.|are) /g, ' <span class="mil-thin">$1</span>')} />
+                <div class="mil-up">
+                    <a href={pageData.callToAction.buttonUrl} class="mil-button mil-arrow-place">
+                        <span>{pageData.callToAction.buttonText}</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- call to action end -->
+</BaseLayout>

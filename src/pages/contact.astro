@@ -1,0 +1,108 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import siteData from '../data.json';
+
+const { company, pages } = siteData;
+const pageData = pages.contact;
+---
+
+<BaseLayout title={`${pageData.title} - ${company.name}`}>
+    <!-- banner -->
+    <section class="mil-banner mil-dark-bg">
+        <div class="mi-invert-fix">
+            <div class="mil-animation-frame">
+                <div class="mil-animation mil-position-1 mil-scale" data-value-1="7" data-value-2="1.6"></div>
+                <div class="mil-animation mil-position-2 mil-scale" data-value-1="4" data-value-2="1"></div>
+                <div class="mil-animation mil-position-3 mil-scale" data-value-1="1.2" data-value-2=".1"></div>
+            </div>
+
+            <div class="mil-gradient"></div>
+
+            <div class="container">
+                <div class="mil-banner-content mil-up">
+                    <h1 class="mil-muted mil-mb-60">{pageData.banner.title.split(' ').slice(0, 1).join(' ')} <span class="mil-thin">{pageData.banner.title.split(' ').slice(1).join(' ')}</span></h1>
+                    <div class="row">
+                        <div class="col-md-7 col-lg-5">
+                            <p class="mil-light-soft mil-mb-60">{pageData.banner.description}</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- banner end -->
+
+    <!-- contact -->
+    <section>
+        <div class="container mil-p-120-30">
+            <div class="row justify-content-between">
+                <div class="col-lg-4">
+                    <div class="mil-mb-90">
+                        <h2 class="mil-up mil-mb-60">Info</h2>
+                        <div class="mil-divider mil-up mil-mb-60"></div>
+                        <div class="mil-up mil-mb-30">
+                            <h6 class="mil-muted mil-mb-30">Location</h6>
+                            <p>{company.contact.location}</p>
+                        </div>
+                        <div class="mil-up mil-mb-30">
+                            <h6 class="mil-muted mil-mb-30">Phone</h6>
+                            <p><a href={`tel:${company.contact.phone}`} class="mil-link">{company.contact.phone}</a></p>
+                        </div>
+                        <div class="mil-up">
+                            <h6 class="mil-muted mil-mb-30">Email</h6>
+                            <p><a href={`mailto:${company.contact.email}`} class="mil-link">{company.contact.email}</a></p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-7">
+                    <form class="mil-mb-90">
+                        <div class="row">
+                            <div class="col-lg-6">
+                                <div class="mil-field-frame mil-up mil-mb-30">
+                                    <label class="mil-h6">Full Name</label>
+                                    <input type="text" placeholder="Enter Your Name Here">
+                                </div>
+                            </div>
+                            <div class="col-lg-6">
+                                <div class="mil-field-frame mil-up mil-mb-30">
+                                    <label class="mil-h6">Email Address</label>
+                                    <input type="email" placeholder="Enter Your Email Here">
+                                </div>
+                            </div>
+                            <div class="col-lg-12">
+                                <div class="mil-field-frame mil-up mil-mb-30">
+                                    <label class="mil-h6">Phone</label>
+                                    <input type="tel" placeholder="Enter Your Phone Here">
+                                </div>
+                            </div>
+                            <div class="col-lg-12">
+                                <div class="mil-field-frame mil-up mil-mb-30">
+                                    <label class="mil-h6">Budget</label>
+                                    <select>
+                                        <option value="1000-5000">$1,000 - $5,000</option>
+                                        <option value="5000-10000">$5,000 - $10,000</option>
+                                        <option value="10000+">$10,000+</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-lg-12">
+                                <div class="mil-field-frame mil-up mil-mb-30">
+                                    <label class="mil-h6">Message</label>
+                                    <textarea placeholder="Enter Your Message Here" cols="30" rows="10"></textarea>
+                                </div>
+                            </div>
+                            <div class="col-lg-12">
+                                <div class="mil-up">
+                                    <button type="submit" class="mil-button mil-arrow-place">
+                                        <span>Send Message</span>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- contact end -->
+</BaseLayout>
