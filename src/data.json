@@ -513,7 +513,16 @@
       },
       "callToAction": {
         "subtitle": "Looking to make your mark? We'll help you turn your project into a success story.",
-        "title": "Let's make an impact together. Ready when you are",
+        "title": {
+          "line1": {
+            "text": "Let's make an",
+            "accent": "impact"
+          },
+          "line2": {
+            "text": "together. Ready",
+            "accent": "when you are"
+          }
+        },
         "buttonText": "Contact us",
         "buttonUrl": "/contact"
       }

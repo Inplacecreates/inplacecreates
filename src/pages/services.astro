@@ -75,7 +75,8 @@ const pageData = pages.services;
                 </div>
             </div>
             <div class="mil-center">
-                <h2 class="mil-up mil-mb-60" set:html={pageData.callToAction.title.replace(/ (impact|when) /g, ' <span class="mil-thin">$1</span> ').replace(/ (together\.|are) /g, ' <span class="mil-thin">$1</span>')} />
+                <h2 class="mil-up mil-mb-60">{pageData.callToAction.title.line1.text} <span class="mil-thin">{pageData.callToAction.title.line1.accent}</span><br>
+                    {pageData.callToAction.title.line2.text} <span class="mil-thin">{pageData.callToAction.title.line2.accent}</span></h2>
                 <div class="mil-up">
                     <a href={pageData.callToAction.buttonUrl} class="mil-button mil-arrow-place">
                         <span>{pageData.callToAction.buttonText}</span>
