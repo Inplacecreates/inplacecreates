@@ -50,8 +50,8 @@
   "services": [
     {
       "id": "branding",
-      "title": "Branding and Identity Design",
-      "description": "At InPlace Creates, we don't just design logos — we help you build a brand that's memorable, meaningful, and built to grow.",
+      "title": "Branding and <br>Identity Design",
+      "description": "Our approach blends creativity, strategic thinking, and visual clarity. We dig deep to understand your story, values, and target audience — then translate all of that into a cohesive visual identity that makes you stand out.",
       "url": "/service/branding",
       "serviceList": [
         "Logo Design",
@@ -104,8 +104,8 @@
     },
     {
       "id": "web",
-      "title": "Website Design and Development",
-      "description": "At InPlace Creates, we don't just build websites, we design digital experiences that work.",
+      "title": "Website Design <br>and Development",
+      "description": "Our approach combines clean aesthetics with functional thinking. From structure and usability to SEO and speed, every website we build is made to serve your goals, tell your story, and grow with your brand",
       "url": "/service/web",
       "serviceList": [
         "UX Audits",
@@ -159,8 +159,8 @@
     },
     {
       "id": "advertising",
-      "title": "Advertising and Marketing Campaigns",
-      "description": "At InPlace Creates, we build campaigns that don't just catch eyes — they tell stories and move people.",
+      "title": "Advertising and <br>Marketing Campaigns",
+      "description": "Our approach combines creative direction, visual strategy, and content production to bring bold ideas to life across digital and print platforms. We work closely with clients to align vision, audience, and execution — producing campaigns that deliver real impact, not just noise.",
       "url": "/service/advertising",
       "serviceList": [
         "Creative Direction & Campaign Concepting",
@@ -214,8 +214,8 @@
     },
     {
       "id": "consulting",
-      "title": "Creative Consulting",
-      "description": "At InPlace Creates, we believe every powerful creative outcome starts with a clear, well-structured idea.",
+      "title": "Creative Consulting <br>and Development",
+      "description": "Our consulting approach is collaborative and strategic. Whether you're a brand, startup, or individual creator, we help you clarify your vision, structure your ideas, and refine them into creative outputs that resonate. From brand strategy to storytelling frameworks — we bring creative clarity where it's needed most.",
       "url": "/service/consulting",
       "serviceList": [
         "Idea Development & Creative Planning",

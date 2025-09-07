@@ -121,7 +121,7 @@ const { company, services, team, reviews, about } = siteData;
                     {services.map(service => (
                         <div class="col-md-6 col-lg-3 mil-services-grid-item p-0">
                             <a href={service.url} class="mil-service-card-sm mil-up">
-                                <h5 class="mil-muted mil-mb-30">{service.title.replace(' and ', ' <br>and ')}</h5>
+                                <h5 class="mil-muted mil-mb-30" set:html={service.title}></h5>
                                 <p class="mil-light-soft mil-mb-30">{service.description}</p>
                                 <div class="mil-button mil-icon-button-sm mil-arrow-place"></div>
                             </a>
