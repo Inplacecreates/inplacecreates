@@ -1,7 +1,16 @@
 {
   "company": {
     "name": "InPlace Creates",
-    "tagline": "Designing a Better World Today",
+    "tagline": {
+      "line1": {
+        "bold": "Designing",
+        "thin": "a Better"
+      },
+      "line2": {
+        "bold": "World",
+        "thin": "Today"
+      }
+    },
     "description": "Welcome to our world of endless imagination and boundless creativity. Together, let's embark on a remarkable journey where dreams become tangible realities.",
     "logo": "/img/logo/Inplacelogo2.png",
     "favicon": "/img/logo/inplacefavicon.png",

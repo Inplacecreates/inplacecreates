@@ -19,8 +19,8 @@ const { company, services, team, reviews, about } = siteData;
 
             <div class="container">
                 <div class="mil-banner-content mil-up">
-                    <h1 class="mil-muted mil-mb-60">{company.tagline.split(' ').slice(0, 2).join(' ')} <span class="mil-thin">{company.tagline.split(' ').slice(2, 4).join(' ')}</span><br>
-                        {company.tagline.split(' ').slice(4, 5).join(' ')} <span class="mil-thin">{company.tagline.split(' ').slice(5).join(' ')}</span></h1>
+                    <h1 class="mil-muted mil-mb-60">{company.tagline.line1.bold} <span class="mil-thin">{company.tagline.line1.thin}</span><br>
+                        {company.tagline.line2.bold} <span class="mil-thin">{company.tagline.line2.thin}</span></h1>
                     <div class="row">
                         <div class="col-md-7 col-lg-5">
                             <p class="mil-light-soft mil-mb-60">{company.description}</p>
