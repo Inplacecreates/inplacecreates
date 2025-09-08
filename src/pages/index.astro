@@ -155,7 +155,7 @@ const { company, services, team, reviews, about } = siteData;
 
                         <div class="row mil-mb-60">
                             <div class="col-sm-6">
-                                {team.slice(0, 2).map(member => (
+                                {team.slice(0, 3).map(member => (
                                     <div class="mil-team-card mil-up mil-mb-30">
                                         <img src={member.image} alt={member.name}>
                                         <div class="mil-description">
@@ -198,7 +198,7 @@ const { company, services, team, reviews, about } = siteData;
                                 ))}
                             </div>
                             <div class="col-sm-6">
-                                {team.slice(2, 4).map(member => (
+                                {team.slice(3, 5).map(member => (
                                     <div class="mil-team-card mil-up mil-mb-30">
                                         <img src={member.image} alt={member.name}>
                                         <div class="mil-description">
