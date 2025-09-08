@@ -273,6 +273,7 @@
     {
       "name": "Kelvin",
       "role": "Creative Lead",
+      "bio": "Passionate creative director with a keen eye for innovative design solutions. Kelvin leads our creative vision and ensures every project exceeds client expectations through strategic thinking and artistic excellence.",
       "image": "/img/faces/kelvinteamimage.png",
       "social": {
         "instagram": "https://www.instagram.com/keitu___k2",
@@ -283,6 +284,7 @@
     {
       "name": "Tracy",
       "role": "Creative Projects",
+      "bio": "Detail-oriented creative professional who brings ideas to life through meticulous project execution. Tracy specializes in transforming concepts into compelling visual narratives that connect with audiences.",
       "image": "/img/faces/tracyteamimage.png",
       "social": {
         "instagram": "https://www.instagram.com/kui_gitau/",
@@ -292,6 +294,7 @@
     {
       "name": "Mercy",
       "role": "Creative Projects",
+      "bio": "Versatile creative talent with expertise in visual storytelling and brand communications. Mercy combines artistic flair with strategic thinking to deliver projects that resonate with target audiences.",
       "image": "/img/faces/mercyteamimage.png",
       "social": {
         "behance": "#",
@@ -302,6 +305,7 @@
     {
       "name": "Elvis",
       "role": "Code & Experience Designer",
+      "bio": "Full-stack developer and UX specialist who crafts seamless digital experiences. Elvis bridges the gap between design and technology, ensuring every interface is both beautiful and functional.",
       "image": "/img/faces/elvisteamimage.png",
       "social": {
         "linkedin": "https://www.linkedin.com/in/elvis-wangari/",
@@ -311,6 +315,7 @@
     {
       "name": "Cess",
       "role": "Creative Projects",
+      "bio": "Emerging creative talent with fresh perspectives and innovative approaches to design challenges. Cess brings energy and creativity to every project, contributing unique solutions that push creative boundaries.",
       "image": "/img/faces/cessteamimage.png",
       "social": {
         "instagram": "#",

@@ -41,6 +41,9 @@ const pageData = pages.team;
                                         <a href="/team">{member.name}</a>
                                     </h5>
                                     <p class="mil-link mil-light-soft mil-mb-10">{member.role}</p>
+                                    {member.bio && (
+                                        <p class="mil-text mil-mb-15" style="font-size: 14px; line-height: 1.4; color: rgba(255,255,255,0.7);">{member.bio}</p>
+                                    )}
                                     <ul class="mil-social-icons mil-center">
                                         {member.social.instagram && (
                                             <li>
@@ -80,6 +83,7 @@ const pageData = pages.team;
         </div>
     </section>
     <!-- team end -->
+
 
     <!-- call to action -->
     <section class="mil-soft-bg">
