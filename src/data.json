@@ -52,7 +52,7 @@
     {
       "id": "branding",
       "title": "Branding and <br>Identity Design",
-      "description": "Our approach blends creativity, strategic thinking, and visual clarity. We dig deep to understand your story, values, and target audience — then translate all of that into a cohesive visual identity that makes you stand out.",
+      "description": "At InPlace Creates, we don't just design logos, we help you build a brand that's memorable, meaningful, and built to grow. Our approach blends creativity, strategic thinking, and visual clarity. We dig deep to understand your story, values, and target audience, then translate all of that into a cohesive visual identity that makes you stand out.",
       "url": "/service/branding",
       "serviceList": [
         "Logo Design",
@@ -63,10 +63,10 @@
       "bannerTitle": "Branding and Identity Design",
       "bannerSubtitle": "Creating powerful brand identities that resonate with your audience and stand out in the marketplace.",
       "approach": {
-        "title": "Our Approach",
+        "title": "Our Approach and Work Specifics",
         "description": [
-          "We believe that great branding starts with understanding. Before we design a single logo or choose a color palette, we dive deep into your business, your values, and your audience.",
-          "Our process combines strategic thinking with creative excellence to develop brand identities that don't just look good—they work hard for your business."
+          "At InPlace Creates, we don't just design logos, we help you build a brand that's memorable, meaningful, and built to grow.",
+          "Our approach blends creativity, strategic thinking, and visual clarity. We dig deep to understand your story, values, and target audience, then translate all of that into a cohesive visual identity that makes you stand out."
         ]
       },
       "includes": {
@@ -87,11 +87,11 @@
         },
         {
           "title": "Visual Identity Systems",
-          "content": "Beyond the logo, we create full visual ecosystems: typography, color palettes, iconography, textures, and grids — all aligned to keep your brand consistent and flexible across media."
+          "content": "Beyond the logo, we create full visual ecosystems: typography, color palettes, iconography, textures, and grids, all aligned to keep your brand consistent and flexible across media."
         },
         {
           "title": "Brand Guidelines",
-          "content": "We provide professionally designed brand manuals that serve as a go-to reference for your team, partners, and collaborators — ensuring everyone uses your brand assets consistently and correctly."
+          "content": "We provide professionally designed brand manuals that serve as a go-to reference for your team, partners, and collaborators, ensuring everyone uses your brand assets consistently and correctly."
         },
         {
           "title": "Strategy & Discovery",
@@ -99,7 +99,7 @@
         },
         {
           "title": "Add-On Services",
-          "content": "Looking to go beyond the core identity? We also offer: Packaging design, Brand launch content (posters, rollouts), Social media starter kits, Presentation templates, Branded merchandise concepts"
+          "content": "Looking to go beyond the core identity? We also offer packaging design, brand launch content (posters, rollouts), social media starter kits, presentation templates, and branded merchandise concepts."
         }
       ]
     },
