@@ -42,8 +42,8 @@
     ],
     "legal": [
       { "name": "Privacy Policy", "url": "/privacy" },
-      { "name": "Terms and conditions", "url": "/terms" },
-      { "name": "Cookie Policy", "url": "/cookies" },
+      { "name": "Terms and Conditions", "url": "/terms" },
+      { "name": "Intellectual Property", "url": "/intellectual-property" },
       { "name": "Careers", "url": "/careers" }
     ]
   },
@@ -611,29 +611,237 @@
       "banner": {
         "title": "Privacy Policy"
       },
-      "content": [
+      "lastUpdated": "June 12, 2025",
+      "intro": "We don't knowingly sell your personal information, but we still have to tell you what we collect from you and how we use it. We may update this policy from time to time. Your continued use of this site indicates your agreement to the updated terms.",
+      "thirdPartyNote": "If you interact with InPlace Creates through an organization or third-party platform (e.g., collaborators, client projects, or job boards), please refer to their privacy practices as well.",
+      "sections": [
         {
-          "title": "Our Commitment to Privacy",
-          "text": "At InPlace Creates, we are committed to protecting your privacy and ensuring that your personal information is handled in a safe and responsible manner."
+          "title": "What Personal Information Do We Collect?",
+          "content": "Depending on how you interact with our website or services, we may collect the following types of personal information:",
+          "list": [
+            "Identity Data – Name, business or personal email, phone number, and company name.",
+            "Technical Data – IP address, browser type, device information, operating system, pages viewed, and other analytical data.",
+            "Contact & Content Data – Information you provide when you reach out via our contact forms, submit project briefs, apply for a role, or subscribe to updates.",
+            "Social Media & Third-Party Data – If you interact with us via Instagram, Facebook, or other linked accounts, we may access publicly available information associated with your profile."
+          ]
         },
         {
-          "title": "Information We Collect",
-          "text": "We may collect personal information such as your name, email address, phone number, and other contact details when you interact with our website or services."
+          "title": "How Do We Collect Your Personal Information?",
+          "content": "We may collect your personal information from the following sources:",
+          "list": [
+            "Direct interactions via contact forms, emails, and applications.",
+            "Analytics tools (e.g., Google Analytics, Meta Pixel) that track website behavior.",
+            "Social media integrations and plugins.",
+            "Project management or client collaboration platforms we use (e.g., Notion, Google Workspace)."
+          ]
         },
         {
-          "title": "How We Use Your Information",
-          "text": "We use the information we collect to provide our services, communicate with you about projects, and improve our website and offerings."
+          "title": "How and Why Do We Use Personal Information?",
+          "content": "To the extent permitted by applicable law, we may use your personal information to:",
+          "list": [
+            "Respond to your inquiries, project briefs, or job applications.",
+            "Deliver, develop, or improve our website, services, and client experience.",
+            "Send you updates or announcements (if you opt-in).",
+            "Maintain internal records and documentation.",
+            "Analyze website performance and understand usage patterns."
+          ]
         },
         {
-          "title": "Information Sharing",
-          "text": "We do not sell, trade, or otherwise transfer your personal information to outside parties without your consent, except as described in this privacy policy."
+          "title": "With Whom Do We Share Personal Information?",
+          "content": "We may share your personal information with the following categories of people:",
+          "list": [
+            "Our internal team – including employees, freelancers, and collaborators under confidentiality agreements.",
+            "Service providers – such as website hosting, cloud storage, analytics tools, and email marketing platforms.",
+            "Legal or regulatory bodies – if required to comply with applicable laws or lawful requests."
+          ],
+          "note": "We do not sell your personal information."
+        },
+        {
+          "title": "How Do We Protect Personal Information?",
+          "content": "We implement technological, physical, and administrative safeguards to protect your personal information from loss, misuse, unauthorized access, disclosure, or destruction. These include:",
+          "list": [
+            "Secure cloud storage with access control.",
+            "Encrypted connections (HTTPS).",
+            "Limited access to sensitive data within our team."
+          ],
+          "note": "While we work to maintain strong security, no system can guarantee 100% protection. If we become aware of a data breach involving your information, we will notify you and any applicable regulators as required by law."
+        },
+        {
+          "title": "Your Privacy Rights",
+          "content": "You may have legal rights to access, update, or erase personal information we have about you, or to object to or restrict its use. To make a request, contact us via the information in the \"Contact Us\" section below. We may require verification before we can process your request.",
+          "additional": [
+            "If you're located in Kenya, the Data Protection Act of 2019 may apply. We will comply with its requirements where relevant.",
+            "To opt out of marketing communications, email us at connect@inplacecreates.com, or follow the instructions in any email or text you receive from us. Even if you opt out, we may still contact you with essential service information."
+          ]
+        },
+        {
+          "title": "Children's Privacy",
+          "content": "We do not knowingly collect personal information from children under the age of 16. If we learn that we have collected such data, we will delete it promptly. Parents or guardians can contact us directly if they believe a child has shared information with us."
+        },
+        {
+          "title": "Data Retention",
+          "content": "We retain personal information for as long as necessary to fulfill the purposes outlined in this policy or for legal or operational requirements. Project inquiries or account data may be retained for the duration of the client relationship and up to 2 years afterward, unless a longer retention period is required by law."
+        },
+        {
+          "title": "Third-Party Websites",
+          "content": "Our website may include links to third-party websites or services (e.g., Instagram, Vimeo, Google Drive). We are not responsible for the privacy practices of those sites. Please review their policies before sharing any personal information with them."
         },
         {
           "title": "Contact Us",
-          "text": "If you have any questions about this Privacy Policy, please contact us at info@inplacecreates.com."
+          "content": "If you have any questions about this Privacy Policy or how we handle your personal information, please contact:",
+          "contact": {
+            "name": "InPlace Creates",
+            "email": "connect@inplacecreates.com",
+            "website": "https://inplacecreates.com"
+          }
         }
-      ],
-      "lastUpdated": "September 2024"
+      ]
+    },
+    "terms": {
+      "title": "Terms and Conditions",
+      "banner": {
+        "title": "Terms and Conditions"
+      },
+      "effectiveDate": "June 12, 2025",
+      "intro": "Welcome to InPlace Creates. These Terms and Conditions govern your use of our services and website. By engaging our services or visiting our site, you agree to abide by the terms outlined below.",
+      "sections": [
+        {
+          "title": "1. Scope of Services",
+          "content": "InPlace Creates provides end-to-end creative services across four core pillars:",
+          "list": [
+            "Branding & Identity Design - logos, visual systems, brand guidelines, and launch assets",
+            "Campaigns & Storytelling - photography, videography, advertising, and social media campaigns",
+            "Digital Experiences (Web & Media) - website design, UX/UI, prototyping, and media production",
+            "Creative Systems & Strategy - organizational workflows, creative consulting, and capacity building"
+          ]
+        },
+        {
+          "title": "2. Engagement & Payment Terms",
+          "list": [
+            "All services begin after written confirmation and/or signing of a proposal or service agreement.",
+            "A 50% deposit is required before project kickoff unless otherwise stated.",
+            "Full payment is due upon project delivery or milestone completion, as agreed.",
+            "Late payments may incur a 10% fee after 14 days past due."
+          ]
+        },
+        {
+          "title": "3. Ownership & Licensing",
+          "list": [
+            "Clients own full rights to final, approved deliverables upon complete payment.",
+            "InPlace retains the right to showcase work in its portfolio, social platforms, and promotional materials unless agreed otherwise in writing.",
+            "Drafts, concepts, and unused work remain the intellectual property of InPlace."
+          ]
+        },
+        {
+          "title": "4. Revisions & Approvals",
+          "list": [
+            "Each service includes up to 2 rounds of revisions unless otherwise specified.",
+            "Additional revisions will be billed at our hourly or project rate.",
+            "Client delays in feedback exceeding 7 days may impact delivery timelines."
+          ]
+        },
+        {
+          "title": "5. Cancellations & Refunds",
+          "list": [
+            "Either party may cancel before final delivery with written notice.",
+            "Deposits are non-refundable once work has commenced.",
+            "InPlace reserves the right to terminate any engagement due to breach, non-payment, or unethical conduct."
+          ]
+        },
+        {
+          "title": "6. Client Responsibilities",
+          "list": [
+            "Clients are responsible for providing accurate, timely information and materials.",
+            "Delays caused by client inaction may result in revised deadlines or additional charges."
+          ]
+        },
+        {
+          "title": "7. Confidentiality",
+          "content": "We respect your confidentiality. Any non-public information shared during a project will be treated with discretion and not shared without consent."
+        },
+        {
+          "title": "8. Limitation of Liability",
+          "content": "InPlace will not be liable for indirect or consequential damages arising from the use of our work. Total liability shall not exceed the amount paid for the service in question."
+        },
+        {
+          "title": "9. Third-Party Tools and Services",
+          "content": "We may use third-party platforms (e.g., Framer, Canva, Google Drive) in delivering work. Clients agree to their terms where applicable."
+        },
+        {
+          "title": "10. Governing Law",
+          "content": "These Terms are governed by the laws of Kenya. Any disputes shall be resolved under Kenyan jurisdiction."
+        },
+        {
+          "title": "11. Updates to Terms",
+          "content": "InPlace may revise these Terms occasionally. Continued use of our services constitutes acceptance of updated terms."
+        }
+      ]
+    },
+    "intellectualProperty": {
+      "title": "Intellectual Property Policy",
+      "banner": {
+        "title": "Intellectual Property Policy"
+      },
+      "effectiveDate": "June 12, 2025",
+      "lastUpdated": "June 12, 2025",
+      "sections": [
+        {
+          "title": "Our Name and Logo",
+          "content": "The InPlace Creates name, logo, and other associated trademarks (including but not limited to slogans, service tags, or visual brand assets) are proprietary to InPlace Creates. To avoid confusion or misuse:",
+          "list": [
+            "These brand elements may not be used to endorse or promote any product, organization, or idea without our express written consent, unless allowed under trademark law (e.g., fair use doctrine).",
+            "For requests regarding the use of our name, logo, or brand assets, please contact us at connect@inplacecreates.com."
+          ]
+        },
+        {
+          "title": "Unsolicited Materials / Ideas",
+          "content": "We do not accept or review unsolicited materials or ideas, including proposals for new services, campaigns, technologies, scripts, brand strategies, or marketing concepts. This policy exists to protect both you and InPlace from disputes if your idea is similar to something we are already developing independently.",
+          "conditions": {
+            "title": "If you still choose to submit anything, you agree to the following:",
+            "list": [
+              "Your submission will be considered non-confidential and non-proprietary.",
+              "InPlace Creates has no obligation to review, respond to, or return your submission.",
+              "InPlace is free to use or discard such content for any reason, including commercial or creative purposes, without obligation or compensation to you."
+            ]
+          },
+          "note": "We encourage creatives and collaborators to contact us through our formal channels when engaging on commissioned or partnership projects."
+        },
+        {
+          "title": "Copyright Infringement",
+          "content": "InPlace Creates respects intellectual property rights and expects others to do the same. If you believe any material on our website or published work infringes your copyright, please notify us with the following:",
+          "requirements": [
+            "Your name and contact information",
+            "The material in question, with direct link or reference",
+            "Proof of copyright ownership",
+            "A statement asserting good faith belief that the use is unauthorized",
+            "A declaration, under penalty of perjury, that your notice is accurate"
+          ],
+          "contactInfo": "Please send all notices to: connect@inplacecreates.com",
+          "response": "We will promptly review valid claims and take appropriate action, including removal of content if necessary."
+        },
+        {
+          "title": "Use of Our Work",
+          "content": "All original work produced by InPlace Creates, including logos, designs, photos, videos, strategies, and web experiences, remains our intellectual property until the client has fulfilled all contractual and payment obligations. Unless stated otherwise in your agreement:",
+          "list": [
+            "Final deliverables may be licensed to clients for use as defined in the project scope.",
+            "Drafts, concepts, and exploratory designs remain the property of InPlace.",
+            "Reuse or modification of InPlace work without permission is prohibited."
+          ]
+        },
+        {
+          "title": "Third-Party Content",
+          "content": "If you encounter third-party content on our website (e.g., embedded fonts, icons, or media), such content is subject to their respective licenses. We do our best to credit and use content under proper usage terms."
+        },
+        {
+          "title": "Contact Us",
+          "content": "For any questions about this policy, including IP use, content ownership, or licensing, please reach out to:",
+          "contact": {
+            "name": "InPlace Creates",
+            "email": "connect@inplacecreates.com",
+            "website": "https://inplacecreates.com"
+          }
+        }
+      ]
     },
     "reviews": {
       "title": "Customer Voices: Hear What They Say!",

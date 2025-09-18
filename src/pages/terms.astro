@@ -3,7 +3,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 import siteData from '../data.json';
 
 const { pages, company } = siteData;
-const pageData = pages.privacy;
+const pageData = pages.terms;
 ---
 
 <BaseLayout title={`${pageData.title} | ${company.name}`}>
@@ -16,35 +16,35 @@ const pageData = pages.privacy;
             <div class="container">
                 <ul class="mil-breadcrumbs mil-mb-60">
                     <li><a href="/">Homepage</a></li>
-                    <li><a href="/privacy">Privacy Policy</a></li>
+                    <li><a href="/terms">Terms and Conditions</a></li>
                 </ul>
-                <h1 class="mil-mb-60">{pageData.title}</h1>
-                <p class="mil-mb-30">Last updated: {pageData.lastUpdated}</p>
+                <h1 class="mil-mb-60">Terms and <span class="mil-thin">Conditions</span></h1>
+                <p class="mil-mb-30">Effective Date: {pageData.effectiveDate}</p>
             </div>
         </div>
     </div>
     <!-- banner end -->
 
-    <!-- privacy content -->
+    <!-- terms content -->
     <section>
         <div class="container mil-p-120-60">
             <div class="row">
                 <div class="col-lg-3">
                     <div class="mil-sidebar mil-mb-60">
                         <div class="mil-sidebar-frame">
-                            <h4 class="mil-up mil-mb-30">Quick Navigation</h4>
+                            <h4 class="mil-up mil-mb-30">Table of Contents</h4>
                             <ul class="mil-sidebar-menu">
                                 {pageData.sections.map((section, index) => (
                                     <li class="mil-up">
                                         <a href={`#section-${index}`} class="mil-sidebar-link">
-                                            {section.title.replace(/^\d+\.\s*/, '')}
+                                            {section.title}
                                         </a>
                                     </li>
                                 ))}
                             </ul>
                             <div class="mil-sidebar-info mil-mt-30" style="background: #f8f9fa; padding: 20px; border-radius: 8px;">
                                 <p style="margin: 0; font-size: 14px; color: #6c757d;">
-                                    <strong>Last Updated:</strong> {pageData.lastUpdated}
+                                    <strong>Effective:</strong> {pageData.effectiveDate}
                                 </p>
                             </div>
                         </div>
@@ -52,15 +52,12 @@ const pageData = pages.privacy;
                 </div>
                 <div class="col-lg-9">
                     <div class="mil-publication-content">
-                        <div class="mil-text mil-up mil-mb-40">
+                        <div class="mil-text mil-up mil-mb-60">
                             <p class="mil-text-lg">{pageData.intro}</p>
-                        </div>
-                        <div class="mil-alert mil-up mil-mb-60" style="background: #fff3cd; border: 1px solid #ffeaa7; border-radius: 8px; padding: 20px;">
-                            <p><strong>Important:</strong> {pageData.thirdPartyNote}</p>
                         </div>
                         
                         {pageData.sections.map((section, index) => (
-                            <div id={`section-${index}`} class="mil-privacy-section mil-mb-50">
+                            <div id={`section-${index}`} class="mil-terms-section mil-mb-50">
                                 <div class="mil-section-card" style="background: white; border: 1px solid #e9ecef; border-radius: 12px; padding: 30px; box-shadow: 0 2px 10px rgba(0,0,0,0.05);">
                                     <div class="mil-section-header mil-mb-20">
                                         <h3 class="mil-up" style="color: #333; margin-bottom: 15px;">{section.title}</h3>
@@ -83,25 +80,6 @@ const pageData = pages.privacy;
                                             </ul>
                                         </div>
                                     )}
-                                    {section.note && (
-                                        <div class="mil-up mil-mb-20" style="background: #f8f9fa; padding: 15px; border-left: 4px solid #ff9800; border-radius: 4px; margin-top: 20px;">
-                                            <p style="margin: 0; font-weight: 600;">{section.note}</p>
-                                        </div>
-                                    )}
-                                    {section.additional && (
-                                        <div class="mil-mb-20" style="margin-top: 20px;">
-                                            {section.additional.map(item => (
-                                                <p class="mil-up mil-mb-15" style="padding-left: 20px; border-left: 2px solid #e9ecef; color: #666;">{item}</p>
-                                            ))}
-                                        </div>
-                                    )}
-                                    {section.contact && (
-                                        <div class="mil-contact-card mil-up mil-mt-30" style="background: linear-gradient(135deg, #ff9800 0%, #ff5722 100%); color: white; padding: 25px; border-radius: 8px;">
-                                            <h4 class="mil-mb-15" style="color: white; margin: 0 0 15px 0;">{section.contact.name}</h4>
-                                            <p class="mil-mb-10" style="margin: 0 0 10px 0;">📧 <a href={`mailto:${section.contact.email}`} style="color: white; text-decoration: underline;">{section.contact.email}</a></p>
-                                            <p style="margin: 0;">🌐 <a href={section.contact.website} target="_blank" data-no-swup style="color: white; text-decoration: underline;">{section.contact.website}</a></p>
-                                        </div>
-                                    )}
                                 </div>
                             </div>
                         ))}
@@ -110,5 +88,5 @@ const pageData = pages.privacy;
             </div>
         </div>
     </section>
-    <!-- privacy content end -->
+    <!-- terms content end -->
 </BaseLayout>

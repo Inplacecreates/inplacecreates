@@ -1,0 +1,145 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import siteData from '../data.json';
+
+const { pages, company } = siteData;
+const pageData = pages.intellectualProperty;
+---
+
+<BaseLayout title={`${pageData.title} | ${company.name}`}>
+    <!-- banner -->
+    <div class="mil-inner-banner">
+        <div class="mil-banner-content mil-up">
+            <div class="mil-animation-frame">
+                <div class="mil-animation mil-position-4 mil-dark mil-scale" data-value-1="6" data-value-2="1.4"></div>
+            </div>
+            <div class="container">
+                <ul class="mil-breadcrumbs mil-mb-60">
+                    <li><a href="/">Homepage</a></li>
+                    <li><a href="/intellectual-property">Intellectual Property</a></li>
+                </ul>
+                <h1 class="mil-mb-60">Intellectual Property <span class="mil-thin">Policy</span></h1>
+                <p class="mil-mb-30">Effective Date: {pageData.effectiveDate} | Last Updated: {pageData.lastUpdated}</p>
+            </div>
+        </div>
+    </div>
+    <!-- banner end -->
+
+    <!-- IP content -->
+    <section>
+        <div class="container mil-p-120-60">
+            <div class="row">
+                <div class="col-lg-3">
+                    <div class="mil-sidebar mil-mb-60">
+                        <div class="mil-sidebar-frame">
+                            <h4 class="mil-up mil-mb-30">Policy Sections</h4>
+                            <ul class="mil-sidebar-menu">
+                                {pageData.sections.map((section, index) => (
+                                    <li class="mil-up">
+                                        <a href={`#section-${index}`} class="mil-sidebar-link">
+                                            {section.title}
+                                        </a>
+                                    </li>
+                                ))}
+                            </ul>
+                            <div class="mil-sidebar-info mil-mt-30" style="background: #f8f9fa; padding: 20px; border-radius: 8px;">
+                                <p style="margin: 0; font-size: 14px; color: #6c757d;">
+                                    <strong>Effective:</strong> {pageData.effectiveDate}<br>
+                                    <strong>Updated:</strong> {pageData.lastUpdated}
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-9">
+                    <div class="mil-publication-content">
+                        <div class="mil-text mil-up mil-mb-60">
+                            <p class="mil-text-lg">Our comprehensive intellectual property policy outlines how we protect our work and respect the rights of others in the creative industry.</p>
+                        </div>
+                        
+                        {pageData.sections.map((section, index) => (
+                            <div id={`section-${index}`} class="mil-ip-section mil-mb-50">
+                                <div class="mil-section-card" style="background: white; border: 1px solid #e9ecef; border-radius: 12px; padding: 30px; box-shadow: 0 2px 10px rgba(0,0,0,0.05);">
+                                    <div class="mil-section-header mil-mb-20">
+                                        <h3 class="mil-up" style="color: #333; margin-bottom: 15px;">{section.title}</h3>
+                                        <div style="width: 50px; height: 3px; background: linear-gradient(90deg, #ff9800, #ff5722); border-radius: 2px;"></div>
+                                    </div>
+                                    {section.content && (
+                                        <p class="mil-up mil-mb-20" style="font-size: 16px; line-height: 1.6; color: #555;">{section.content}</p>
+                                    )}
+                                    {section.list && (
+                                        <div class="mil-up">
+                                            <ul style="list-style: none; padding: 0; margin: 0;">
+                                                {section.list.map((item, idx) => (
+                                                    <li style="padding: 12px 0; border-bottom: 1px solid #f0f0f0; position: relative; padding-left: 30px;">
+                                                        <div style="position: absolute; left: 0; top: 18px; width: 20px; height: 20px; background: linear-gradient(135deg, #ff9800, #ff5722); color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 12px; font-weight: bold;">
+                                                            {idx + 1}
+                                                        </div>
+                                                        <span style="color: #444; line-height: 1.5;">{item}</span>
+                                                    </li>
+                                                ))}
+                                            </ul>
+                                        </div>
+                                    )}
+                                    {section.conditions && (
+                                        <div class="mil-conditions-box mil-mb-20" style="background: #fff3cd; border: 1px solid #ffeaa7; border-radius: 8px; padding: 20px; margin-top: 20px;">
+                                            <h4 class="mil-up mil-mb-15" style="color: #856404; margin: 0 0 15px 0;">{section.conditions.title}</h4>
+                                            <ul style="list-style: none; padding: 0; margin: 0;">
+                                                {section.conditions.list.map((item, idx) => (
+                                                    <li style="padding: 8px 0; color: #856404; position: relative; padding-left: 30px;">
+                                                        <div style="position: absolute; left: 0; top: 12px; width: 16px; height: 16px; background: #856404; color: #fff3cd; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 10px; font-weight: bold;">
+                                                            {idx + 1}
+                                                        </div>
+                                                        {item}
+                                                    </li>
+                                                ))}
+                                            </ul>
+                                        </div>
+                                    )}
+                                    {section.requirements && (
+                                        <div class="mil-requirements-section mil-mb-20" style="margin-top: 20px;">
+                                            <h4 class="mil-up mil-mb-15" style="color: #333; margin-bottom: 15px;">Copyright Infringement Claims - Required Information:</h4>
+                                            <ul style="list-style: none; padding: 0; margin: 0;">
+                                                {section.requirements.map((item, idx) => (
+                                                    <li style="padding: 12px 0; border-bottom: 1px solid #f0f0f0; position: relative; padding-left: 30px;">
+                                                        <div style="position: absolute; left: 0; top: 18px; width: 20px; height: 20px; background: linear-gradient(135deg, #ff9800, #ff5722); color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 12px; font-weight: bold;">
+                                                            {idx + 1}
+                                                        </div>
+                                                        <span style="color: #444; line-height: 1.5;">{item}</span>
+                                                    </li>
+                                                ))}
+                                            </ul>
+                                        </div>
+                                    )}
+                                    {section.contactInfo && (
+                                        <div class="mil-up mil-mb-20" style="background: #f8f9fa; padding: 15px; border-left: 4px solid #ff9800; border-radius: 4px; margin-top: 20px;">
+                                            <p style="margin: 0; font-weight: 600;">{section.contactInfo}</p>
+                                        </div>
+                                    )}
+                                    {section.response && (
+                                        <div class="mil-up mil-mb-20" style="background: #d1ecf1; border: 1px solid #bee5eb; border-radius: 4px; padding: 15px; margin-top: 15px;">
+                                            <p style="margin: 0; color: #0c5460; font-style: italic;">{section.response}</p>
+                                        </div>
+                                    )}
+                                    {section.note && (
+                                        <div class="mil-up mil-mb-20" style="background: #f8f9fa; padding: 15px; border-left: 4px solid #6c757d; border-radius: 4px; margin-top: 15px;">
+                                            <p style="margin: 0; color: #6c757d; font-style: italic;">{section.note}</p>
+                                        </div>
+                                    )}
+                                    {section.contact && (
+                                        <div class="mil-contact-card mil-up mil-mt-30" style="background: linear-gradient(135deg, #ff9800 0%, #ff5722 100%); color: white; padding: 25px; border-radius: 8px; margin-top: 20px;">
+                                            <h4 style="color: white; margin-bottom: 15px;">{section.contact.name}</h4>
+                                            <p style="margin-bottom: 10px;">📧 <a href={`mailto:${section.contact.email}`} style="color: white; text-decoration: underline;">{section.contact.email}</a></p>
+                                            <p style="margin: 0;">🌐 <a href={section.contact.website} target="_blank" data-no-swup style="color: white; text-decoration: underline;">{section.contact.website}</a></p>
+                                        </div>
+                                    )}
+                                </div>
+                            </div>
+                        ))}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- IP content end -->
+</BaseLayout>
