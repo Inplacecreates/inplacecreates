@@ -30,7 +30,6 @@
   "navigation": {
     "main": [
       { "name": "Homepage", "url": "/", "active": true },
-      { "name": "Portfolio", "url": "/portfolio" },
       { "name": "Services", "url": "/services" },
       { "name": "Team", "url": "/team" },
       { "name": "Careers", "url": "/careers" },
@@ -38,7 +37,6 @@
     ],
     "footer": [
       { "name": "Home", "url": "/" },
-      { "name": "Portfolio", "url": "/portfolio" },
       { "name": "Services", "url": "/services" },
       { "name": "Contact", "url": "/contact" }
     ],
@@ -489,22 +487,22 @@
     {
       "company": "Dayspring Ventures",
       "industry": "Construction Company",
-      "review": "This creative agency stands out with their exceptional talent and expertise. Their ability to think outside the box and bring unique ideas to life is truly impressive. With meticulous attention to detail, they consistently deliver visually stunning and impactful work."
+      "review": "This creative agency stands out with their exceptional talent and expertise. ... They consistently deliver visually stunning and impactful work."
     },
     {
-      "company": "Petrus Consultancy Services",
+      "company": "Petrus Consultancy",
       "industry": "Admin Consultancy",
-      "review": "I had the pleasure of working with this creative agency, and I must say, they truly impressed me. They consistently think outside the box, resulting in impressive and impactful work. I highly recommend this agency for their consistent delivery of exceptional creative solutions."
+      "review": "They truly impressed me. They consistently think outside the box, resulting in impressive and impactful work."
     },
     {
       "company": "Kikao",
       "industry": "Engineering Company",
-      "review": "This creative agency stands out with their exceptional talent and expertise. Their ability to think outside the box and bring unique ideas to life is truly impressive. With meticulous attention to detail, they consistently deliver visually stunning and impactful work."
+      "review": "Their ability to think outside the box and bring unique ideas to life is truly impressive."
     },
     {
       "company": "Pumpzen",
       "industry": "Engineering Company",
-      "review": "I had the pleasure of working with this creative agency, and I must say, they truly impressed me. They consistently think outside the box, resulting in impressive and impactful work. I highly recommend this agency for their consistent delivery of exceptional creative solutions."
+      "review": "They truly impressed me. I highly recommend this agency for their consistent delivery of exceptional creative solutions."
     }
   ],
   "about": {
