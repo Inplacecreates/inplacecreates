@@ -273,7 +273,8 @@
     {
       "name": "Kelvin",
       "role": "Creative Lead",
-      "bio": "Passionate creative director with a keen eye for innovative design solutions. Kelvin leads our creative vision and ensures every project exceeds client expectations through strategic thinking and artistic excellence.",
+      "specialties": "Branding & Identity Design | Digital Experiences | Systems Strategy",
+      "bio": "Kelvin sits at the intersection of creativity and structure. He shapes vision, builds brands, and designs campaigns that resonate while also engineering the systems that make them sustainable. From identity design to digital products, from storytelling arcs to organizational workflows, he ensures every project carries both imagination and intention.",
       "image": "/img/faces/kelvinteamimage.png",
       "social": {
         "instagram": "https://www.instagram.com/keitu___k2",
@@ -283,8 +284,9 @@
     },
     {
       "name": "Tracy",
-      "role": "Creative Projects",
-      "bio": "Detail-oriented creative professional who brings ideas to life through meticulous project execution. Tracy specializes in transforming concepts into compelling visual narratives that connect with audiences.",
+      "role": "Creative Projects Manager",
+      "specialties": "Campaigns & Storytelling | Creative Systems & Strategy",
+      "bio": "The link between vision and delivery. Tracy manages day-to-day production, project timelines, and cross-team coordination. From briefs to final rollout, she ensures creative workflows are seamless, strategic, and always on schedule.",
       "image": "/img/faces/tracyteamimage.png",
       "social": {
         "instagram": "https://www.instagram.com/kui_gitau/",
@@ -293,8 +295,9 @@
     },
     {
       "name": "Mercy",
-      "role": "Creative Projects",
-      "bio": "Versatile creative talent with expertise in visual storytelling and brand communications. Mercy combines artistic flair with strategic thinking to deliver projects that resonate with target audiences.",
+      "role": "Creative Producer",
+      "specialties": "Branding & Identity Design | Campaigns & Storytelling",
+      "bio": "Mercy is the pulse behind our productions, transforming concepts into crafted executions. She blends intuition with structure, guiding teams and refining every output. From campaigns to brand assets, she ensures work is intentional, stylish, and human.",
       "image": "/img/faces/mercyteamimage.png",
       "social": {
         "behance": "#",
@@ -305,7 +308,8 @@
     {
       "name": "Elvis",
       "role": "Code & Experience Designer",
-      "bio": "Full-stack developer and UX specialist who crafts seamless digital experiences. Elvis bridges the gap between design and technology, ensuring every interface is both beautiful and functional.",
+      "specialties": "Digital Experiences (Web & Media)",
+      "bio": "Elvis builds the backbone of our digital experiences. From sleek front-ends to responsive, functional code, he ensures every website is fast, secure, and effortless to use. Quiet in presence but loud in impact, Elvis translates design into working digital magic.",
       "image": "/img/faces/elvisteamimage.png",
       "social": {
         "linkedin": "https://www.linkedin.com/in/elvis-wangari/",
@@ -313,9 +317,10 @@
       }
     },
     {
-      "name": "Cess",
-      "role": "Creative Projects",
-      "bio": "Emerging creative talent with fresh perspectives and innovative approaches to design challenges. Cess brings energy and creativity to every project, contributing unique solutions that push creative boundaries.",
+      "name": "Cecilia",
+      "role": "Data & Insights Lead",
+      "specialties": "Analytics & Measurement | Dashboards & Experimentation",
+      "bio": "Cecilia turns data into direction. She designs measurement frameworks, instruments analytics, and builds clear Looker/Sheets dashboards that teams actually use. From funnel and cohort analysis to content and campaign performance, she transforms signals into simple next steps. Cecilia also sets learning agendas, runs A/B tests, and maintains clean UTM/metadata standards closing the loop between creative, web experience, and business outcomes.",
       "image": "/img/faces/cessteamimage.png",
       "social": {
         "instagram": "#",
