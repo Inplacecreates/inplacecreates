@@ -1,0 +1,153 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import siteData from '../data.json';
+
+const { pages, company } = siteData;
+const pageData = pages.careers;
+---
+
+<BaseLayout title={`${pageData.title} | ${company.name}`}>
+    <!-- banner -->
+    <div class="mil-inner-banner">
+        <div class="mil-banner-content mil-up">
+            <div class="mil-animation-frame">
+                <div class="mil-animation mil-position-4 mil-dark mil-scale" data-value-1="6" data-value-2="1.4"></div>
+            </div>
+            <div class="container">
+                <ul class="mil-breadcrumbs mil-mb-60">
+                    {pageData.banner.breadcrumbs.map((crumb, index) => (
+                        <li><a href={crumb.url}>{crumb.name}</a></li>
+                    ))}
+                </ul>
+                <h1 class="mil-mb-60">Create <span class="mil-thin">Boldly.</span><br> Life at <span class="mil-thin">InPlace</span></h1>
+                <a href="#careers" class="mil-link mil-dark mil-arrow-place mil-down-arrow">
+                    <span>Our opportunities</span>
+                </a>
+            </div>
+        </div>
+    </div>
+    <!-- banner end -->
+
+    <!-- careers description -->
+    <section class="mil-soft-bg">
+        <div class="container mil-p-120-60">
+            <div class="row justify-content-center">
+                <div class="col-lg-10">
+                    <div class="mil-center mil-up mil-mb-60">
+                        <p class="mil-text-lg" style="line-height: 1.6; color: rgba(0,0,0,0.8);">
+                            {pageData.intro.description}
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- careers description end -->
+
+    <!-- what we look for -->
+    <section id="careers">
+        <div class="container mil-p-120-60">
+            <div class="row justify-content-center">
+                <div class="col-lg-8">
+                    <div class="mil-center mil-mb-90">
+                        <h2 class="mil-up mil-mb-60">{pageData.whatWeLookFor.title}</h2>
+                        <p class="mil-up mil-mb-30">{pageData.whatWeLookFor.description}</p>
+                        
+                        <ul class="mil-list mil-dark mil-center mil-mb-60" style="text-align: left; display: inline-block;">
+                            {pageData.whatWeLookFor.qualities.map(quality => (
+                                <li class="mil-up">{quality}</li>
+                            ))}
+                        </ul>
+                        
+                        <p class="mil-up">{pageData.whatWeLookFor.note}</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- what we look for end -->
+
+    <!-- open roles -->
+    <section class="mil-soft-bg">
+        <div class="container mil-p-120-90">
+            <div class="row justify-content-center">
+                <div class="col-lg-10">
+                    <div class="mil-center mil-mb-90">
+                        <h2 class="mil-up mil-mb-60">{pageData.openRoles.title}</h2>
+                        <p class="mil-up mil-mb-60">{pageData.openRoles.description}</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="row">
+                {pageData.openRoles.categories.map((category, index) => (
+                    <div class="col-sm-6 col-lg-6">
+                        <div class="mil-up mil-mb-60">
+                            <div style="background: #fff; padding: 40px 30px; border-radius: 12px; box-shadow: 0 8px 25px rgba(0,0,0,0.08); height: 100%; position: relative; overflow: hidden; transition: all 0.3s ease;">
+                                <div style="position: absolute; top: 0; left: 0; width: 4px; height: 100%; background: linear-gradient(45deg, #ff9800, #ff5722);"></div>
+                                <div style="margin-left: 20px;">
+                                    <h4 class="mil-muted mil-mb-30" style="color: #333; font-size: 20px; font-weight: 600; line-height: 1.3;">
+                                        {category.title}
+                                    </h4>
+                                    <div class="mil-roles-list">
+                                        {category.roles.map(role => (
+                                            <div class="mil-role-item" style="display: flex; align-items: center; margin-bottom: 16px; padding: 12px 0; border-bottom: 1px solid rgba(0,0,0,0.08);">
+                                                <div style="width: 8px; height: 8px; background: #ff9800; border-radius: 50%; margin-right: 16px; flex-shrink: 0;"></div>
+                                                <span style="color: rgba(0,0,0,0.8); font-size: 15px; line-height: 1.4; font-weight: 500;">
+                                                    {role}
+                                                </span>
+                                            </div>
+                                        ))}
+                                    </div>
+                                    <div style="margin-top: 25px; padding-top: 20px; border-top: 1px solid rgba(0,0,0,0.08);">
+                                        <span style="color: #ff9800; font-size: 13px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.5px;">
+                                            {category.roles.length} {category.roles.length === 1 ? 'Position' : 'Positions'} Available
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                ))}
+            </div>
+        </div>
+    </section>
+    <!-- open roles end -->
+
+    <!-- no vacancy section -->
+    <section>
+        <div class="container mil-p-120-60">
+            <div class="row justify-content-center">
+                <div class="col-lg-8">
+                    <div class="mil-center mil-mb-90">
+                        <h3 class="mil-up mil-mb-30">{pageData.noVacancy.title}</h3>
+                        <p class="mil-up mil-text-lg" style="line-height: 1.6; color: rgba(0,0,0,0.7);">
+                            {pageData.noVacancy.description}
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- no vacancy section end -->
+
+    <!-- call to action -->
+    <section class="mil-soft-bg">
+        <div class="container mil-p-120-120">
+            <div class="row">
+                <div class="col-lg-10">
+                    <span class="mil-suptitle mil-suptitle-right mil-suptitle-dark mil-up">Ready to join our creative team? We'd love to <br> hear from you and see what you'd bring.</span>
+                </div>
+            </div>
+            <div class="mil-center">
+                <h2 class="mil-up mil-mb-60">{pageData.application.title.replace('Ready to Join Us?', 'Ready to join our')} <span class="mil-thin">creative</span> team? <br> We'd <span class="mil-thin">love to hear</span> from you</h2>
+                <div class="mil-up">
+                    <a href={pageData.application.formUrl} target="_blank" rel="noopener noreferrer" class="mil-button mil-arrow-place">
+                        <span>{pageData.application.buttonText}</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- call to action end -->
+</BaseLayout>

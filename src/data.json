@@ -33,6 +33,7 @@
       { "name": "Portfolio", "url": "/portfolio" },
       { "name": "Services", "url": "/services" },
       { "name": "Team", "url": "/team" },
+      { "name": "Careers", "url": "/careers" },
       { "name": "Contact", "url": "/contact" }
     ],
     "footer": [
@@ -639,6 +640,74 @@
     "reviews": {
       "title": "Customer Voices: Hear What They Say!",
       "subtitle": "Customer reviews are a valuable source of information for both businesses and consumers."
+    },
+    "careers": {
+      "title": "Careers",
+      "subtitle": "Join our team of creative minds and help us build the future of design and digital experiences.",
+      "banner": {
+        "title": "Create Boldly. Life at InPlace.",
+        "description": "We're always on the lookout for curious, driven minds to join us.",
+        "breadcrumbs": [
+          { "name": "Homepage", "url": "/" },
+          { "name": "Careers", "url": "/careers" }
+        ]
+      },
+      "intro": {
+        "description": "At InPlace Creates, we believe good design can shift culture, change conversations, and shape the future. We're a creative studio building brands, experiences, systems, and stories. We're always on the lookout for curious, driven minds to join us."
+      },
+      "whatWeLookFor": {
+        "title": "What We Look For",
+        "description": "We collaborate with designers, developers, writers, editors, filmmakers, and strategic thinkers who are:",
+        "qualities": [
+          "Passionate about storytelling, design, and systems",
+          "Comfortable working remotely or in hybrid setups",
+          "Eager to learn and push creative boundaries",
+          "Able to collaborate with clients, teams, and communities"
+        ],
+        "note": "Whether you're just starting out or you've been in the game for years, if your heart's in it, we'd love to hear from you."
+      },
+      "openRoles": {
+        "title": "Open Roles",
+        "description": "We regularly onboard freelance and project-based creatives across our four pillars:",
+        "categories": [
+          {
+            "title": "Branding & Identity Design",
+            "roles": ["Brand & Identity Designers", "Graphic Designers"]
+          },
+          {
+            "title": "Campaigns & Storytelling",
+            "roles": [
+              "Photographers & Videographers",
+              "Editors & Motion Artists",
+              "Social Media & Content Strategists"
+            ]
+          },
+          {
+            "title": "Digital Experiences (Web & Media)",
+            "roles": [
+              "UI/UX Designers",
+              "Frontend Developers (React / Framer / Webflow)"
+            ]
+          },
+          {
+            "title": "Creative Systems & Strategy",
+            "roles": [
+              "Creative Project Managers",
+              "Consultants & Workflow Designers"
+            ]
+          }
+        ]
+      },
+      "noVacancy": {
+        "title": "No Vacancy? No Problem.",
+        "description": "If you're interested in working with us, even if a specific role isn't listed, introduce yourself anyway. Great talent doesn't always wait for a vacancy."
+      },
+      "application": {
+        "title": "Ready to Join Us?",
+        "description": "We'd love to hear from you. Tell us about your work, your passion, and what you'd bring to our team.",
+        "formUrl": "https://forms.gle/phQbbE7KafYg7Fdx8",
+        "buttonText": "Apply Now"
+      }
     }
   }
 }
