@@ -52,17 +52,17 @@
   "services": [
     {
       "id": "branding",
-      "title": "Branding and <br>Identity Design",
-      "description": "At InPlace Creates, we don't just design logos, we help you build a brand that's memorable, meaningful, and built to grow. Our approach blends creativity, strategic thinking, and visual clarity. We dig deep to understand your story, values, and target audience, then translate all of that into a cohesive visual identity that makes you stand out.",
+      "title": "Branding & <br>Identity Design",
+      "description": "We don't just design logos — we build brand worlds. From visual identity to voice, we help businesses craft a brand that feels human, bold, and instantly recognizable. Whether you're starting from scratch or evolving your look, we turn your values into visuals that stick.",
       "url": "/service/branding",
       "serviceList": [
-        "Logo Design",
-        "Visual Identity Systems",
-        "Brand Guidelines",
-        "Strategy & Discovery"
+        "Brand strategy & discovery sessions",
+        "Logo & visual identity design",
+        "Typography and color systems",
+        "Brand guidelines & usage assets"
       ],
-      "bannerTitle": "Branding and Identity Design",
-      "bannerSubtitle": "Creating powerful brand identities that resonate with your audience and stand out in the marketplace.",
+      "bannerTitle": "Branding & Identity Design",
+      "bannerSubtitle": "Building brand worlds that feel human, bold, and instantly recognizable.",
       "approach": {
         "title": "Our Approach and Work Specifics",
         "description": [
@@ -71,14 +71,13 @@
         ]
       },
       "includes": {
-        "title": "What's Included",
+        "title": "Core Elements We Offer",
         "items": [
-          "Brand Strategy & Positioning",
-          "Logo Design & Visual Identity",
-          "Color Palette & Typography",
-          "Business Card & Stationery Design",
-          "Brand Guidelines Document",
-          "Social Media Assets"
+          "Brand strategy & discovery sessions",
+          "Logo & visual identity design",
+          "Typography and color systems",
+          "Brand guidelines & usage assets",
+          "Add-ons: packaging, launch kits, social media starter kits, templates"
         ]
       },
       "accordions": [
@@ -100,172 +99,173 @@
         },
         {
           "title": "Add-On Services",
-          "content": "Looking to go beyond the core identity? We also offer packaging design, brand launch content (posters, rollouts), social media starter kits, presentation templates, and branded merchandise concepts."
+          "content": "Looking to go beyond the core identity? We also offer: Packaging design, Brand launch content (posters, rollouts), Social media starter kits, Presentation templates, Branded merchandise concepts"
         }
       ]
     },
     {
-      "id": "web",
-      "title": "Website Design <br>and Development",
-      "description": "Our approach combines clean aesthetics with functional thinking. From structure and usability to SEO and speed, every website we build is made to serve your goals, tell your story, and grow with your brand",
-      "url": "/service/web",
+      "id": "campaigns",
+      "title": "Campaigns & <br>Storytelling",
+      "description": "We turn creative direction into campaigns that move people. From concept to final execution, we craft stories designed for social feeds, billboards, and everywhere in between. Great ideas, powerful visuals, and real impact.",
+      "url": "/service/campaigns",
       "serviceList": [
-        "UX Audits",
-        "Design Thinking & UI Systems",
-        "Wireframing & Prototyping",
-        "Performance & SEO Optimization",
-        "Web Management & Support"
+        "Creative direction & scripting",
+        "Branded video/photo production",
+        "Social media campaigns & storytelling arcs",
+        "Posters, print, and out-of-home design",
+        "Campaign rollout strategy & management"
       ],
-      "bannerTitle": "Website Design and Development",
-      "bannerSubtitle": "Building beautiful, functional websites that drive results and deliver exceptional user experiences.",
+      "bannerTitle": "Campaigns & Storytelling",
+      "bannerSubtitle": "Crafting stories and campaigns that move people across all platforms and touchpoints.",
       "approach": {
-        "title": "Our Process",
+        "title": "Our Approach and Work Specifics",
         "description": [
-          "We create websites that are not only beautiful but also functional, fast, and optimized for search engines. Every site we build is custom-designed to meet your specific needs.",
-          "From concept to launch, we handle every aspect of your web presence with attention to detail and focus on user experience."
+          "At InPlace Creates, we build campaigns that don't just catch eyes, they tell stories and move people.",
+          "Our approach combines creative direction, visual strategy, and content production to bring bold ideas to life across digital and print platforms. We align vision, audience, and execution to deliver campaigns that make a real impact."
         ]
       },
       "includes": {
-        "title": "Technologies We Use",
+        "title": "Campaign Work Includes",
         "items": [
-          "Modern Frontend Frameworks",
-          "Responsive Design",
-          "Content Management Systems",
-          "E-commerce Solutions",
-          "SEO Optimization",
-          "Performance Optimization"
+          "Creative direction & scripting",
+          "Branded video/photo production",
+          "Social media campaigns & storytelling arcs",
+          "Posters, print, and out-of-home design",
+          "Campaign rollout strategy & management"
         ]
       },
       "accordions": [
         {
-          "title": "UX Audits",
-          "content": "We review your current website (or design idea) through the lens of user experience. We identify pain points, drop-off areas, and technical gaps then suggest clear, actionable fixes that boost usability and conversions."
-        },
-        {
-          "title": "Design Thinking & UI Systems",
-          "content": "We use design thinking to approach problems from the user's perspective. Every button, layout, and flow is planned with intention. Paired with thoughtful typography and color systems, your site becomes both beautiful and intuitive."
-        },
-        {
-          "title": "Wireframing & Prototyping",
-          "content": "Before the build, we blueprint your website's architecture using wireframes. These help you visualize structure, flow, and layout — ensuring we align on what your users see and do before coding begins."
-        },
-        {
-          "title": "Performance & SEO Optimization",
-          "content": "Every website we deliver is optimized for speed, search visibility, and mobile performance. We use modern techniques and tools to ensure your site loads fast, ranks well, and provides a smooth experience across all devices."
-        },
-        {
-          "title": "Web Management & Support",
-          "content": "Post-launch, we offer ongoing support: updates, security monitoring, performance checks, and content updates. Your website stays current, secure, and performing at its best."
-        }
-      ]
-    },
-    {
-      "id": "advertising",
-      "title": "Advertising and <br>Marketing Campaigns",
-      "description": "Our approach combines creative direction, visual strategy, and content production to bring bold ideas to life across digital and print platforms. We work closely with clients to align vision, audience, and execution — producing campaigns that deliver real impact, not just noise.",
-      "url": "/service/advertising",
-      "serviceList": [
-        "Creative Direction & Campaign Concepting",
-        "Content Production",
-        "Social Media Campaigns",
-        "Print, Posters & OOH",
-        "Campaign Strategy & Management"
-      ],
-      "bannerTitle": "Advertising and Marketing Campaigns",
-      "bannerSubtitle": "Creating impactful campaigns that cut through the noise and deliver measurable results for your business.",
-      "approach": {
-        "title": "Campaign Strategy",
-        "description": [
-          "We create advertising campaigns that cut through the noise and connect with your audience. Our approach combines creative storytelling with strategic planning to deliver measurable results.",
-          "From concept development to execution, we ensure every campaign element works together to achieve your business goals."
-        ]
-      },
-      "includes": {
-        "title": "Campaign Services",
-        "items": [
-          "Creative Concept Development",
-          "Digital Advertising",
-          "Print Marketing Materials",
-          "Social Media Campaigns",
-          "Video Content Creation",
-          "Campaign Analytics & Reporting"
-        ]
-      },
-      "accordions": [
-        {
-          "title": "Creative Direction & Campaign Concepting",
-          "content": "Every campaign begins with a strong concept. We collaborate with you to define a clear message, build a visual language around it, and ensure your brand story shines through."
+          "title": "Creative Direction & Concepting",
+          "content": "Every campaign begins with a strong idea. We define the message, build a visual language around it, and ensure your brand story shines through."
         },
         {
           "title": "Content Production",
-          "content": "From short-form video ads to striking photos and graphic assets, we handle full campaign production. We shoot, edit, design, and deliver content ready for launch across all platforms."
+          "content": "From short-form video ads to striking photography and graphics, we handle full campaign production, shooting, editing, designing, and delivering content ready to launch."
         },
         {
           "title": "Social Media Campaigns",
-          "content": "We create branded series, product pushes, or full storytelling arcs designed specifically for platforms like Instagram, TikTok, LinkedIn, and Facebook — optimized for engagement and consistency."
+          "content": "We design branded series, storytelling arcs, and product pushes tailored for Instagram, TikTok, LinkedIn, and Facebook, optimized for consistency and engagement."
         },
         {
           "title": "Print, Posters & OOH",
-          "content": "We also design for the tangible world — from event posters and banners to product launch kits, billboards, and brochures. The goal: stop people mid-scroll or mid-walk."
+          "content": "We translate your story to the physical world: posters, event kits, billboards, brochures. The goal is simple, stop people mid-scroll or mid-walk."
         },
         {
           "title": "Campaign Strategy & Management",
-          "content": "Need more than content? We can handle full campaign rollout — from scheduling and channel planning to audience targeting and feedback tracking. Ideal for launches or multi-month campaigns."
+          "content": "Beyond content, we can manage rollouts end-to-end, from scheduling and channel planning to feedback tracking. Perfect for launches or long-term campaigns."
         }
       ]
     },
     {
-      "id": "consulting",
-      "title": "Creative Consulting <br>and Development",
-      "description": "Our consulting approach is collaborative and strategic. Whether you're a brand, startup, or individual creator, we help you clarify your vision, structure your ideas, and refine them into creative outputs that resonate. From brand strategy to storytelling frameworks — we bring creative clarity where it's needed most.",
-      "url": "/service/consulting",
+      "id": "digital",
+      "title": "Digital Experiences <br>(Web & Media)",
+      "description": "We design digital experiences that don't just look good — they work. From clean portfolios to full-featured business sites, we create fast, responsive, and intuitive platforms that bring your brand to life online. Paired with photography, video, and content, your digital presence stays memorable and functional.",
+      "url": "/service/digital",
       "serviceList": [
-        "Idea Development & Creative Planning",
-        "Storytelling & Messaging Strategy",
-        "Creative Workshops & Brainstorms",
-        "Content & Brand Audits",
-        "One-on-One Creative Support"
+        "Custom-designed websites",
+        "Responsive development (mobile-first)",
+        "UX/UI wireframes and design systems",
+        "Website audits, redesigns & performance optimization",
+        "Media add-ons: photography, reels, video integration"
       ],
-      "bannerTitle": "Creative Consulting and Development",
-      "bannerSubtitle": "Strategic guidance and creative expertise to help you succeed in your creative endeavors and business goals.",
+      "bannerTitle": "Digital Experiences (Web & Media)",
+      "bannerSubtitle": "Creating fast, responsive, and intuitive digital platforms that bring your brand to life online.",
       "approach": {
-        "title": "Strategic Guidance",
+        "title": "Our Approach and Work Specifics",
         "description": [
-          "Whether you're launching a new product, rebranding, or looking to refine your creative direction, we provide the strategic insight and creative expertise to help you succeed.",
-          "Our consulting approach is collaborative, combining our experience with your industry knowledge to develop actionable strategies."
+          "At InPlace Creates, we don't just build websites, we design digital experiences that work.",
+          "We combine clean aesthetics with functional thinking. From usability and performance to SEO and storytelling, every site and media piece is crafted to serve your goals, connect with audiences, and grow your brand."
         ]
       },
       "includes": {
-        "title": "Consulting Areas",
+        "title": "What We Deliver",
         "items": [
-          "Creative Strategy",
-          "Brand Development",
-          "Campaign Planning",
-          "Content Strategy",
-          "Design Systems",
-          "Workshop Facilitation"
+          "Custom-designed websites",
+          "Responsive development (mobile-first)",
+          "UX/UI wireframes and design systems",
+          "Website audits, redesigns & performance optimization",
+          "Media add-ons: photography, reels, video integration",
+          "Web management & ongoing support"
         ]
       },
       "accordions": [
         {
-          "title": "Idea Development & Creative Planning",
-          "content": "Have a raw concept or unfinished idea? We help shape it. We support you in defining objectives, choosing the right formats, and mapping out execution paths that align with your goals."
+          "title": "UX Audits & Strategy",
+          "content": "We review your current site (or idea) through a user-first lens. We identify pain points and drop-offs, then suggest fixes to boost usability and conversions."
         },
         {
-          "title": "Storytelling & Messaging Strategy",
-          "content": "Every brand or project has a core message. We guide you in discovering and expressing that message visually, emotionally, and effectively — across content, campaigns, and identity."
+          "title": "Design Thinking & UI Systems",
+          "content": "Every layout, button, and flow is intentional. Paired with typography and color systems, your site becomes both beautiful and intuitive."
         },
         {
-          "title": "Creative Workshops & Brainstorms",
-          "content": "We host collaborative sessions to unlock your team's creativity. Great for planning launches, refreshing your brand, or finding your next big idea."
+          "title": "Wireframing & Prototyping",
+          "content": "We blueprint your site before coding, ensuring structure and flow align with your vision and audience needs."
         },
         {
-          "title": "Content & Brand Audits",
-          "content": "We offer constructive reviews of your current branding, website, or marketing materials — outlining what's working, what's not, and how to elevate it."
+          "title": "Performance & SEO Optimization",
+          "content": "We make websites fast, responsive, and visible, from mobile design and load times to metadata and search optimization."
         },
         {
-          "title": "One-on-One Creative Support",
-          "content": "Need help as a solo creator or founder? We offer mentorship-style consulting to walk alongside you during your project, campaign, or branding process — step by step."
+          "title": "Media Production Add-On",
+          "content": "Need more than the site? We create photography, video reels, and visual assets designed to seamlessly integrate into your digital presence."
+        },
+        {
+          "title": "Web Management & Support",
+          "content": "We provide monthly support, content updates, or CMS training, helping your site evolve as your brand grows."
+        }
+      ]
+    },
+    {
+      "id": "systems",
+      "title": "Creative Systems <br>& Strategy",
+      "description": "Creativity scales when structure supports it. Beyond design, we build the systems that keep your brand organized, efficient, and future-ready. From Google Workspace setups to workflow automation, we bring clarity to the chaos of creativity.",
+      "url": "/service/systems",
+      "serviceList": [
+        "Organizational systems (shared drives, file structures, naming conventions)",
+        "Workflow automation & dashboards (Sheets, Notion, custom trackers)",
+        "Creative operations consulting (content pipelines, campaign workflows)",
+        "Capacity building & team training on creative tools"
+      ],
+      "bannerTitle": "Creative Systems & Strategy",
+      "bannerSubtitle": "Building the systems that keep your brand organized, efficient, and future-ready.",
+      "approach": {
+        "title": "Our Approach and Work Specifics",
+        "description": [
+          "At InPlace Creates, we believe creativity scales best when paired with structure. That's why we don't just design visuals, we design the systems behind them.",
+          "Our systems approach helps brands and organizations manage their creative processes, data, and workflows with clarity and efficiency. From startups to nonprofits, we bring order to the chaos of creativity."
+        ]
+      },
+      "includes": {
+        "title": "Our Systems Support Includes",
+        "items": [
+          "Organizational systems (shared drives, file structures, naming conventions)",
+          "Workflow automation & dashboards (Sheets, Notion, custom trackers)",
+          "Creative operations consulting (content pipelines, campaign workflows)",
+          "Capacity building & team training on creative tools",
+          "Audits & strategy for scaling your creative systems"
+        ]
+      },
+      "accordions": [
+        {
+          "title": "Organizational Systems",
+          "content": "We design Google Workspace and shared drive structures, naming conventions, and filing systems that keep your documents and data accessible and organized."
+        },
+        {
+          "title": "Workflow Automation & Dashboards",
+          "content": "From Sheets formulas to Notion trackers, we build tools that simplify reporting, project management, and performance monitoring."
+        },
+        {
+          "title": "Creative Ops Consulting",
+          "content": "We help teams design pipelines for content, campaigns, and media, ensuring smooth collaboration from idea to delivery."
+        },
+        {
+          "title": "Capacity Building & Training",
+          "content": "We run tailored workshops for staff and teams on how to use digital tools, manage assets, and maintain creative systems long-term."
+        },
+        {
+          "title": "Audits & Systems Strategy",
+          "content": "Already have a system? We review and refine, identifying inefficiencies, gaps, and opportunities to make your operations more scalable."
         }
       ]
     }
