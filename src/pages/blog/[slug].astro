@@ -3,10 +3,10 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 import { getCollection, type CollectionEntry } from 'astro:content';
 
 export async function getStaticPaths() {
-  const blogEntries = await getCollection('blog', ({ data }) => {
+  const blogEntries = await getCollection('blog', ({ data }: any) => {
     return data.draft !== true;
   });
-  return blogEntries.map(entry => ({
+  return blogEntries.map((entry: CollectionEntry<'blog'>) => ({
     params: { slug: entry.slug }, 
     props: { entry },
   }));
@@ -20,12 +20,12 @@ const { entry } = Astro.props;
 const { Content } = await entry.render();
 
 // Get related posts (same category, excluding current post)
-const allPosts = await getCollection('blog', ({ data }) => {
+const allPosts = await getCollection('blog', ({ data }: any) => {
   return data.draft !== true;
 });
 
 const relatedPosts = allPosts
-  .filter(post => post.data.category === entry.data.category && post.slug !== entry.slug)
+  .filter((post: CollectionEntry<'blog'>) => post.data.category === entry.data.category && post.slug !== entry.slug)
   .slice(0, 3);
 
 // Format date for display
@@ -120,7 +120,7 @@ const readingTime = calculateReadingTime(rawContent);
             <div class="mil-tags mil-up mil-mb-60">
               <h6 class="mil-muted mil-mb-30">Tags:</h6>
               <div class="mil-tag-list">
-                {entry.data.tags.map(tag => (
+                {entry.data.tags.map((tag: string) => (
                   <span class="mil-tag">{tag}</span>
                 ))}
               </div>
@@ -177,7 +177,7 @@ const readingTime = calculateReadingTime(rawContent);
           </div>
         </div>
         <div class="row">
-          {relatedPosts.map((post) => (
+          {relatedPosts.map((post: CollectionEntry<'blog'>) => (
             <div class="col-lg-4">
               <a href={`/blog/${post.slug}`} class="mil-blog-card mil-mb-60">
                 <div class="mil-cover-frame mil-up">

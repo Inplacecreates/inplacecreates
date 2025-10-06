@@ -1,21 +1,21 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
-import { getCollection } from 'astro:content';
+import { getCollection, type CollectionEntry } from 'astro:content';
 
 // Get all blog posts and sort by date (newest first)
-const allBlogPosts = await getCollection('blog', ({ data }) => {
+const allBlogPosts = await getCollection('blog', ({ data }: any) => {
   return data.draft !== true;
 });
 
-const sortedPosts = allBlogPosts.sort((a, b) => {
+const sortedPosts = allBlogPosts.sort((a: CollectionEntry<'blog'>, b: CollectionEntry<'blog'>) => {
   return new Date(b.data.pubDate).getTime() - new Date(a.data.pubDate).getTime();
 });
 
 // Get featured posts for the "Popular Publications" section
-const featuredPosts = sortedPosts.filter(post => post.data.featured).slice(0, 2);
+const featuredPosts = sortedPosts.filter((post: CollectionEntry<'blog'>) => post.data.featured).slice(0, 2);
 
 // Get all categories for the category filter
-const allCategories = [...new Set(sortedPosts.map(post => post.data.category))];
+const allCategories = [...new Set(sortedPosts.map((post: CollectionEntry<'blog'>) => post.data.category))];
 
 // Format date for display
 function formatDate(date: Date): string {
@@ -73,7 +73,7 @@ function truncateText(text: string, maxLength: number): string {
           </div>
         </div>
         <div class="row">
-          {featuredPosts.map((post) => (
+          {featuredPosts.map((post: CollectionEntry<'blog'>) => (
             <div class="col-lg-6">
               <a href={`/blog/${post.slug}`} class="mil-blog-card mil-mb-60">
                 <div class="mil-cover-frame mil-up">
@@ -110,15 +110,15 @@ function truncateText(text: string, maxLength: number): string {
           <div class="mil-adaptive-right mil-up">
             <ul class="mil-category-list">
               <li><a href="/blog" class="mil-active">All</a></li>
-              {allCategories.map(category => (
-                <li><a href={`/blog/category/${category.toLowerCase()}`}>{category}</a></li>
+              {allCategories.map((category) => (
+                <li><a href={`/blog/category/${String(category).toLowerCase()}`}>{category}</a></li>
               ))}
             </ul>
           </div>
         </div>
       </div>
       <div class="row">
-        {sortedPosts.map((post) => (
+        {sortedPosts.map((post: CollectionEntry<'blog'>) => (
           <div class="col-lg-12">
             <a href={`/blog/${post.slug}`} class="mil-blog-card mil-blog-card-hori mil-more mil-mb-60">
               <div class="mil-cover-frame mil-up">
