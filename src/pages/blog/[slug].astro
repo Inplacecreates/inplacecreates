@@ -1,0 +1,409 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { getCollection, type CollectionEntry } from 'astro:content';
+
+export async function getStaticPaths() {
+  const blogEntries = await getCollection('blog', ({ data }) => {
+    return data.draft !== true;
+  });
+  return blogEntries.map(entry => ({
+    params: { slug: entry.slug }, 
+    props: { entry },
+  }));
+}
+
+interface Props {
+  entry: CollectionEntry<'blog'>;
+}
+
+const { entry } = Astro.props;
+const { Content } = await entry.render();
+
+// Get related posts (same category, excluding current post)
+const allPosts = await getCollection('blog', ({ data }) => {
+  return data.draft !== true;
+});
+
+const relatedPosts = allPosts
+  .filter(post => post.data.category === entry.data.category && post.slug !== entry.slug)
+  .slice(0, 3);
+
+// Format date for display
+function formatDate(date: Date): string {
+  return new Intl.DateTimeFormat('en-US', {
+    year: 'numeric',
+    month: 'long',
+    day: 'numeric'
+  }).format(date);
+}
+
+// Calculate reading time (assuming 200 words per minute)
+function calculateReadingTime(content: string): number {
+  const wordsPerMinute = 200;
+  const wordCount = content.split(/\s+/).length;
+  const readingTime = Math.ceil(wordCount / wordsPerMinute);
+  return readingTime;
+}
+
+// Get the raw content for reading time calculation
+const rawContent = entry.body;
+const readingTime = calculateReadingTime(rawContent);
+---
+
+<BaseLayout title={entry.data.title} description={entry.data.description}>
+  <!-- banner -->
+  <div class="mil-inner-banner mil-p-0-120">
+    <div class="mil-banner-content mil-up">
+      <div class="mil-animation-frame">
+        <div class="mil-animation mil-position-4 mil-dark mil-scale" data-value-1="6" data-value-2="1.4"></div>
+      </div>
+      <div class="container">
+        <ul class="mil-breadcrumbs mil-mb-60">
+          <li><a href="/">Homepage</a></li>
+          <li><a href="/blog">Blog</a></li>
+          <li><a href={`/blog/${entry.slug}`}>{entry.data.title}</a></li>
+        </ul>
+        <div class="row">
+          <div class="col-lg-8">
+            <h1 class="mil-mb-60">{entry.data.title}</h1>
+          </div>
+        </div>
+        <div class="row align-items-center">
+          <div class="col-lg-6">
+            <div class="mil-publication-info mil-mb-60">
+              <div class="mil-labels">
+                <div class="mil-label mil-upper mil-accent">{entry.data.category}</div>
+                <div class="mil-label mil-upper">{formatDate(entry.data.pubDate)}</div>
+                <div class="mil-label mil-upper">{readingTime} min read</div>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-6">
+            <div class="mil-adaptive-right mil-mb-60">
+              <div class="mil-author-info">
+                <span class="mil-muted">By</span> <strong>{entry.data.author}</strong>
+                {entry.data.updatedDate && (
+                  <div class="mil-updated">
+                    <span class="mil-muted">Updated: {formatDate(entry.data.updatedDate)}</span>
+                  </div>
+                )}
+              </div>
+            </div>
+          </div>
+        </div>
+        <a href="#article" class="mil-link mil-dark mil-arrow-place mil-down-arrow">
+          <span>Continue Reading</span>
+        </a>
+      </div>
+    </div>
+  </div>
+  <!-- banner end -->
+
+  <!-- article -->
+  <section id="article">
+    <div class="container mil-p-120-60">
+      <div class="row justify-content-center">
+        <div class="col-lg-10">
+          {entry.data.image && (
+            <div class="mil-publication-img mil-mb-60 mil-up">
+              <img src={entry.data.image} alt={entry.data.imageAlt || entry.data.title}>
+            </div>
+          )}
+          
+          <div class="mil-text mil-up mil-mb-60">
+            <div class="mil-blog-content">
+              <Content />
+            </div>
+          </div>
+
+          {entry.data.tags && entry.data.tags.length > 0 && (
+            <div class="mil-tags mil-up mil-mb-60">
+              <h6 class="mil-muted mil-mb-30">Tags:</h6>
+              <div class="mil-tag-list">
+                {entry.data.tags.map(tag => (
+                  <span class="mil-tag">{tag}</span>
+                ))}
+              </div>
+            </div>
+          )}
+
+          <div class="mil-divider mil-up mil-mb-60"></div>
+
+          <div class="mil-navigation mil-up">
+            <div class="row justify-content-between">
+              <div class="col-lg-5">
+                <a href="/blog" class="mil-link mil-dark mil-arrow-place">
+                  <span>Back to Blog</span>
+                </a>
+              </div>
+              <div class="col-lg-5">
+                <div class="mil-adaptive-right">
+                  <div class="mil-share">
+                    <span class="mil-muted">Share:</span>
+                    <a href={`https://twitter.com/intent/tweet?text=${encodeURIComponent(entry.data.title)}&url=${encodeURIComponent(Astro.url.href)}`} target="_blank" class="mil-social-link">
+                      <i class="fab fa-twitter"></i>
+                    </a>
+                    <a href={`https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(Astro.url.href)}`} target="_blank" class="mil-social-link">
+                      <i class="fab fa-facebook-f"></i>
+                    </a>
+                    <a href={`https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(Astro.url.href)}`} target="_blank" class="mil-social-link">
+                      <i class="fab fa-linkedin-in"></i>
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- article end -->
+
+  <!-- related posts -->
+  {relatedPosts.length > 0 && (
+    <section class="mil-soft-bg">
+      <div class="container mil-p-120-120">
+        <div class="row align-items-center mil-mb-30">
+          <div class="col-lg-6 mil-mb-30">
+            <h3 class="mil-up">Related Articles:</h3>
+          </div>
+          <div class="col-lg-6 mil-mb-30">
+            <div class="mil-adaptive-right mil-up">
+              <a href="/blog" class="mil-link mil-dark mil-arrow-place">
+                <span>View all posts</span>
+              </a>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          {relatedPosts.map((post) => (
+            <div class="col-lg-4">
+              <a href={`/blog/${post.slug}`} class="mil-blog-card mil-mb-60">
+                <div class="mil-cover-frame mil-up">
+                  <img src={post.data.image || '/img/blog/default.jpg'} alt={post.data.imageAlt || post.data.title}>
+                </div>
+                <div class="mil-post-descr">
+                  <div class="mil-labels mil-up mil-mb-30">
+                    <div class="mil-label mil-upper mil-accent">{post.data.category}</div>
+                    <div class="mil-label mil-upper">{formatDate(post.data.pubDate)}</div>
+                  </div>
+                  <h5 class="mil-up mil-mb-30">{post.data.title}</h5>
+                  <div class="mil-link mil-dark mil-arrow-place mil-up">
+                    <span>Read more</span>
+                  </div>
+                </div>
+              </a>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+  )}
+  <!-- related posts end -->
+
+  <!-- call to action -->
+  <section class={relatedPosts.length === 0 ? 'mil-soft-bg' : ''}>
+    <div class="container mil-p-120-120">
+      <div class="row">
+        <div class="col-lg-10">
+          <span class="mil-suptitle mil-suptitle-right mil-suptitle-dark mil-up">Looking to make your mark? We'll help you turn <br> your project into a success story.</span>
+        </div>
+      </div>
+      <div class="mil-center">
+        <h2 class="mil-up mil-mb-60">Stay up-to-date <span class="mil-thin">with the</span><br>
+          latest news by <span class="mil-thin">subscribing</span><br> to our <span class="mil-thin">newsletter!</span></h2>
+        <div class="row justify-content-center mil-up">
+          <div class="col-lg-4">
+            <form class="mil-subscribe-form mil-subscribe-form-2 mil-up">
+              <input type="text" placeholder="Enter your email">
+              <button type="submit" class="mil-button mil-icon-button-sm mil-arrow-place"></button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- call to action end -->
+</BaseLayout>
+
+<style>
+  .mil-blog-content {
+    font-size: 1.1rem;
+    line-height: 1.8;
+  }
+
+  .mil-blog-content h1,
+  .mil-blog-content h2,
+  .mil-blog-content h3,
+  .mil-blog-content h4,
+  .mil-blog-content h5,
+  .mil-blog-content h6 {
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+  }
+
+  .mil-blog-content p {
+    margin-bottom: 1.5rem;
+  }
+
+  .mil-blog-content ul,
+  .mil-blog-content ol {
+    margin-bottom: 1.5rem;
+    padding-left: 2rem;
+  }
+
+  .mil-blog-content li {
+    margin-bottom: 0.5rem;
+  }
+
+  .mil-blog-content blockquote {
+    margin: 2rem 0;
+    padding: 1.5rem;
+    background: var(--mil-soft-bg);
+    border-left: 4px solid var(--mil-accent);
+    font-style: italic;
+  }
+
+  .mil-blog-content code {
+    background: var(--mil-soft-bg);
+    padding: 0.2rem 0.4rem;
+    border-radius: 4px;
+    font-family: 'Courier New', monospace;
+  }
+
+  .mil-blog-content pre {
+    background: var(--mil-soft-bg);
+    padding: 1.5rem;
+    border-radius: 8px;
+    overflow-x: auto;
+    margin: 1.5rem 0;
+  }
+
+  .mil-blog-content pre code {
+    background: none;
+    padding: 0;
+  }
+
+  .mil-blog-content img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+    margin: 2rem 0;
+  }
+
+  .mil-publication-img {
+    position: relative;
+    width: 100%;
+    max-height: 400px;
+    overflow: hidden;
+    border-radius: 8px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    background: var(--mil-soft-bg);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .mil-publication-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    border-radius: 8px;
+    transition: transform 0.3s ease;
+    background: var(--mil-soft-bg);
+  }
+
+  .mil-publication-img:hover img {
+    transform: scale(1.02);
+  }
+
+  /* Ensure images load properly */
+  .mil-publication-img img[src=""] {
+    display: none;
+  }
+
+  .mil-author-info {
+    text-align: right;
+  }
+
+  .mil-author-info .mil-updated {
+    margin-top: 0.5rem;
+    font-size: 0.9rem;
+  }
+
+  .mil-tag-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+
+  .mil-tag {
+    background: var(--mil-soft-bg);
+    padding: 0.5rem 1rem;
+    border-radius: 20px;
+    font-size: 0.9rem;
+    color: var(--mil-dark);
+  }
+
+  .mil-share {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+  }
+
+  .mil-social-link {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    background: var(--mil-soft-bg);
+    border-radius: 50%;
+    color: var(--mil-dark);
+    transition: all 0.3s ease;
+  }
+
+  .mil-social-link:hover {
+    background: var(--mil-accent);
+    color: white;
+    transform: translateY(-2px);
+  }
+
+  @media (max-width: 768px) {
+    .mil-author-info {
+      text-align: left;
+      margin-top: 1rem;
+    }
+
+    .mil-share {
+      justify-content: flex-start;
+      margin-top: 1rem;
+    }
+
+    .mil-publication-img {
+      max-height: 250px;
+    }
+
+    .mil-blog-content {
+      font-size: 1rem;
+    }
+
+    .mil-blog-content h1,
+    .mil-blog-content h2,
+    .mil-blog-content h3,
+    .mil-blog-content h4,
+    .mil-blog-content h5,
+    .mil-blog-content h6 {
+      margin-top: 1.5rem;
+      margin-bottom: 0.75rem;
+    }
+  }
+
+  @media (max-width: 480px) {
+    .mil-publication-img {
+      max-height: 200px;
+    }
+  }
+</style>

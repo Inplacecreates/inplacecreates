@@ -32,12 +32,14 @@
       { "name": "Homepage", "url": "/", "active": true },
       { "name": "Services", "url": "/services" },
       { "name": "Team", "url": "/team" },
+      { "name": "Blog", "url": "/blog" },
       { "name": "Careers", "url": "/careers" },
       { "name": "Contact", "url": "/contact" }
     ],
     "footer": [
       { "name": "Home", "url": "/" },
       { "name": "Services", "url": "/services" },
+      { "name": "Blog", "url": "/blog" },
       { "name": "Contact", "url": "/contact" }
     ],
     "legal": [
