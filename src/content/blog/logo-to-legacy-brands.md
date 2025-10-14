@@ -7,7 +7,7 @@ image: "https://images.unsplash.com/photo-1611224923853-80b023f02d71?ixlib=rb-4.
 imageAlt: "Clean flatlay of timeless brand collateral including logo, packaging, and typography samples"
 tags: ["Branding", "Identity Design", "Brand Strategy", "Visual Identity", "Brand Legacy"]
 category: "Branding"
-featured: false
+featured: true
 draft: false
 ---
 

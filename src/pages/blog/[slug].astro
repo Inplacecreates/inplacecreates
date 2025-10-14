@@ -26,7 +26,7 @@ const allPosts = await getCollection('blog', ({ data }: any) => {
 
 const relatedPosts = allPosts
   .filter((post: CollectionEntry<'blog'>) => post.data.category === entry.data.category && post.slug !== entry.slug)
-  .slice(0, 2);
+  .slice(0, 3);
 
 // Format date for display
 function formatDate(date: Date): string {
