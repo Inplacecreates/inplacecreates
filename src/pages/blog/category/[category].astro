@@ -1,0 +1,148 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import { getCollection, type CollectionEntry } from 'astro:content';
+
+export async function getStaticPaths() {
+  const allBlogPosts = await getCollection('blog', ({ data }: any) => {
+    return data.draft !== true;
+  });
+
+  // Get all unique categories
+  const allCategories = [...new Set(allBlogPosts.map((post: CollectionEntry<'blog'>) => post.data.category))];
+
+  return allCategories.map((category) => ({
+    params: { category: String(category).toLowerCase() },
+    props: { category: String(category) },
+  }));
+}
+
+interface Props {
+  category: string;
+}
+
+const { category } = Astro.props;
+
+// Get all blog posts and filter by category
+const allBlogPosts = await getCollection('blog', ({ data }: any) => {
+  return data.draft !== true;
+});
+
+const categoryPosts = allBlogPosts
+  .filter((post: CollectionEntry<'blog'>) => post.data.category.toLowerCase() === category.toLowerCase())
+  .sort((a: CollectionEntry<'blog'>, b: CollectionEntry<'blog'>) => {
+    return new Date(b.data.pubDate).getTime() - new Date(a.data.pubDate).getTime();
+  });
+
+// Get all categories for the category filter
+const allCategories = [...new Set(allBlogPosts.map((post: CollectionEntry<'blog'>) => post.data.category))];
+
+// Format date for display
+function formatDate(date: Date): string {
+  return new Intl.DateTimeFormat('en-US', {
+    year: 'numeric',
+    month: 'long',
+    day: 'numeric'
+  }).format(date);
+}
+
+// Truncate description
+function truncateText(text: string, maxLength: number): string {
+  if (text.length <= maxLength) return text;
+  return text.substring(0, maxLength).trim() + '...';
+}
+
+// Capitalize first letter of category for display
+const displayCategory = category.charAt(0).toUpperCase() + category.slice(1);
+---
+
+<BaseLayout title={`${displayCategory} - Blog Category`} description={`Explore all blog posts in the ${displayCategory} category from InPlace Creates.`}>
+    <!-- blog -->
+  <section id="blog">
+    <div class="container mil-p-120-120">
+      <div class="row align-items-center mil-mb-30">
+        <div class="col-lg-4 mil-mb-30">
+          <h3 class="mil-up">Categories:</h3>
+        </div>
+        <div class="col-lg-8 mil-mb-30">
+          <div class="mil-adaptive-right mil-up">
+            <ul class="mil-category-list">
+              <li><a href="/blog">All</a></li>
+              {allCategories.map((cat) => (
+                <li>
+                  <a 
+                    href={`/blog/category/${String(cat).toLowerCase()}`}
+                    class={String(cat).toLowerCase() === category.toLowerCase() ? 'mil-active' : ''}
+                  >
+                    {cat}
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      {categoryPosts.length > 0 ? (
+        <div class="row">
+          {categoryPosts.map((post: CollectionEntry<'blog'>) => (
+            <div class="col-lg-12">
+              <a href={`/blog/${post.slug}`} class="mil-blog-card mil-blog-card-hori mil-more mil-mb-60">
+                <div class="mil-cover-frame mil-up">
+                  <img src={post.data.image || '/img/blog/default.jpg'} alt={post.data.imageAlt || post.data.title}>
+                </div>
+                <div class="mil-post-descr">
+                  <div class="mil-labels mil-up mil-mb-30">
+                    <div class="mil-label mil-upper mil-accent">{post.data.category}</div>
+                    <div class="mil-label mil-upper">{formatDate(post.data.pubDate)}</div>
+                  </div>
+                  <h4 class="mil-up mil-mb-30">{post.data.title}</h4>
+                  <p class="mil-post-text mil-up mil-mb-30">{truncateText(post.data.description, 200)}</p>
+                  <div class="mil-link mil-dark mil-arrow-place mil-up">
+                    <span>Read more</span>
+                  </div>
+                </div>
+              </a>
+            </div>
+          ))}
+        </div>
+      ) : (
+        <div class="row">
+          <div class="col-lg-12">
+            <div class="mil-center mil-up">
+              <h3>No posts found in this category</h3>
+              <p class="mil-mb-60">There are currently no blog posts in the {displayCategory} category.</p>
+              <a href="/blog" class="mil-button mil-arrow-place">
+                <span>View All Posts</span>
+              </a>
+            </div>
+          </div>
+        </div>
+      )}
+    </div>
+  </section>
+  <!-- blog end -->
+
+  <!-- call to action -->
+  <section class="mil-soft-bg">
+    <div class="container mil-p-120-120">
+      <div class="row">
+        <div class="col-lg-10">
+          <span class="mil-suptitle mil-suptitle-right mil-suptitle-dark mil-up">Looking to make your mark? We'll help you turn <br> your project into a success story.</span>
+        </div>
+      </div>
+      <div class="mil-center">
+        <h2 class="mil-up mil-mb-60">Stay up-to-date <span class="mil-thin">with the</span><br>
+          latest news by <span class="mil-thin">subscribing</span><br> to our <span class="mil-thin">newsletter!</span></h2>
+        <div class="row justify-content-center mil-up">
+          <div class="col-lg-4">
+            <form class="mil-subscribe-form mil-subscribe-form-2 mil-up">
+              <input type="text" placeholder="Enter your email">
+              <button type="submit" class="mil-button mil-icon-button-sm mil-arrow-place"></button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- call to action end -->
+</BaseLayout>
