@@ -15,7 +15,7 @@ A logo is an introduction. But legacy comes from what happens after. Real identi
 
 Great brands know that an identity system is more than decoration. It's a structure for building **memory, trust, and connection**. From fonts to tone of voice, everything should point back to one clear story.
 
-## The Elements of Identity
+###### The Elements of Identity
 
 A strong brand identity is made up of a few consistent elements: **typography**, **color systems**, **voice**, and **visuals**. Each element plays its part, but together, they create harmony. When a brand’s tone of voice matches its visuals, people sense alignment — and alignment builds trust.
 
@@ -24,19 +24,19 @@ Without this system, brands risk feeling scattered. A logo alone can't carry the
 > "Your logo gets you noticed. Your identity makes you remembered."  
 > *— InPlace Design Lead*
 
-## Consistency at Scale
+###### Consistency at Scale
 
 Brands live in hundreds of touchpoints: social feeds, packaging, websites, invoices, storefronts. The bigger a brand grows, the more critical **consistency** becomes. A strong identity system is like a compass — it ensures that even as the brand expands, everything feels like part of the same family.
 
 Consistency doesn't mean sameness, though. The best systems allow **flexibility** while protecting the core look and feel.
 
-## Evolving Without Losing Yourself
+###### Evolving Without Losing Yourself
 
 No identity lasts forever. Trends shift, industries evolve, and brands need to refresh. The challenge is evolving without losing recognition. When done right, updates feel like **growth** rather than a total reset.
 
 Think of it as aging gracefully: your look adapts, but the core DNA remains. That's how **legacy is built**.
 
-## Conclusion
+###### Conclusion
 
 Logos are important, but they're just the handshake. True identity lies in what people remember after the handshake is over. Brands that last are the ones that invest in **systems, consistency, and evolution**. Because legacy isn't made in a single design moment — it's built over time.
 

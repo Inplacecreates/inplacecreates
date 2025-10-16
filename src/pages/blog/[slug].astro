@@ -131,14 +131,18 @@ function formatDate(date: Date): string {
 </BaseLayout>
 
 <style>
-/* Dynamic markdown content styling to match publication.html structure */
 .col-lg-8 :global(h1),
 .col-lg-8 :global(h2),
 .col-lg-8 :global(h3),
 .col-lg-8 :global(h4),
-.col-lg-8 :global(h5),
-.col-lg-8 :global(h6) {
+.col-lg-8 :global(h5) {
   @apply mil-up mil-mb-30;
+}
+
+.col-lg-8 :global(h6) {
+  @apply mil-up;
+  margin-top: 2.5rem;
+  margin-bottom: 1.5rem;
 }
 
 .col-lg-8 :global(p) {
@@ -147,6 +151,7 @@ function formatDate(date: Date): string {
 
 .col-lg-8 :global(blockquote) {
   @apply mil-up mil-mb-60;
+  margin-top: 2.5rem;
   padding: 1.5rem;
   font-style: italic;
   position: relative;
