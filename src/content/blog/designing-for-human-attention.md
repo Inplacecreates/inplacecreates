@@ -3,8 +3,8 @@ title: "Designing for Human Attention: The Future of Visual Communication"
 description: "In a fast, overstimulated world, attention has become the new currency. Discover how design can cut through the noise by being more human, not louder."
 pubDate: 2025-11-10
 author: "InPlace Studio"
-image: "https://images.unsplash.com/photo-1581090700227-1e37b190418e?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80"
-imageAlt: "Designer sketching digital layout on a tablet surrounded by color swatches and brand visuals, symbolizing modern visual communication."
+image: "https://images.unsplash.com/photo-1558655146-d09347e92766?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=80&w=1064"
+imageAlt: "Silver imac displaying color gradient"
 tags: ["Branding", "Visual Design", "Attention", "Strategy", "Communication"]
 category: "Branding"
 featured: true
