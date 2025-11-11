@@ -8,7 +8,7 @@ imageAlt: "Laptop in dark background illuminating."
 tags: ["Technology", "Creativity", "Innovation", "Systems", "Design Thinking"]
 category: "Technology"
 featured: true
-draft: false
+draft: true
 ---
 
 Efficiency used to be the finish line. Faster workflows. Cleaner dashboards. Shorter turnaround times.  
