@@ -1,38 +1,41 @@
 ---
-import BaseLayout from '../../layouts/BaseLayout.astro';
-import { getCollection, type CollectionEntry } from 'astro:content';
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import { getCollection, type CollectionEntry } from "astro:content";
 
 export async function getStaticPaths() {
-  const blogEntries = await getCollection('blog', ({ data }: any) => {
+  const blogEntries = await getCollection("blog", ({ data }: any) => {
     return data.draft !== true;
   });
-  return blogEntries.map((entry: CollectionEntry<'blog'>) => ({
-    params: { slug: entry.slug }, 
+  return blogEntries.map((entry: CollectionEntry<"blog">) => ({
+    params: { slug: entry.slug },
     props: { entry },
   }));
 }
 
 interface Props {
-  entry: CollectionEntry<'blog'>;
+  entry: CollectionEntry<"blog">;
 }
 
 const { entry } = Astro.props;
 const { Content } = await entry.render();
 
 // Get related posts (same category, excluding current post)
-const allPosts = await getCollection('blog', ({ data }: any) => {
+const allPosts = await getCollection("blog", ({ data }: any) => {
   return data.draft !== true;
 });
 
 const relatedPosts = allPosts
-  .filter((post: CollectionEntry<'blog'>) => post.data.category === entry.data.category && post.slug !== entry.slug)
+  .filter(
+    (post: CollectionEntry<"blog">) =>
+      post.data.category === entry.data.category && post.slug !== entry.slug
+  )
   .slice(0, 3);
 
 // Format date for display
 function formatDate(date: Date): string {
-  return new Intl.DateTimeFormat('en-US', {
-    year: 'numeric',
-    month: 'long'
+  return new Intl.DateTimeFormat("en-US", {
+    year: "numeric",
+    month: "long",
   }).format(date);
 }
 ---
@@ -58,25 +61,38 @@ function formatDate(date: Date): string {
     <div class="container mil-p-120-90">
       <div class="row justify-content-center">
         <div class="col-lg-12">
-
           <div class="mil-image-frame mil-horizontal mil-up">
-            <img src={entry.data.image} alt={entry.data.imageAlt || entry.data.title} class="mil-scale" data-value-1=".90" data-value-2="1.15">
+            <img
+              src={entry.data.image}
+              alt={entry.data.imageAlt || entry.data.title}
+              class="mil-scale"
+              data-value-1=".90"
+              data-value-2="1.15"
+            />
           </div>
           <div class="mil-info mil-up mil-mb-90">
-            <div>Category: &nbsp;<span class="mil-dark">{entry.data.category}</span></div>
-            <div>Date: &nbsp;<span class="mil-dark">{formatDate(entry.data.pubDate)}</span></div>
-            <div>Author: &nbsp;<span class="mil-dark">{entry.data.author}</span></div>
+            <div>
+              Category: &nbsp;<span class="mil-dark">{entry.data.category}</span
+              >
+            </div>
+            <div>
+              Date: &nbsp;<span class="mil-dark"
+                >{formatDate(entry.data.pubDate)}</span
+              >
+            </div>
+            <div>
+              Author: &nbsp;<span class="mil-dark">{entry.data.author}</span>
+            </div>
           </div>
-
         </div>
         <div class="col-lg-8">
-
-          <p class="mil-text-xl mil-dark mil-up mil-mb-60">{entry.data.description}</p>
+          <p class="mil-text-xl mil-dark mil-up mil-mb-60">
+            {entry.data.description}
+          </p>
 
           <div class="mil-up mil-mb-60">
             <Content />
           </div>
-
         </div>
       </div>
     </div>
@@ -84,161 +100,171 @@ function formatDate(date: Date): string {
   <!-- publication end -->
 
   <!-- similar -->
-  {relatedPosts.length > 0 && (
-    <section class="mil-soft-bg">
-      <div class="container mil-p-120-60">
-        <div class="row align-items-center mil-mb-30">
-          <div class="col-lg-6 mil-mb-30">
-            <h3 class="mil-up">Similar Publications:</h3>
-          </div>
-          <div class="col-lg-6 mil-mb-30">
-            <div class="mil-adaptive-right mil-up">
-              <a href="/blog" class="mil-link mil-dark mil-arrow-place">
-                <span>View all</span>
-              </a>
+  {
+    relatedPosts.length > 0 && (
+      <section class="mil-soft-bg">
+        <div class="container mil-p-120-60">
+          <div class="row align-items-center mil-mb-30">
+            <div class="col-lg-6 mil-mb-30">
+              <h3 class="mil-up">Similar Publications:</h3>
+            </div>
+            <div class="col-lg-6 mil-mb-30">
+              <div class="mil-adaptive-right mil-up">
+                <a href="/blog" class="mil-link mil-dark mil-arrow-place">
+                  <span>View all</span>
+                </a>
+              </div>
             </div>
           </div>
-        </div>
-        <div class="row">
-          {relatedPosts.map((post: CollectionEntry<'blog'>) => (
-            <div class="col-lg-6">
-
-              <a href={`/blog/${post.slug}`} class="mil-blog-card mil-mb-60">
-                <div class="mil-cover-frame mil-up">
-                  <img src={post.data.image} alt={post.data.imageAlt || post.data.title}>
-                </div>
-                <div class="mil-post-descr">
-                  <div class="mil-labels mil-up mil-mb-30">
-                    <div class="mil-label mil-upper mil-accent">{post.data.category}</div>
-                    <div class="mil-label mil-upper">{formatDate(post.data.pubDate)}</div>
+          <div class="row">
+            {relatedPosts.map((post: CollectionEntry<"blog">) => (
+              <div class="col-lg-6">
+                <a href={`/blog/${post.slug}`} class="mil-blog-card mil-mb-60">
+                  <div class="mil-cover-frame mil-up">
+                    <img
+                      src={post.data.image}
+                      alt={post.data.imageAlt || post.data.title}
+                    />
                   </div>
-                  <h4 class="mil-up mil-mb-30">{post.data.title}</h4>
-                  <p class="mil-post-text mil-up mil-mb-30">{post.data.description.length > 150 ? post.data.description.substring(0, 150) + '...' : post.data.description}</p>
-                  <div class="mil-link mil-dark mil-arrow-place mil-up">
-                    <span>Read more</span>
+                  <div class="mil-post-descr">
+                    <div class="mil-labels mil-up mil-mb-30">
+                      <div class="mil-label mil-upper mil-accent">
+                        {post.data.category}
+                      </div>
+                      <div class="mil-label mil-upper">
+                        {formatDate(post.data.pubDate)}
+                      </div>
+                    </div>
+                    <h4 class="mil-up mil-mb-30">{post.data.title}</h4>
+                    <p class="mil-post-text mil-up mil-mb-30">
+                      {post.data.description.length > 150
+                        ? post.data.description.substring(0, 150) + "..."
+                        : post.data.description}
+                    </p>
+                    <div class="mil-link mil-dark mil-arrow-place mil-up">
+                      <span>Read more</span>
+                    </div>
                   </div>
-                </div>
-              </a>
-
-            </div>
-          ))}
+                </a>
+              </div>
+            ))}
+          </div>
         </div>
-      </div>
-    </section>
-  )}
+      </section>
+    )
+  }
   <!-- similar end -->
-
 </BaseLayout>
 
 <style>
-.col-lg-8 :global(h1),
-.col-lg-8 :global(h2),
-.col-lg-8 :global(h3),
-.col-lg-8 :global(h4),
-.col-lg-8 :global(h5) {
-  @apply mil-up mil-mb-30;
-}
+  .col-lg-8 :global(h1),
+  .col-lg-8 :global(h2),
+  .col-lg-8 :global(h3),
+  .col-lg-8 :global(h4),
+  .col-lg-8 :global(h5) {
+    @apply mil-up mil-mb-30;
+  }
 
-.col-lg-8 :global(h6) {
-  @apply mil-up;
-  margin-top: 2.5rem;
-  margin-bottom: 1.5rem;
-}
+  .col-lg-8 :global(h6) {
+    @apply mil-up mil-mb-30;
+    margin-top: 2.5rem !important;
+    padding-top: 1rem;
+    padding-bottom: 1.5rem !important;
+  }
 
-.col-lg-8 :global(p) {
-  @apply mil-up mil-mb-60;
-}
+  .col-lg-8 :global(p) {
+    @apply mil-up mil-mb-60;
+  }
 
-.col-lg-8 :global(blockquote) {
-  @apply mil-up mil-mb-60;
-  margin-top: 2.5rem;
-  padding: 1.5rem;
-  font-style: italic;
-  position: relative;
-}
+  .col-lg-8 :global(blockquote) {
+    @apply mil-up mil-mb-60;
+    margin-top: 2.5rem;
+    padding: 1.5rem;
+    font-style: italic;
+    position: relative;
+  }
 
-.col-lg-8 :global(blockquote::before) {
-  content: '"';
-  font-size: 4rem;
-  position: absolute;
-  left: 0;
-  top: -10px;
-  opacity: 0.3;
-}
+  .col-lg-8 :global(blockquote::before) {
+    content: '"';
+    font-size: 4rem;
+    position: absolute;
+    left: 0;
+    top: -10px;
+    opacity: 0.3;
+  }
 
-.col-lg-8 :global(ul),
-.col-lg-8 :global(ol) {
-  @apply mil-up mil-mb-60;
-  padding-left: 2rem;
-}
+  .col-lg-8 :global(ul),
+  .col-lg-8 :global(ol) {
+    @apply mil-up mil-mb-60;
+    padding-left: 2rem;
+  }
 
-.col-lg-8 :global(li) {
-  margin-bottom: 0.5rem;
-}
+  .col-lg-8 :global(li) {
+    margin-bottom: 0.5rem;
+  }
 
-.col-lg-8 :global(strong) {
-  font-weight: 600;
-}
+  .col-lg-8 :global(strong) {
+    font-weight: 600;
+  }
 
-.col-lg-8 :global(em) {
-  font-style: italic;
-}
+  .col-lg-8 :global(em) {
+    font-style: italic;
+  }
 
-/* Images in content */
-.col-lg-8 :global(img) {
-  @apply mil-up mil-mb-60;
-  width: 100%;
-  height: auto;
-  border-radius: 8px;
-}
+  /* Images in content */
+  .col-lg-8 :global(img) {
+    @apply mil-up mil-mb-60;
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+  }
 
-/* Code blocks */
-.col-lg-8 :global(code) {
-  background: #f5f5f5;
-  padding: 0.2rem 0.4rem;
-  border-radius: 4px;
-  font-family: 'Courier New', monospace;
-  font-size: 0.9rem;
-}
+  /* Code blocks */
+  .col-lg-8 :global(code) {
+    background: #f5f5f5;
+    padding: 0.2rem 0.4rem;
+    border-radius: 4px;
+    font-family: "Courier New", monospace;
+    font-size: 0.9rem;
+  }
 
-.col-lg-8 :global(pre) {
-  @apply mil-up mil-mb-60;
-  background: #f5f5f5;
-  padding: 1.5rem;
-  border-radius: 8px;
-  overflow-x: auto;
-}
+  .col-lg-8 :global(pre) {
+    @apply mil-up mil-mb-60;
+    background: #f5f5f5;
+    padding: 1.5rem;
+    border-radius: 8px;
+    overflow-x: auto;
+  }
 
-.col-lg-8 :global(pre code) {
-  background: none;
-  padding: 0;
-}
+  .col-lg-8 :global(pre code) {
+    background: none;
+    padding: 0;
+  }
 
-/* Horizontal rules */
-.col-lg-8 :global(hr) {
-  @apply mil-up mil-mb-60;
-  border: none;
-  height: 1px;
-  background: #e0e0e0;
-}
+  /* Horizontal rules */
+  .col-lg-8 :global(hr) {
+    @apply mil-up mil-mb-60;
+    border: none;
+    height: 1px;
+    background: #e0e0e0;
+  }
 
-/* Tables */
-.col-lg-8 :global(table) {
-  @apply mil-up mil-mb-60;
-  width: 100%;
-  border-collapse: collapse;
-}
+  /* Tables */
+  .col-lg-8 :global(table) {
+    @apply mil-up mil-mb-60;
+    width: 100%;
+    border-collapse: collapse;
+  }
 
-.col-lg-8 :global(th),
-.col-lg-8 :global(td) {
-  padding: 0.75rem;
-  text-align: left;
-  border-bottom: 1px solid #e0e0e0;
-}
+  .col-lg-8 :global(th),
+  .col-lg-8 :global(td) {
+    padding: 0.75rem;
+    text-align: left;
+    border-bottom: 1px solid #e0e0e0;
+  }
 
-.col-lg-8 :global(th) {
-  font-weight: 600;
-  background: #f9f9f9;
-}
+  .col-lg-8 :global(th) {
+    font-weight: 600;
+    background: #f9f9f9;
+  }
 </style>
-
