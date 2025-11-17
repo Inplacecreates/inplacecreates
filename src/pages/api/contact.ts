@@ -561,7 +561,7 @@ export const POST: APIRoute = async ({ request }) => {
     // Send admin notification email
     const adminEmail = await resend.emails.send({
       from: `${company.name} Contact Form <noreply@${company.url}>`,
-      to: ["elviswangare@gmail.com"],
+      to: ["connect@inplacecreates.com"],
       subject: `New Contact Form Submission from ${name}`,
       html: adminEmailHTML,
       replyTo: email,
