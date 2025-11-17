@@ -4,12 +4,11 @@
     "url": "inplacecreates.com",
     "tagline": {
       "line1": {
-        "bold": "Designing",
-        "thin": "a Better"
+        "thin": "Where",
+        "bold": "Ideas"
       },
       "line2": {
-        "bold": "World",
-        "thin": "Today"
+        "thin": ["Take","Shape"]
       }
     },
     "description": "Welcome to our world of endless imagination and boundless creativity. Together, let's embark on a remarkable journey where dreams become tangible realities.",
