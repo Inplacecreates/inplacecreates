@@ -4,6 +4,8 @@ import siteData from '../data.json';
 
 const { company, pages } = siteData;
 const pageData = pages.contact;
+
+export const prerender = false;
 ---
 
 <BaseLayout title={`${pageData.title} | ${company.name}`}>
@@ -40,13 +42,52 @@ const pageData = pages.contact;
     <section id="contact">
         <div class="container mil-p-120-90">
             <h3 class="mil-center mil-up mil-mb-120">{pageData.form.heading.text} <span class="mil-thin">{pageData.form.heading.accent}</span></h3>
-            <form class="row align-items-center">
-                {pageData.form.fields.map(field => (
+            
+            <!-- Success/Error Messages -->
+            <div id="form-messages" class="mil-form-messages" style="display: none;">
+                <div id="success-message" class="mil-alert mil-alert-success" style="display: none;">
+                    <div class="mil-alert-content">
+                        <div class="mil-alert-icon">✓</div>
+                        <div class="mil-alert-text">
+                            <strong>Message sent successfully!</strong>
+                            <p>Thank you for contacting us. We'll get back to you within 24-48 hours.</p>
+                            <div class="mil-success-actions">
+                                <p class="mil-explore-text">While you wait, explore our work:</p>
+                                <div class="mil-action-links">
+                                    <a href="/services" class="mil-action-link">Our Services</a>
+                                    <a href="/portfolio" class="mil-action-link">Portfolio</a>
+                                    <a href="/blog" class="mil-action-link">Latest Blog Posts</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div id="error-message" class="mil-alert mil-alert-error" style="display: none;">
+                    <div class="mil-alert-content">
+                        <div class="mil-alert-icon">⚠</div>
+                        <div class="mil-alert-text">
+                            <strong>Something went wrong!</strong>
+                            <p id="error-text">Please try again later or contact us directly.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <form id="contact-form" class="row align-items-center" method="POST" action="/api/contact">
+                {pageData.form.fields.map((field, index) => (
                     <div class={`${field.type === 'textarea' ? 'col-lg-12' : 'col-lg-6'} mil-up`}>
                         {field.type === 'textarea' ? (
-                            <textarea placeholder={field.placeholder} required={field.required}></textarea>
+                            <textarea 
+                                name="message" 
+                                placeholder={field.placeholder} 
+                                required={field.required}
+                                rows="6"></textarea>
                         ) : (
-                            <input type={field.type as 'text' | 'email'} placeholder={field.placeholder} required={field.required}>
+                            <input 
+                                type={field.type as 'text' | 'email'} 
+                                name={index === 0 ? 'name' : 'email'}
+                                placeholder={field.placeholder} 
+                                required={field.required}>
                         )}
                     </div>
                 ))}
@@ -55,8 +96,9 @@ const pageData = pages.contact;
                 </div>
                 <div class="col-lg-4">
                     <div class="mil-adaptive-right mil-up mil-mb-30">
-                        <button type="submit" class="mil-button mil-arrow-place">
-                            <span>{pageData.form.submitText}</span>
+                        <button type="submit" id="submit-button" class="mil-button mil-arrow-place">
+                            <span id="submit-text">{pageData.form.submitText}</span>
+                            <span id="submit-loader" class="mil-loader" style="display: none;"></span>
                         </button>
                     </div>
                 </div>
@@ -64,4 +106,296 @@ const pageData = pages.contact;
         </div>
     </section>
     <!-- contact form end -->
+
+    <style>
+        .mil-form-messages {
+            margin-bottom: 40px;
+        }
+
+        .mil-alert {
+            border-radius: 8px;
+            padding: 20px;
+            margin-bottom: 20px;
+            border-left: 4px solid;
+            animation: slideDown 0.3s ease-out;
+        }
+
+        .mil-alert-success {
+            background-color: #f0fff4;
+            border-left-color: #ff9800;
+            color: #2d5016;
+        }
+
+        .mil-alert-error {
+            background-color: #fef2f2;
+            border-left-color: #dc2626;
+            color: #991b1b;
+        }
+
+        .mil-alert-content {
+            display: flex;
+            align-items: flex-start;
+            gap: 15px;
+        }
+
+        .mil-alert-icon {
+            font-size: 24px;
+            font-weight: bold;
+            margin-top: 2px;
+        }
+
+        .mil-alert-success .mil-alert-icon {
+            color: #ff9800;
+        }
+
+        .mil-alert-error .mil-alert-icon {
+            color: #dc2626;
+        }
+
+        .mil-alert-text strong {
+            display: block;
+            margin-bottom: 5px;
+            font-size: 16px;
+        }
+
+        .mil-alert-text p {
+            margin: 0;
+            font-size: 14px;
+            opacity: 0.8;
+        }
+
+        .mil-loader {
+            display: inline-block;
+            width: 16px;
+            height: 16px;
+            border: 2px solid #f3f3f3;
+            border-top: 2px solid #ff9800;
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+        }
+
+        #submit-button:disabled {
+            opacity: 0.6;
+            cursor: not-allowed;
+        }
+
+        @keyframes slideDown {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        /* Textarea specific styling to match other inputs */
+        textarea {
+            resize: vertical;
+            min-height: 120px;
+            font-family: inherit;
+            line-height: 1.6;
+        }
+
+        /* Ensure placeholder is visible */
+        textarea::placeholder,
+        input::placeholder {
+            color: #999 !important;
+            opacity: 1 !important;
+            font-style: normal;
+        }
+
+        textarea:focus::placeholder,
+        input:focus::placeholder {
+            color: #bbb !important;
+        }
+
+        /* Success message actions */
+        .mil-success-actions {
+            margin-top: 15px;
+            padding-top: 15px;
+            border-top: 1px solid rgba(255, 152, 0, 0.2);
+        }
+
+        .mil-explore-text {
+            margin: 0 0 10px 0 !important;
+            font-size: 13px;
+            font-weight: 600;
+            color: #2d5016;
+        }
+
+        .mil-action-links {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+
+        .mil-action-link {
+            display: inline-block;
+            padding: 8px 16px;
+            background-color: rgba(255, 152, 0, 0.1);
+            color: #ff9800;
+            text-decoration: none;
+            border-radius: 20px;
+            font-size: 13px;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            border: 1px solid rgba(255, 152, 0, 0.3);
+        }
+
+        .mil-action-link:hover {
+            background-color: #ff9800;
+            color: white;
+            transform: translateY(-1px);
+            box-shadow: 0 4px 12px rgba(255, 152, 0, 0.3);
+        }
+
+        /* Form validation styles */
+        .form-field-error {
+            border-color: #dc2626 !important;
+            background-color: #fef2f2;
+        }
+
+        .form-field-error::placeholder {
+            color: #dc2626;
+        }
+    </style>
+
+    <script>
+        const form = document.getElementById('contact-form') as HTMLFormElement;
+        const submitButton = document.getElementById('submit-button') as HTMLButtonElement;
+        const submitText = document.getElementById('submit-text') as HTMLSpanElement;
+        const submitLoader = document.getElementById('submit-loader') as HTMLSpanElement;
+        const formMessages = document.getElementById('form-messages') as HTMLDivElement;
+        const successMessage = document.getElementById('success-message') as HTMLDivElement;
+        const errorMessage = document.getElementById('error-message') as HTMLDivElement;
+        const errorText = document.getElementById('error-text') as HTMLParagraphElement;
+
+        form.addEventListener('submit', async (e) => {
+            e.preventDefault();
+            
+            // Clear previous messages
+            hideMessages();
+            clearFieldErrors();
+            
+            // Show loading state
+            setLoadingState(true);
+            
+            // Get form data
+            const formData = new FormData(form);
+            
+            // Client-side validation
+            const name = formData.get('name') as string;
+            const email = formData.get('email') as string;
+            const message = formData.get('message') as string;
+            
+            if (!validateForm(name, email, message)) {
+                setLoadingState(false);
+                return;
+            }
+            
+            try {
+                const response = await fetch('/api/contact', {
+                    method: 'POST',
+                    body: formData
+                });
+                
+                const result = await response.json();
+                
+                if (response.ok && result.success) {
+                    showSuccessMessage();
+                    form.reset();
+                    
+                    // Scroll to success message
+                    formMessages.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                } else {
+                    showErrorMessage(result.error || 'Failed to send message. Please try again.');
+                }
+                
+            } catch (error) {
+                console.error('Form submission error:', error);
+                showErrorMessage('Network error. Please check your connection and try again.');
+            } finally {
+                setLoadingState(false);
+            }
+        });
+
+        function validateForm(name: string, email: string, message: string): boolean {
+            let isValid = true;
+            
+            // Validate name
+            if (!name || name.trim().length < 2) {
+                highlightFieldError('name');
+                isValid = false;
+            }
+            
+            // Validate email
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            if (!email || !emailRegex.test(email)) {
+                highlightFieldError('email');
+                isValid = false;
+            }
+            
+            // Validate message
+            if (!message || message.trim().length < 10) {
+                highlightFieldError('message');
+                isValid = false;
+            }
+            
+            if (!isValid) {
+                showErrorMessage('Please fill in all required fields correctly.');
+            }
+            
+            return isValid;
+        }
+
+        function highlightFieldError(fieldName: string): void {
+            const field = document.querySelector(`[name="${fieldName}"]`) as HTMLInputElement | HTMLTextAreaElement;
+            if (field) {
+                field.classList.add('form-field-error');
+                field.addEventListener('input', () => {
+                    field.classList.remove('form-field-error');
+                }, { once: true });
+            }
+        }
+
+        function clearFieldErrors(): void {
+            const fields = form.querySelectorAll('.form-field-error');
+            fields.forEach(field => field.classList.remove('form-field-error'));
+        }
+
+        function setLoadingState(loading: boolean): void {
+            submitButton.disabled = loading;
+            submitText.style.display = loading ? 'none' : 'inline';
+            submitLoader.style.display = loading ? 'inline-block' : 'none';
+        }
+
+        function showSuccessMessage(): void {
+            formMessages.style.display = 'block';
+            successMessage.style.display = 'block';
+            errorMessage.style.display = 'none';
+        }
+
+        function showErrorMessage(message: string): void {
+            formMessages.style.display = 'block';
+            errorMessage.style.display = 'block';
+            successMessage.style.display = 'none';
+            errorText.textContent = message;
+            
+            // Scroll to error message
+            formMessages.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        }
+
+        function hideMessages(): void {
+            formMessages.style.display = 'none';
+            successMessage.style.display = 'none';
+            errorMessage.style.display = 'none';
+        }
+    </script>
 </BaseLayout>

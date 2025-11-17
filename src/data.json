@@ -598,7 +598,7 @@
             "required": true
           },
           {
-            "placeholder": "Tell us about our project",
+            "placeholder": "Tell us about your project",
             "type": "textarea",
             "required": true
           }
