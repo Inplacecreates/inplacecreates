@@ -1,6 +1,7 @@
 import type { APIRoute } from "astro";
 import { Resend } from "resend";
 import siteData from "../../data.json";
+import { verifyCaptchaHash } from "./captcha";
 
 const resend = new Resend(import.meta.env.RESEND_API_KEY);
 
@@ -10,11 +11,29 @@ export const POST: APIRoute = async ({ request }) => {
     const name = formData.get("name") as string;
     const email = formData.get("email") as string;
     const message = formData.get("message") as string;
+    const captchaAnswer = formData.get("captcha_answer") as string;
+    const captchaTimestamp = formData.get("captcha_timestamp") as string;
+    const captchaHash = formData.get("captcha_hash") as string;
 
     // Validation
     if (!name || !email || !message) {
       return new Response(
         JSON.stringify({ error: "Missing required fields" }),
+        { status: 400, headers: { "Content-Type": "application/json" } }
+      );
+    }
+
+    // Captcha validation
+    if (!captchaAnswer || !captchaTimestamp || !captchaHash) {
+      return new Response(
+        JSON.stringify({ error: "Captcha verification required" }),
+        { status: 400, headers: { "Content-Type": "application/json" } }
+      );
+    }
+
+    if (!verifyCaptchaHash(captchaAnswer, captchaTimestamp, captchaHash)) {
+      return new Response(
+        JSON.stringify({ error: "Invalid captcha. Please try again." }),
         { status: 400, headers: { "Content-Type": "application/json" } }
       );
     }

@@ -1,6 +1,6 @@
 ---
-import BaseLayout from '../layouts/BaseLayout.astro';
-import siteData from '../data.json';
+import BaseLayout from "../layouts/BaseLayout.astro";
+import siteData from "../data.json";
 
 const { company, pages } = siteData;
 const pageData = pages.contact;
@@ -9,393 +9,723 @@ export const prerender = false;
 ---
 
 <BaseLayout title={`${pageData.title} | ${company.name}`}>
-    <!-- banner -->
-    <div class="mil-inner-banner mil-p-0-120">
-        <div class="mil-banner-content mil-center mil-up">
-            <div class="container">
-                <ul class="mil-breadcrumbs mil-center mil-mb-60">
-                    {pageData.banner.breadcrumbs.map(crumb => (
-                        <li><a href={crumb.url}>{crumb.name}</a></li>
-                    ))}
-                </ul>
-                <h1 class="mil-mb-60">{pageData.banner.title}</h1>
-                <a href={pageData.banner.ctaLink} class="mil-link mil-dark mil-arrow-place mil-down-arrow">
-                    <span>{pageData.banner.ctaText}</span>
-                </a>
-            </div>
-        </div>
+  <!-- banner -->
+  <div class="mil-inner-banner mil-p-0-120">
+    <div class="mil-banner-content mil-center mil-up">
+      <div class="container">
+        <ul class="mil-breadcrumbs mil-center mil-mb-60">
+          {
+            pageData.banner.breadcrumbs.map((crumb) => (
+              <li>
+                <a href={crumb.url}>{crumb.name}</a>
+              </li>
+            ))
+          }
+        </ul>
+        <h1 class="mil-mb-60">{pageData.banner.title}</h1>
+        <a
+          href={pageData.banner.ctaLink}
+          class="mil-link mil-dark mil-arrow-place mil-down-arrow"
+        >
+          <span>{pageData.banner.ctaText}</span>
+        </a>
+      </div>
     </div>
-    <!-- banner end -->
+  </div>
+  <!-- banner end -->
 
-    <!-- map -->
-    <div class="mil-map-frame mil-up">
-        <div class="mil-map">
-            <iframe
-                src={pageData.map.embedUrl}
-                style="border:0;" allowfullscreen="" loading="lazy"
-                referrerpolicy="no-referrer-when-downgrade"></iframe>
-        </div>
+  <!-- map -->
+  <div class="mil-map-frame mil-up">
+    <div class="mil-map">
+      <iframe
+        src={pageData.map.embedUrl}
+        style="border:0;"
+        allowfullscreen=""
+        loading="lazy"
+        referrerpolicy="no-referrer-when-downgrade"></iframe>
     </div>
-    <!-- map end -->
+  </div>
+  <!-- map end -->
 
-    <!-- contact form -->
-    <section id="contact">
-        <div class="container mil-p-120-90">
-            <h3 class="mil-center mil-up mil-mb-120">{pageData.form.heading.text} <span class="mil-thin">{pageData.form.heading.accent}</span></h3>
-            
-            <!-- Success/Error Messages -->
-            <div id="form-messages" class="mil-form-messages" style="display: none;">
-                <div id="success-message" class="mil-alert mil-alert-success" style="display: none;">
-                    <div class="mil-alert-content">
-                        <div class="mil-alert-icon">✓</div>
-                        <div class="mil-alert-text">
-                            <strong>Message sent successfully!</strong>
-                            <p>Thank you for contacting us. We'll get back to you within 24-48 hours.</p>
-                            <div class="mil-success-actions">
-                                <p class="mil-explore-text">While you wait, explore our work:</p>
-                                <div class="mil-action-links">
-                                    <a href="/services" class="mil-action-link">Our Services</a>
-                                    <a href="/portfolio" class="mil-action-link">Portfolio</a>
-                                    <a href="/blog" class="mil-action-link">Latest Blog Posts</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+  <!-- contact form -->
+  <section id="contact">
+    <div class="container mil-p-120-90">
+      <h3 class="mil-center mil-up mil-mb-120">
+        {pageData.form.heading.text}
+        <span class="mil-thin">{pageData.form.heading.accent}</span>
+      </h3>
+
+      <!-- Success/Error Messages -->
+      <div id="form-messages" class="mil-form-messages" style="display: none;">
+        <div
+          id="success-message"
+          class="mil-alert mil-alert-success"
+          style="display: none;"
+        >
+          <div class="mil-alert-content">
+            <div class="mil-alert-icon">✓</div>
+            <div class="mil-alert-text">
+              <strong>Message sent successfully!</strong>
+              <p>
+                Thank you for contacting us. We'll get back to you within 24-48
+                hours.
+              </p>
+              <div class="mil-success-actions">
+                <p class="mil-explore-text">
+                  While you wait, explore our work:
+                </p>
+                <div class="mil-action-links">
+                  <a href="/services" class="mil-action-link">Our Services</a>
+                  <a href="/portfolio" class="mil-action-link">Portfolio</a>
+                  <a href="/blog" class="mil-action-link">Latest Blog Posts</a>
                 </div>
-                <div id="error-message" class="mil-alert mil-alert-error" style="display: none;">
-                    <div class="mil-alert-content">
-                        <div class="mil-alert-icon">⚠</div>
-                        <div class="mil-alert-text">
-                            <strong>Something went wrong!</strong>
-                            <p id="error-text">Please try again later or contact us directly.</p>
-                        </div>
-                    </div>
-                </div>
+              </div>
             </div>
-
-            <form id="contact-form" class="row align-items-center" method="POST" action="/api/contact">
-                {pageData.form.fields.map((field, index) => (
-                    <div class={`${field.type === 'textarea' ? 'col-lg-12' : 'col-lg-6'} mil-up`}>
-                        {field.type === 'textarea' ? (
-                            <textarea 
-                                name="message" 
-                                placeholder={field.placeholder} 
-                                required={field.required}
-                                rows="6"></textarea>
-                        ) : (
-                            <input 
-                                type={field.type as 'text' | 'email'} 
-                                name={index === 0 ? 'name' : 'email'}
-                                placeholder={field.placeholder} 
-                                required={field.required}>
-                        )}
-                    </div>
-                ))}
-                <div class="col-lg-8">
-                    <p class="mil-up mil-mb-30"><span class="mil-accent">*</span> {pageData.form.privacyNotice}</p>
-                </div>
-                <div class="col-lg-4">
-                    <div class="mil-adaptive-right mil-up mil-mb-30">
-                        <button type="submit" id="submit-button" class="mil-button mil-arrow-place">
-                            <span id="submit-text">{pageData.form.submitText}</span>
-                            <span id="submit-loader" class="mil-loader" style="display: none;"></span>
-                        </button>
-                    </div>
-                </div>
-            </form>
+          </div>
         </div>
-    </section>
-    <!-- contact form end -->
+        <div
+          id="error-message"
+          class="mil-alert mil-alert-error"
+          style="display: none;"
+        >
+          <div class="mil-alert-content">
+            <div class="mil-alert-icon">⚠</div>
+            <div class="mil-alert-text">
+              <strong>Something went wrong!</strong>
+              <p id="error-text">
+                Please try again later or contact us directly.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
 
-    <style>
-        .mil-form-messages {
-            margin-bottom: 40px;
+      <form
+        id="contact-form"
+        class="row align-items-center"
+        method="POST"
+        action="/api/contact"
+      >
+        {
+          pageData.form.fields.map((field, index) => (
+            <div
+              class={`${field.type === "textarea" ? "col-lg-12" : "col-lg-6"} mil-up`}
+            >
+              {field.type === "textarea" ? (
+                <textarea
+                  name="message"
+                  placeholder={field.placeholder}
+                  required={field.required}
+                  rows="6"
+                />
+              ) : (
+                <input
+                  type={field.type as "text" | "email"}
+                  name={index === 0 ? "name" : "email"}
+                  placeholder={field.placeholder}
+                  required={field.required}
+                />
+              )}
+            </div>
+          ))
         }
 
-        .mil-alert {
-            border-radius: 8px;
-            padding: 20px;
-            margin-bottom: 20px;
-            border-left: 4px solid;
-            animation: slideDown 0.3s ease-out;
+        <!-- Captcha Section -->
+        <div class="col-lg-6 mil-up">
+          <div class="mil-captcha-container">
+            <label class="mil-captcha-label">
+              Security Question: <span id="captcha-question">Loading...</span>
+              <span id="captcha-timer" class="mil-captcha-timer"></span>
+            </label>
+            <input
+              type="number"
+              name="captcha_answer"
+              placeholder="Enter the answer"
+              required
+              id="captcha-input"
+              autocomplete="off"
+            />
+            <input
+              type="hidden"
+              name="captcha_timestamp"
+              id="captcha-timestamp"
+            />
+            <input type="hidden" name="captcha_hash" id="captcha-hash" />
+            <button
+              type="button"
+              id="refresh-captcha"
+              class="mil-captcha-refresh"
+              title="Get new question"
+              aria-label="Refresh security question"
+            >
+              <svg
+                width="16"
+                height="16"
+                viewBox="0 0 24 24"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M1 4V10H7"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"></path>
+                <path
+                  d="M3.51 15a9 9 0 1 0 2.13-9.36L1 10"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"></path>
+              </svg>
+            </button>
+          </div>
+        </div>
+        <div class="col-lg-6">
+          <p class="mil-up mil-mb-30">
+            <span class="mil-accent">*</span>
+            {pageData.form.privacyNotice}
+          </p>
+        </div>
+        <div class="col-lg-6">
+          <div class="mil-adaptive-right mil-up mil-mb-30">
+            <button
+              type="submit"
+              id="submit-button"
+              class="mil-button mil-arrow-place"
+            >
+              <span id="submit-text">{pageData.form.submitText}</span>
+              <span id="submit-loader" class="mil-loader" style="display: none;"
+              ></span>
+            </button>
+          </div>
+        </div>
+      </form>
+    </div>
+  </section>
+  <!-- contact form end -->
+
+  <style>
+    .mil-form-messages {
+      margin-bottom: 40px;
+    }
+
+    .mil-alert {
+      border-radius: 8px;
+      padding: 20px;
+      margin-bottom: 20px;
+      border-left: 4px solid;
+      animation: slideDown 0.3s ease-out;
+    }
+
+    .mil-alert-success {
+      background-color: #f0fff4;
+      border-left-color: #ff9800;
+      color: #2d5016;
+    }
+
+    .mil-alert-error {
+      background-color: #fef2f2;
+      border-left-color: #dc2626;
+      color: #991b1b;
+    }
+
+    .mil-alert-content {
+      display: flex;
+      align-items: flex-start;
+      gap: 15px;
+    }
+
+    .mil-alert-icon {
+      font-size: 24px;
+      font-weight: bold;
+      margin-top: 2px;
+    }
+
+    .mil-alert-success .mil-alert-icon {
+      color: #ff9800;
+    }
+
+    .mil-alert-error .mil-alert-icon {
+      color: #dc2626;
+    }
+
+    .mil-alert-text strong {
+      display: block;
+      margin-bottom: 5px;
+      font-size: 16px;
+    }
+
+    .mil-alert-text p {
+      margin: 0;
+      font-size: 14px;
+      opacity: 0.8;
+    }
+
+    .mil-loader {
+      display: inline-block;
+      width: 16px;
+      height: 16px;
+      border: 2px solid #f3f3f3;
+      border-top: 2px solid #ff9800;
+      border-radius: 50%;
+      animation: spin 1s linear infinite;
+    }
+
+    #submit-button:disabled {
+      opacity: 0.6;
+      cursor: not-allowed;
+    }
+
+    @keyframes slideDown {
+      from {
+        opacity: 0;
+        transform: translateY(-20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes spin {
+      0% {
+        transform: rotate(0deg);
+      }
+      100% {
+        transform: rotate(360deg);
+      }
+    }
+
+    /* Textarea specific styling to match other inputs */
+    textarea {
+      resize: vertical;
+      min-height: 120px;
+      font-family: inherit;
+      line-height: 1.6;
+    }
+
+    /* Ensure placeholder is visible */
+    textarea::placeholder,
+    input::placeholder {
+      color: #999 !important;
+      opacity: 1 !important;
+      font-style: normal;
+    }
+
+    textarea:focus::placeholder,
+    input:focus::placeholder {
+      color: #bbb !important;
+    }
+
+    /* Success message actions */
+    .mil-success-actions {
+      margin-top: 15px;
+      padding-top: 15px;
+      border-top: 1px solid rgba(255, 152, 0, 0.2);
+    }
+
+    .mil-explore-text {
+      margin: 0 0 10px 0 !important;
+      font-size: 13px;
+      font-weight: 600;
+      color: #2d5016;
+    }
+
+    .mil-action-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 15px;
+    }
+
+    .mil-action-link {
+      display: inline-block;
+      padding: 8px 16px;
+      background-color: rgba(255, 152, 0, 0.1);
+      color: #ff9800;
+      text-decoration: none;
+      border-radius: 20px;
+      font-size: 13px;
+      font-weight: 500;
+      transition: all 0.3s ease;
+      border: 1px solid rgba(255, 152, 0, 0.3);
+    }
+
+    .mil-action-link:hover {
+      background-color: #ff9800;
+      color: white;
+      transform: translateY(-1px);
+      box-shadow: 0 4px 12px rgba(255, 152, 0, 0.3);
+    }
+
+    /* Form validation styles */
+    .form-field-error {
+      border-color: #dc2626 !important;
+      background-color: #fef2f2;
+    }
+
+    .form-field-error::placeholder {
+      color: #dc2626;
+    }
+
+    /* Captcha Styles */
+    .mil-captcha-container {
+      position: relative;
+      margin-bottom: 20px;
+    }
+
+    .mil-captcha-label {
+      display: block;
+      font-size: 14px;
+      font-weight: 600;
+      color: #374151;
+      margin-bottom: 10px;
+      line-height: 1.4;
+    }
+
+    #captcha-question {
+      color: #ff9800;
+      font-weight: 700;
+      font-size: 16px;
+      padding: 8px 12px;
+      background-color: rgba(255, 152, 0, 0.1);
+      border-radius: 6px;
+      display: inline-block;
+      margin-left: 8px;
+      border: 1px solid rgba(255, 152, 0, 0.3);
+    }
+
+    #captcha-input {
+      width: 100% !important;
+      padding-right: 50px !important;
+    }
+
+    .mil-captcha-refresh {
+      position: absolute;
+      right: 10px;
+      top: 50%;
+      transform: translateY(-50%);
+      background: #ff9800;
+      color: white;
+      border: none;
+      border-radius: 50%;
+      width: 32px;
+      height: 32px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      margin-top: 15px;
+    }
+
+    .mil-captcha-refresh:hover {
+      background: #f57c00;
+      transform: translateY(-50%) scale(1.1);
+    }
+
+    .mil-captcha-refresh svg {
+      width: 14px;
+      height: 14px;
+    }
+
+    .captcha-loading {
+      opacity: 0.6;
+      pointer-events: none;
+    }
+
+    .captcha-error {
+      color: #dc2626;
+      font-size: 13px;
+      margin-top: 5px;
+      display: none;
+    }
+
+    .mil-captcha-timer {
+      font-size: 12px;
+      color: #64748b;
+      font-weight: 400;
+      display: block;
+      margin-top: 4px;
+    }
+
+    .captcha-expired {
+      color: #dc2626 !important;
+    }
+
+    .captcha-warning {
+      color: #f59e0b !important;
+    }
+  </style>
+
+  <script>
+    const form = document.getElementById("contact-form") as HTMLFormElement;
+    const submitButton = document.getElementById(
+      "submit-button"
+    ) as HTMLButtonElement;
+    const submitText = document.getElementById(
+      "submit-text"
+    ) as HTMLSpanElement;
+    const submitLoader = document.getElementById(
+      "submit-loader"
+    ) as HTMLSpanElement;
+    const formMessages = document.getElementById(
+      "form-messages"
+    ) as HTMLDivElement;
+    const successMessage = document.getElementById(
+      "success-message"
+    ) as HTMLDivElement;
+    const errorMessage = document.getElementById(
+      "error-message"
+    ) as HTMLDivElement;
+    const errorText = document.getElementById(
+      "error-text"
+    ) as HTMLParagraphElement;
+
+    // Captcha elements
+    const captchaQuestion = document.getElementById(
+      "captcha-question"
+    ) as HTMLSpanElement;
+    const captchaInput = document.getElementById(
+      "captcha-input"
+    ) as HTMLInputElement;
+    const captchaTimestamp = document.getElementById(
+      "captcha-timestamp"
+    ) as HTMLInputElement;
+    const captchaHash = document.getElementById(
+      "captcha-hash"
+    ) as HTMLInputElement;
+    const refreshCaptcha = document.getElementById(
+      "refresh-captcha"
+    ) as HTMLButtonElement;
+    const captchaTimer = document.getElementById(
+      "captcha-timer"
+    ) as HTMLSpanElement;
+
+    let captchaTimerInterval: ReturnType<typeof setInterval> | null = null;
+
+    // Load captcha on page load
+    loadCaptcha();
+
+    // Refresh captcha button event
+    refreshCaptcha.addEventListener("click", loadCaptcha);
+
+    // Load captcha function
+    async function loadCaptcha() {
+      try {
+        captchaQuestion.textContent = "Loading...";
+        captchaTimer.textContent = "";
+        refreshCaptcha.classList.add("captcha-loading");
+        captchaInput.value = "";
+
+        if (captchaTimerInterval) {
+          clearInterval(captchaTimerInterval);
         }
 
-        .mil-alert-success {
-            background-color: #f0fff4;
-            border-left-color: #ff9800;
-            color: #2d5016;
+        const response = await fetch("/api/captcha");
+        const data = await response.json();
+
+        if (response.ok) {
+          captchaQuestion.textContent = data.question + " = ?";
+          captchaTimestamp.value = data.timestamp;
+          captchaHash.value = data.hash;
+
+          // Start countdown timer
+          startCaptchaTimer();
+        } else {
+          captchaQuestion.textContent = "Failed to load question";
+          showErrorMessage(
+            data.error || "Failed to load captcha. Please refresh the page."
+          );
         }
+      } catch (error) {
+        console.error("Captcha loading error:", error);
+        captchaQuestion.textContent = "Error loading question";
+        showErrorMessage("Failed to load captcha. Please refresh the page.");
+      } finally {
+        refreshCaptcha.classList.remove("captcha-loading");
+      }
+    }
 
-        .mil-alert-error {
-            background-color: #fef2f2;
-            border-left-color: #dc2626;
-            color: #991b1b;
+    // Timer function for captcha expiration
+    function startCaptchaTimer() {
+      const startTime = parseInt(captchaTimestamp.value);
+      const maxAge = 5 * 60 * 1000; // 5 minutes in milliseconds
+
+      captchaTimerInterval = setInterval(() => {
+        const now = Date.now();
+        const elapsed = now - startTime;
+        const remaining = Math.max(0, maxAge - elapsed);
+
+        if (remaining === 0) {
+          captchaTimer.textContent = "Expired - Please refresh";
+          captchaTimer.classList.add("captcha-expired");
+          if (captchaTimerInterval) {
+            clearInterval(captchaTimerInterval);
+          }
+        } else {
+          const minutes = Math.floor(remaining / 60000);
+          const seconds = Math.floor((remaining % 60000) / 1000);
+          captchaTimer.textContent = `Expires in ${minutes}:${seconds.toString().padStart(2, "0")}`;
+
+          // Warning when less than 1 minute remaining
+          if (remaining < 60000) {
+            captchaTimer.classList.add("captcha-warning");
+          } else {
+            captchaTimer.classList.remove("captcha-warning");
+          }
+          captchaTimer.classList.remove("captcha-expired");
         }
+      }, 1000);
+    }
 
-        .mil-alert-content {
-            display: flex;
-            align-items: flex-start;
-            gap: 15px;
-        }
+    form.addEventListener("submit", async (e) => {
+      e.preventDefault();
 
-        .mil-alert-icon {
-            font-size: 24px;
-            font-weight: bold;
-            margin-top: 2px;
-        }
+      // Clear previous messages
+      hideMessages();
+      clearFieldErrors();
 
-        .mil-alert-success .mil-alert-icon {
-            color: #ff9800;
-        }
+      // Show loading state
+      setLoadingState(true);
 
-        .mil-alert-error .mil-alert-icon {
-            color: #dc2626;
-        }
+      // Get form data
+      const formData = new FormData(form);
 
-        .mil-alert-text strong {
-            display: block;
-            margin-bottom: 5px;
-            font-size: 16px;
-        }
+      // Client-side validation
+      const name = formData.get("name") as string;
+      const email = formData.get("email") as string;
+      const message = formData.get("message") as string;
+      const captchaAnswer = formData.get("captcha_answer") as string;
 
-        .mil-alert-text p {
-            margin: 0;
-            font-size: 14px;
-            opacity: 0.8;
-        }
+      if (!validateForm(name, email, message, captchaAnswer)) {
+        setLoadingState(false);
+        return;
+      }
 
-        .mil-loader {
-            display: inline-block;
-            width: 16px;
-            height: 16px;
-            border: 2px solid #f3f3f3;
-            border-top: 2px solid #ff9800;
-            border-radius: 50%;
-            animation: spin 1s linear infinite;
-        }
-
-        #submit-button:disabled {
-            opacity: 0.6;
-            cursor: not-allowed;
-        }
-
-        @keyframes slideDown {
-            from {
-                opacity: 0;
-                transform: translateY(-20px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        @keyframes spin {
-            0% { transform: rotate(0deg); }
-            100% { transform: rotate(360deg); }
-        }
-
-        /* Textarea specific styling to match other inputs */
-        textarea {
-            resize: vertical;
-            min-height: 120px;
-            font-family: inherit;
-            line-height: 1.6;
-        }
-
-        /* Ensure placeholder is visible */
-        textarea::placeholder,
-        input::placeholder {
-            color: #999 !important;
-            opacity: 1 !important;
-            font-style: normal;
-        }
-
-        textarea:focus::placeholder,
-        input:focus::placeholder {
-            color: #bbb !important;
-        }
-
-        /* Success message actions */
-        .mil-success-actions {
-            margin-top: 15px;
-            padding-top: 15px;
-            border-top: 1px solid rgba(255, 152, 0, 0.2);
-        }
-
-        .mil-explore-text {
-            margin: 0 0 10px 0 !important;
-            font-size: 13px;
-            font-weight: 600;
-            color: #2d5016;
-        }
-
-        .mil-action-links {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 15px;
-        }
-
-        .mil-action-link {
-            display: inline-block;
-            padding: 8px 16px;
-            background-color: rgba(255, 152, 0, 0.1);
-            color: #ff9800;
-            text-decoration: none;
-            border-radius: 20px;
-            font-size: 13px;
-            font-weight: 500;
-            transition: all 0.3s ease;
-            border: 1px solid rgba(255, 152, 0, 0.3);
-        }
-
-        .mil-action-link:hover {
-            background-color: #ff9800;
-            color: white;
-            transform: translateY(-1px);
-            box-shadow: 0 4px 12px rgba(255, 152, 0, 0.3);
-        }
-
-        /* Form validation styles */
-        .form-field-error {
-            border-color: #dc2626 !important;
-            background-color: #fef2f2;
-        }
-
-        .form-field-error::placeholder {
-            color: #dc2626;
-        }
-    </style>
-
-    <script>
-        const form = document.getElementById('contact-form') as HTMLFormElement;
-        const submitButton = document.getElementById('submit-button') as HTMLButtonElement;
-        const submitText = document.getElementById('submit-text') as HTMLSpanElement;
-        const submitLoader = document.getElementById('submit-loader') as HTMLSpanElement;
-        const formMessages = document.getElementById('form-messages') as HTMLDivElement;
-        const successMessage = document.getElementById('success-message') as HTMLDivElement;
-        const errorMessage = document.getElementById('error-message') as HTMLDivElement;
-        const errorText = document.getElementById('error-text') as HTMLParagraphElement;
-
-        form.addEventListener('submit', async (e) => {
-            e.preventDefault();
-            
-            // Clear previous messages
-            hideMessages();
-            clearFieldErrors();
-            
-            // Show loading state
-            setLoadingState(true);
-            
-            // Get form data
-            const formData = new FormData(form);
-            
-            // Client-side validation
-            const name = formData.get('name') as string;
-            const email = formData.get('email') as string;
-            const message = formData.get('message') as string;
-            
-            if (!validateForm(name, email, message)) {
-                setLoadingState(false);
-                return;
-            }
-            
-            try {
-                const response = await fetch('/api/contact', {
-                    method: 'POST',
-                    body: formData
-                });
-                
-                const result = await response.json();
-                
-                if (response.ok && result.success) {
-                    showSuccessMessage();
-                    form.reset();
-                    
-                    // Scroll to success message
-                    formMessages.scrollIntoView({ behavior: 'smooth', block: 'center' });
-                } else {
-                    showErrorMessage(result.error || 'Failed to send message. Please try again.');
-                }
-                
-            } catch (error) {
-                console.error('Form submission error:', error);
-                showErrorMessage('Network error. Please check your connection and try again.');
-            } finally {
-                setLoadingState(false);
-            }
+      try {
+        const response = await fetch("/api/contact", {
+          method: "POST",
+          body: formData,
         });
 
-        function validateForm(name: string, email: string, message: string): boolean {
-            let isValid = true;
-            
-            // Validate name
-            if (!name || name.trim().length < 2) {
-                highlightFieldError('name');
-                isValid = false;
-            }
-            
-            // Validate email
-            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-            if (!email || !emailRegex.test(email)) {
-                highlightFieldError('email');
-                isValid = false;
-            }
-            
-            // Validate message
-            if (!message || message.trim().length < 10) {
-                highlightFieldError('message');
-                isValid = false;
-            }
-            
-            if (!isValid) {
-                showErrorMessage('Please fill in all required fields correctly.');
-            }
-            
-            return isValid;
-        }
+        const result = await response.json();
 
-        function highlightFieldError(fieldName: string): void {
-            const field = document.querySelector(`[name="${fieldName}"]`) as HTMLInputElement | HTMLTextAreaElement;
-            if (field) {
-                field.classList.add('form-field-error');
-                field.addEventListener('input', () => {
-                    field.classList.remove('form-field-error');
-                }, { once: true });
-            }
-        }
+        if (response.ok && result.success) {
+          showSuccessMessage();
+          form.reset();
+          loadCaptcha(); // Load new captcha after successful submission
 
-        function clearFieldErrors(): void {
-            const fields = form.querySelectorAll('.form-field-error');
-            fields.forEach(field => field.classList.remove('form-field-error'));
+          // Scroll to success message
+          formMessages.scrollIntoView({ behavior: "smooth", block: "center" });
+        } else {
+          showErrorMessage(
+            result.error || "Failed to send message. Please try again."
+          );
+          if (result.error && result.error.includes("captcha")) {
+            highlightFieldError("captcha_answer");
+            loadCaptcha(); // Load new captcha if captcha failed
+          }
         }
+      } catch (error) {
+        console.error("Form submission error:", error);
+        showErrorMessage(
+          "Network error. Please check your connection and try again."
+        );
+      } finally {
+        setLoadingState(false);
+      }
+    });
 
-        function setLoadingState(loading: boolean): void {
-            submitButton.disabled = loading;
-            submitText.style.display = loading ? 'none' : 'inline';
-            submitLoader.style.display = loading ? 'inline-block' : 'none';
-        }
+    function validateForm(
+      name: string,
+      email: string,
+      message: string,
+      captchaAnswer: string
+    ): boolean {
+      let isValid = true;
 
-        function showSuccessMessage(): void {
-            formMessages.style.display = 'block';
-            successMessage.style.display = 'block';
-            errorMessage.style.display = 'none';
-        }
+      // Validate name
+      if (!name || name.trim().length < 2) {
+        highlightFieldError("name");
+        isValid = false;
+      }
 
-        function showErrorMessage(message: string): void {
-            formMessages.style.display = 'block';
-            errorMessage.style.display = 'block';
-            successMessage.style.display = 'none';
-            errorText.textContent = message;
-            
-            // Scroll to error message
-            formMessages.scrollIntoView({ behavior: 'smooth', block: 'center' });
-        }
+      // Validate email
+      const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+      if (!email || !emailRegex.test(email)) {
+        highlightFieldError("email");
+        isValid = false;
+      }
 
-        function hideMessages(): void {
-            formMessages.style.display = 'none';
-            successMessage.style.display = 'none';
-            errorMessage.style.display = 'none';
-        }
-    </script>
+      // Validate message
+      if (!message || message.trim().length < 10) {
+        highlightFieldError("message");
+        isValid = false;
+      }
+
+      // Validate captcha
+      if (!captchaAnswer || isNaN(parseInt(captchaAnswer))) {
+        highlightFieldError("captcha_answer");
+        isValid = false;
+      }
+
+      if (!isValid) {
+        showErrorMessage(
+          "Please fill in all required fields correctly, including the security question."
+        );
+      }
+
+      return isValid;
+    }
+
+    function highlightFieldError(fieldName: string): void {
+      const field = document.querySelector(`[name="${fieldName}"]`) as
+        | HTMLInputElement
+        | HTMLTextAreaElement;
+      if (field) {
+        field.classList.add("form-field-error");
+        field.addEventListener(
+          "input",
+          () => {
+            field.classList.remove("form-field-error");
+          },
+          { once: true }
+        );
+      }
+    }
+
+    function clearFieldErrors(): void {
+      const fields = form.querySelectorAll(".form-field-error");
+      fields.forEach((field) => field.classList.remove("form-field-error"));
+    }
+
+    function setLoadingState(loading: boolean): void {
+      submitButton.disabled = loading;
+      submitText.style.display = loading ? "none" : "inline";
+      submitLoader.style.display = loading ? "inline-block" : "none";
+    }
+
+    function showSuccessMessage(): void {
+      formMessages.style.display = "block";
+      successMessage.style.display = "block";
+      errorMessage.style.display = "none";
+    }
+
+    function showErrorMessage(message: string): void {
+      formMessages.style.display = "block";
+      errorMessage.style.display = "block";
+      successMessage.style.display = "none";
+      errorText.textContent = message;
+
+      // Scroll to error message
+      formMessages.scrollIntoView({ behavior: "smooth", block: "center" });
+    }
+
+    function hideMessages(): void {
+      formMessages.style.display = "none";
+      successMessage.style.display = "none";
+      errorMessage.style.display = "none";
+    }
+  </script>
 </BaseLayout>
