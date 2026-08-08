@@ -1,0 +1,155 @@
+# InPlace Creates — organization repo registry
+#
+# Source of truth for every repository in the Inplacecreates GitHub org.
+# Agents consult this file to find where work belongs before attaching/cloning.
+#
+# status values:
+#   active   — in active use/development
+#   legacy   — superseded, kept for reference; don't develop here
+#   archive  — historical only
+#   unknown  — status not yet confirmed by a human; verify before big changes
+#
+# NOTE: descriptions/status below were inferred from repo names and activity
+# on 2026-08-08 — correct anything that's wrong and keep this file current.
+
+org: Inplacecreates
+
+repos:
+  - name: inplacecreates
+    url: https://github.com/Inplacecreates/inplacecreates
+    role: HQ / operations repo (this repo) + legacy agency site
+    stack: astro, netlify
+    status: active
+
+  - name: inplace-creates-website
+    url: https://github.com/Inplacecreates/inplace-creates-website
+    role: Current InPlace Creates agency website
+    stack: unknown
+    status: active
+
+  # ---- Client & project sites ----
+
+  - name: wave-childrens-foundation
+    url: https://github.com/Inplacecreates/wave-childrens-foundation
+    role: Wave Children's Foundation website
+    status: active
+
+  - name: nkishon-website
+    url: https://github.com/Inplacecreates/nkishon-website
+    role: Nkishon website
+    status: active
+
+  - name: african-ascents
+    url: https://github.com/Inplacecreates/african-ascents
+    role: African Ascents website
+    status: active
+
+  - name: pitch-playbook
+    url: https://github.com/Inplacecreates/pitch-playbook
+    role: Pitch playbook project
+    status: active
+
+  - name: kikao-pride-website
+    url: https://github.com/Inplacecreates/kikao-pride-website
+    role: Kikao Pride website (current)
+    status: active
+
+  - name: kikao-pride-website-2
+    url: https://github.com/Inplacecreates/kikao-pride-website-2
+    role: Kikao Pride website (earlier iteration)
+    status: legacy
+
+  - name: kikao-pride-website-nextjs-legacy
+    url: https://github.com/Inplacecreates/kikao-pride-website-nextjs-legacy
+    role: Kikao Pride Next.js build
+    status: legacy
+
+  - name: kikao_pride
+    url: https://github.com/Inplacecreates/kikao_pride
+    role: Kikao Pride (original)
+    status: legacy
+
+  - name: ytk-website
+    url: https://github.com/Inplacecreates/ytk-website
+    role: YTK website
+    status: active
+
+  - name: kcitihomes
+    url: https://github.com/Inplacecreates/kcitihomes
+    role: KCiti Homes website
+    status: active
+
+  - name: manu-portfolio
+    url: https://github.com/Inplacecreates/manu-portfolio
+    role: Manu portfolio site
+    status: active
+
+  - name: epc-aviation
+    url: https://github.com/Inplacecreates/epc-aviation
+    role: EPC Aviation website
+    status: active
+
+  - name: HKM-Website
+    url: https://github.com/Inplacecreates/HKM-Website
+    role: HKM website (current)
+    status: active
+
+  - name: hkm-build
+    url: https://github.com/Inplacecreates/hkm-build
+    role: HKM build/iteration
+    status: unknown
+
+  - name: HKMTEST
+    url: https://github.com/Inplacecreates/HKMTEST
+    role: HKM test repo
+    status: unknown
+
+  - name: Downtown-Website
+    url: https://github.com/Inplacecreates/Downtown-Website
+    role: Downtown website
+    status: active
+
+  - name: Tandaza-Website
+    url: https://github.com/Inplacecreates/Tandaza-Website
+    role: Tandaza website
+    status: active
+
+  - name: MRA
+    url: https://github.com/Inplacecreates/MRA
+    role: MRA project
+    status: unknown
+
+  - name: TLP_Systems
+    url: https://github.com/Inplacecreates/TLP_Systems
+    role: TLP Systems project
+    status: unknown
+
+  - name: TLP-Systems-F-Agent
+    url: https://github.com/Inplacecreates/TLP-Systems-F-Agent
+    role: TLP Systems agent experiment
+    status: unknown
+
+  - name: dayspringk
+    url: https://github.com/Inplacecreates/dayspringk
+    role: Dayspring project
+    status: unknown
+
+  - name: drawingdreams
+    url: https://github.com/Inplacecreates/drawingdreams
+    role: Drawing Dreams project
+    status: unknown
+
+  - name: my-portfolio
+    url: https://github.com/Inplacecreates/my-portfolio
+    role: Personal portfolio
+    status: legacy
+
+  - name: praco-1
+    url: https://github.com/Inplacecreates/praco-1
+    role: Praco project
+    status: legacy
+
+  - name: phase-0-html-experiencing-html-lab
+    url: https://github.com/Inplacecreates/phase-0-html-experiencing-html-lab
+    role: Learning lab (fork)
+    status: archive
